@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import cn.edu.bcu.ls.mapper.UserMapper;
 import cn.edu.bcu.ls.service.UserService;
-import cn.eud.bcu.ls.entity.User;
+import cn.edu.bcu.ls.entity.User;
 @Service
 public class UserServiceImpl implements UserService {
 

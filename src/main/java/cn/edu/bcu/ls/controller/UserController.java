@@ -3,11 +3,10 @@ package cn.edu.bcu.ls.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import cn.edu.bcu.ls.service.UserService;
-import cn.eud.bcu.ls.entity.User;
+import cn.edu.bcu.ls.entity.User;
 import io.swagger.annotations.Api;
 
 /**
