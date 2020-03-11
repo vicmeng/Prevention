@@ -82,6 +82,7 @@ public class UserController {
 	 */
 	@PutMapping(value="user")
 	public boolean updataUser(User user) {
+		System.out.println("1");
 		return userService.updataUser(user);
 	}
 	
