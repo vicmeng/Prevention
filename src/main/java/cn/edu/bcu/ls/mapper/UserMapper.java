@@ -1,20 +1,27 @@
-    
 package cn.edu.bcu.ls.mapper;
 
-import java.util.List;
+import cn.edu.bcu.ls.entity.User;import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-
-import cn.edu.bcu.ls.entity.User;
-@Mapper
 public interface UserMapper {
-	boolean insertUser(User user);
+    int deleteByPrimaryKey(String userId);
 
-	boolean deleteUser(Integer u_id);
+    int insert(User record);
 
-	List<User> queryUsers();
+    int insertSelective(User record);
 
-	User queryUserById(Integer u_id);
+    User selectByPrimaryKey(String userId);
 
-	boolean updataUser(User user);
+    int updateByPrimaryKeySelective(User record);
+
+    int updateByPrimaryKey(User record);
+
+    boolean insertUser(User user);
+
+    boolean deleteUser(Integer u_id);
+
+    List<User> queryUsers();
+
+    User queryUserById(Integer u_id);
+
+    boolean updataUser(User user);
 }
