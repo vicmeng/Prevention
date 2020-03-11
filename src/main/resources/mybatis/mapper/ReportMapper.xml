@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.bcu.ls.mapper.ReportMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.bcu.ls.entity.Report">
+    <!--@mbg.generated-->
+    <!--@Table report-->
+    <id column="report_id" jdbcType="INTEGER" property="reportId" />
+    <result column="report_student_id" jdbcType="INTEGER" property="reportStudentId" />
+    <result column="report_teacher_id" jdbcType="INTEGER" property="reportTeacherId" />
+    <result column="report_time" jdbcType="TIMESTAMP" property="reportTime" />
+    <result column="report_remark" jdbcType="VARCHAR" property="reportRemark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    report_id, report_student_id, report_teacher_id, report_time, report_remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from report
+    where report_id = #{reportId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from report
+    where report_id = #{reportId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.bcu.ls.entity.Report">
+    <!--@mbg.generated-->
+    insert into report (report_id, report_student_id, report_teacher_id, 
+      report_time, report_remark)
+    values (#{reportId,jdbcType=INTEGER}, #{reportStudentId,jdbcType=INTEGER}, #{reportTeacherId,jdbcType=INTEGER}, 
+      #{reportTime,jdbcType=TIMESTAMP}, #{reportRemark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.bcu.ls.entity.Report">
+    <!--@mbg.generated-->
+    insert into report
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportId != null">
+        report_id,
+      </if>
+      <if test="reportStudentId != null">
+        report_student_id,
+      </if>
+      <if test="reportTeacherId != null">
+        report_teacher_id,
+      </if>
+      <if test="reportTime != null">
+        report_time,
+      </if>
+      <if test="reportRemark != null">
+        report_remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportId != null">
+        #{reportId,jdbcType=INTEGER},
+      </if>
+      <if test="reportStudentId != null">
+        #{reportStudentId,jdbcType=INTEGER},
+      </if>
+      <if test="reportTeacherId != null">
+        #{reportTeacherId,jdbcType=INTEGER},
+      </if>
+      <if test="reportTime != null">
+        #{reportTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportRemark != null">
+        #{reportRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.bcu.ls.entity.Report">
+    <!--@mbg.generated-->
+    update report
+    <set>
+      <if test="reportStudentId != null">
+        report_student_id = #{reportStudentId,jdbcType=INTEGER},
+      </if>
+      <if test="reportTeacherId != null">
+        report_teacher_id = #{reportTeacherId,jdbcType=INTEGER},
+      </if>
+      <if test="reportTime != null">
+        report_time = #{reportTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportRemark != null">
+        report_remark = #{reportRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where report_id = #{reportId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.bcu.ls.entity.Report">
+    <!--@mbg.generated-->
+    update report
+    set report_student_id = #{reportStudentId,jdbcType=INTEGER},
+      report_teacher_id = #{reportTeacherId,jdbcType=INTEGER},
+      report_time = #{reportTime,jdbcType=TIMESTAMP},
+      report_remark = #{reportRemark,jdbcType=VARCHAR}
+    where report_id = #{reportId,jdbcType=INTEGER}
+  </update>
+</mapper>

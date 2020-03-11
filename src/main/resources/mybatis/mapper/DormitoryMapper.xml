@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.bcu.ls.mapper.DormitoryMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.bcu.ls.entity.Dormitory">
+    <!--@mbg.generated-->
+    <!--@Table dormitory-->
+    <id column="dormitory_id" jdbcType="INTEGER" property="dormitoryId" />
+    <result column="dormitory_build_id" jdbcType="VARCHAR" property="dormitoryBuildId" />
+    <result column="dormitory_house_id" jdbcType="VARCHAR" property="dormitoryHouseId" />
+    <result column="dormitory_manager_name" jdbcType="VARCHAR" property="dormitoryManagerName" />
+    <result column="dormitory_manager_phone" jdbcType="VARCHAR" property="dormitoryManagerPhone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    dormitory_id, dormitory_build_id, dormitory_house_id, dormitory_manager_name, dormitory_manager_phone
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from dormitory
+    where dormitory_id = #{dormitoryId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from dormitory
+    where dormitory_id = #{dormitoryId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="dormitory_id" keyProperty="dormitoryId" parameterType="cn.edu.bcu.ls.entity.Dormitory" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into dormitory (dormitory_build_id, dormitory_house_id, 
+      dormitory_manager_name, dormitory_manager_phone
+      )
+    values (#{dormitoryBuildId,jdbcType=VARCHAR}, #{dormitoryHouseId,jdbcType=VARCHAR}, 
+      #{dormitoryManagerName,jdbcType=VARCHAR}, #{dormitoryManagerPhone,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="dormitory_id" keyProperty="dormitoryId" parameterType="cn.edu.bcu.ls.entity.Dormitory" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into dormitory
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dormitoryBuildId != null">
+        dormitory_build_id,
+      </if>
+      <if test="dormitoryHouseId != null">
+        dormitory_house_id,
+      </if>
+      <if test="dormitoryManagerName != null">
+        dormitory_manager_name,
+      </if>
+      <if test="dormitoryManagerPhone != null">
+        dormitory_manager_phone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dormitoryBuildId != null">
+        #{dormitoryBuildId,jdbcType=VARCHAR},
+      </if>
+      <if test="dormitoryHouseId != null">
+        #{dormitoryHouseId,jdbcType=VARCHAR},
+      </if>
+      <if test="dormitoryManagerName != null">
+        #{dormitoryManagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="dormitoryManagerPhone != null">
+        #{dormitoryManagerPhone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.bcu.ls.entity.Dormitory">
+    <!--@mbg.generated-->
+    update dormitory
+    <set>
+      <if test="dormitoryBuildId != null">
+        dormitory_build_id = #{dormitoryBuildId,jdbcType=VARCHAR},
+      </if>
+      <if test="dormitoryHouseId != null">
+        dormitory_house_id = #{dormitoryHouseId,jdbcType=VARCHAR},
+      </if>
+      <if test="dormitoryManagerName != null">
+        dormitory_manager_name = #{dormitoryManagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="dormitoryManagerPhone != null">
+        dormitory_manager_phone = #{dormitoryManagerPhone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dormitory_id = #{dormitoryId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.bcu.ls.entity.Dormitory">
+    <!--@mbg.generated-->
+    update dormitory
+    set dormitory_build_id = #{dormitoryBuildId,jdbcType=VARCHAR},
+      dormitory_house_id = #{dormitoryHouseId,jdbcType=VARCHAR},
+      dormitory_manager_name = #{dormitoryManagerName,jdbcType=VARCHAR},
+      dormitory_manager_phone = #{dormitoryManagerPhone,jdbcType=VARCHAR}
+    where dormitory_id = #{dormitoryId,jdbcType=INTEGER}
+  </update>
+</mapper>

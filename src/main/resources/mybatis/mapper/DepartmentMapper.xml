@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.bcu.ls.mapper.DepartmentMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.bcu.ls.entity.Department">
+    <!--@mbg.generated-->
+    <!--@Table department-->
+    <id column="dep_id" jdbcType="INTEGER" property="depId" />
+    <result column="dep_name" jdbcType="VARCHAR" property="depName" />
+    <result column="dep_leader_id" jdbcType="VARCHAR" property="depLeaderId" />
+    <result column="dep_leader_name" jdbcType="VARCHAR" property="depLeaderName" />
+    <result column="dep_leader_phone" jdbcType="VARCHAR" property="depLeaderPhone" />
+    <result column="dep_leader_email" jdbcType="VARCHAR" property="depLeaderEmail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    dep_id, dep_name, dep_leader_id, dep_leader_name, dep_leader_phone, dep_leader_email
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from department
+    where dep_id = #{depId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from department
+    where dep_id = #{depId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="dep_id" keyProperty="depId" parameterType="cn.edu.bcu.ls.entity.Department" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into department (dep_name, dep_leader_id, dep_leader_name, 
+      dep_leader_phone, dep_leader_email)
+    values (#{depName,jdbcType=VARCHAR}, #{depLeaderId,jdbcType=VARCHAR}, #{depLeaderName,jdbcType=VARCHAR}, 
+      #{depLeaderPhone,jdbcType=VARCHAR}, #{depLeaderEmail,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="dep_id" keyProperty="depId" parameterType="cn.edu.bcu.ls.entity.Department" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into department
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="depName != null">
+        dep_name,
+      </if>
+      <if test="depLeaderId != null">
+        dep_leader_id,
+      </if>
+      <if test="depLeaderName != null">
+        dep_leader_name,
+      </if>
+      <if test="depLeaderPhone != null">
+        dep_leader_phone,
+      </if>
+      <if test="depLeaderEmail != null">
+        dep_leader_email,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="depName != null">
+        #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="depLeaderId != null">
+        #{depLeaderId,jdbcType=VARCHAR},
+      </if>
+      <if test="depLeaderName != null">
+        #{depLeaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="depLeaderPhone != null">
+        #{depLeaderPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="depLeaderEmail != null">
+        #{depLeaderEmail,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.bcu.ls.entity.Department">
+    <!--@mbg.generated-->
+    update department
+    <set>
+      <if test="depName != null">
+        dep_name = #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="depLeaderId != null">
+        dep_leader_id = #{depLeaderId,jdbcType=VARCHAR},
+      </if>
+      <if test="depLeaderName != null">
+        dep_leader_name = #{depLeaderName,jdbcType=VARCHAR},
+      </if>
+      <if test="depLeaderPhone != null">
+        dep_leader_phone = #{depLeaderPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="depLeaderEmail != null">
+        dep_leader_email = #{depLeaderEmail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dep_id = #{depId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.bcu.ls.entity.Department">
+    <!--@mbg.generated-->
+    update department
+    set dep_name = #{depName,jdbcType=VARCHAR},
+      dep_leader_id = #{depLeaderId,jdbcType=VARCHAR},
+      dep_leader_name = #{depLeaderName,jdbcType=VARCHAR},
+      dep_leader_phone = #{depLeaderPhone,jdbcType=VARCHAR},
+      dep_leader_email = #{depLeaderEmail,jdbcType=VARCHAR}
+    where dep_id = #{depId,jdbcType=INTEGER}
+  </update>
+</mapper>

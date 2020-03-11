@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.bcu.ls.mapper.SettingMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.bcu.ls.entity.Setting">
+    <!--@mbg.generated-->
+    <!--@Table setting-->
+    <id column="setting_id" jdbcType="INTEGER" property="settingId" />
+    <result column="setting_school_name" jdbcType="INTEGER" property="settingSchoolName" />
+    <result column="setting_pic" jdbcType="VARCHAR" property="settingPic" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    setting_id, setting_school_name, setting_pic
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from setting
+    where setting_id = #{settingId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from setting
+    where setting_id = #{settingId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.edu.bcu.ls.entity.Setting">
+    <!--@mbg.generated-->
+    insert into setting (setting_id, setting_school_name, setting_pic
+      )
+    values (#{settingId,jdbcType=INTEGER}, #{settingSchoolName,jdbcType=INTEGER}, #{settingPic,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.bcu.ls.entity.Setting">
+    <!--@mbg.generated-->
+    insert into setting
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="settingId != null">
+        setting_id,
+      </if>
+      <if test="settingSchoolName != null">
+        setting_school_name,
+      </if>
+      <if test="settingPic != null">
+        setting_pic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="settingId != null">
+        #{settingId,jdbcType=INTEGER},
+      </if>
+      <if test="settingSchoolName != null">
+        #{settingSchoolName,jdbcType=INTEGER},
+      </if>
+      <if test="settingPic != null">
+        #{settingPic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.bcu.ls.entity.Setting">
+    <!--@mbg.generated-->
+    update setting
+    <set>
+      <if test="settingSchoolName != null">
+        setting_school_name = #{settingSchoolName,jdbcType=INTEGER},
+      </if>
+      <if test="settingPic != null">
+        setting_pic = #{settingPic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where setting_id = #{settingId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.bcu.ls.entity.Setting">
+    <!--@mbg.generated-->
+    update setting
+    set setting_school_name = #{settingSchoolName,jdbcType=INTEGER},
+      setting_pic = #{settingPic,jdbcType=VARCHAR}
+    where setting_id = #{settingId,jdbcType=INTEGER}
+  </update>
+</mapper>

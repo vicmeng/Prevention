@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.bcu.ls.mapper.CardTimeMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.bcu.ls.entity.CardTime">
+    <!--@mbg.generated-->
+    <!--@Table card_time-->
+    <result column="card_time_id" jdbcType="INTEGER" property="cardTimeId" />
+    <result column="card_start_time" jdbcType="TIMESTAMP" property="cardStartTime" />
+    <result column="card_end_time" jdbcType="TIMESTAMP" property="cardEndTime" />
+    <result column="card_time_name" jdbcType="VARCHAR" property="cardTimeName" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.edu.bcu.ls.entity.CardTime">
+    <!--@mbg.generated-->
+    insert into card_time (card_time_id, card_start_time, card_end_time, 
+      card_time_name)
+    values (#{cardTimeId,jdbcType=INTEGER}, #{cardStartTime,jdbcType=TIMESTAMP}, #{cardEndTime,jdbcType=TIMESTAMP}, 
+      #{cardTimeName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.bcu.ls.entity.CardTime">
+    <!--@mbg.generated-->
+    insert into card_time
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cardTimeId != null">
+        card_time_id,
+      </if>
+      <if test="cardStartTime != null">
+        card_start_time,
+      </if>
+      <if test="cardEndTime != null">
+        card_end_time,
+      </if>
+      <if test="cardTimeName != null">
+        card_time_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cardTimeId != null">
+        #{cardTimeId,jdbcType=INTEGER},
+      </if>
+      <if test="cardStartTime != null">
+        #{cardStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cardEndTime != null">
+        #{cardEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cardTimeName != null">
+        #{cardTimeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

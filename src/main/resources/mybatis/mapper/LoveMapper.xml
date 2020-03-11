@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.bcu.ls.mapper.LoveMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.bcu.ls.entity.Love">
+    <!--@mbg.generated-->
+    <!--@Table love-->
+    <result column="love_id" jdbcType="VARCHAR" property="loveId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="article_id" jdbcType="INTEGER" property="articleId" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.edu.bcu.ls.entity.Love">
+    <!--@mbg.generated-->
+    insert into love (love_id, user_id, article_id
+      )
+    values (#{loveId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{articleId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.bcu.ls.entity.Love">
+    <!--@mbg.generated-->
+    insert into love
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loveId != null">
+        love_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="articleId != null">
+        article_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loveId != null">
+        #{loveId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="articleId != null">
+        #{articleId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.bcu.ls.mapper.NoticeMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.bcu.ls.entity.Notice">
+    <!--@mbg.generated-->
+    <!--@Table notice-->
+    <id column="notice_id" jdbcType="INTEGER" property="noticeId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="notice_part" jdbcType="VARCHAR" property="noticePart" />
+    <result column="notice_title" jdbcType="VARCHAR" property="noticeTitle" />
+    <result column="notice_text" jdbcType="LONGVARCHAR" property="noticeText" />
+    <result column="notice_pic" jdbcType="LONGVARCHAR" property="noticePic" />
+    <result column="notice_date" jdbcType="DATE" property="noticeDate" />
+    <result column="notice_state" jdbcType="INTEGER" property="noticeState" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    notice_id, user_id, notice_part, notice_title, notice_text, notice_pic, notice_date, 
+    notice_state
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from notice
+    where notice_id = #{noticeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from notice
+    where notice_id = #{noticeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="notice_id" keyProperty="noticeId" parameterType="cn.edu.bcu.ls.entity.Notice" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into notice (user_id, notice_part, notice_title, 
+      notice_text, notice_pic, notice_date, 
+      notice_state)
+    values (#{userId,jdbcType=INTEGER}, #{noticePart,jdbcType=VARCHAR}, #{noticeTitle,jdbcType=VARCHAR}, 
+      #{noticeText,jdbcType=LONGVARCHAR}, #{noticePic,jdbcType=LONGVARCHAR}, #{noticeDate,jdbcType=DATE}, 
+      #{noticeState,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="notice_id" keyProperty="noticeId" parameterType="cn.edu.bcu.ls.entity.Notice" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into notice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="noticePart != null">
+        notice_part,
+      </if>
+      <if test="noticeTitle != null">
+        notice_title,
+      </if>
+      <if test="noticeText != null">
+        notice_text,
+      </if>
+      <if test="noticePic != null">
+        notice_pic,
+      </if>
+      <if test="noticeDate != null">
+        notice_date,
+      </if>
+      <if test="noticeState != null">
+        notice_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="noticePart != null">
+        #{noticePart,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeTitle != null">
+        #{noticeTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeText != null">
+        #{noticeText,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="noticePic != null">
+        #{noticePic,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="noticeDate != null">
+        #{noticeDate,jdbcType=DATE},
+      </if>
+      <if test="noticeState != null">
+        #{noticeState,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.bcu.ls.entity.Notice">
+    <!--@mbg.generated-->
+    update notice
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="noticePart != null">
+        notice_part = #{noticePart,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeTitle != null">
+        notice_title = #{noticeTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeText != null">
+        notice_text = #{noticeText,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="noticePic != null">
+        notice_pic = #{noticePic,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="noticeDate != null">
+        notice_date = #{noticeDate,jdbcType=DATE},
+      </if>
+      <if test="noticeState != null">
+        notice_state = #{noticeState,jdbcType=INTEGER},
+      </if>
+    </set>
+    where notice_id = #{noticeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.bcu.ls.entity.Notice">
+    <!--@mbg.generated-->
+    update notice
+    set user_id = #{userId,jdbcType=INTEGER},
+      notice_part = #{noticePart,jdbcType=VARCHAR},
+      notice_title = #{noticeTitle,jdbcType=VARCHAR},
+      notice_text = #{noticeText,jdbcType=LONGVARCHAR},
+      notice_pic = #{noticePic,jdbcType=LONGVARCHAR},
+      notice_date = #{noticeDate,jdbcType=DATE},
+      notice_state = #{noticeState,jdbcType=INTEGER}
+    where notice_id = #{noticeId,jdbcType=INTEGER}
+  </update>
+</mapper>

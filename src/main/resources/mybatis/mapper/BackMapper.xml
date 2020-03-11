@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.bcu.ls.mapper.BackMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.bcu.ls.entity.Back">
+    <!--@mbg.generated-->
+    <!--@Table back-->
+    <id column="back_id" jdbcType="INTEGER" property="backId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="back_place" jdbcType="VARCHAR" property="backPlace" />
+    <result column="back_traffic" jdbcType="VARCHAR" property="backTraffic" />
+    <result column="back_traffic_no" jdbcType="VARCHAR" property="backTrafficNo" />
+    <result column="back_traffic_pic" jdbcType="LONGVARCHAR" property="backTrafficPic" />
+    <result column="back_target_time" jdbcType="DATE" property="backTargetTime" />
+    <result column="back_post_time" jdbcType="DATE" property="backPostTime" />
+    <result column="back_reason" jdbcType="LONGVARCHAR" property="backReason" />
+    <result column="back_cert" jdbcType="LONGVARCHAR" property="backCert" />
+    <result column="back_isferver" jdbcType="INTEGER" property="backIsferver" />
+    <result column="back_iscontact" jdbcType="INTEGER" property="backIscontact" />
+    <result column="back_ishospital" jdbcType="INTEGER" property="backIshospital" />
+    <result column="back_type" jdbcType="INTEGER" property="backType" />
+    <result column="back_state" jdbcType="INTEGER" property="backState" />
+    <result column="back_apply_name" jdbcType="VARCHAR" property="backApplyName" />
+    <result column="back_refuse_reason" jdbcType="VARCHAR" property="backRefuseReason" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    back_id, user_id, back_place, back_traffic, back_traffic_no, back_traffic_pic, back_target_time, 
+    back_post_time, back_reason, back_cert, back_isferver, back_iscontact, back_ishospital, 
+    back_type, back_state, back_apply_name, back_refuse_reason
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from back
+    where back_id = #{backId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from back
+    where back_id = #{backId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="back_id" keyProperty="backId" parameterType="cn.edu.bcu.ls.entity.Back" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into back (user_id, back_place, back_traffic, 
+      back_traffic_no, back_traffic_pic, back_target_time, 
+      back_post_time, back_reason, back_cert, 
+      back_isferver, back_iscontact, back_ishospital, 
+      back_type, back_state, back_apply_name, 
+      back_refuse_reason)
+    values (#{userId,jdbcType=INTEGER}, #{backPlace,jdbcType=VARCHAR}, #{backTraffic,jdbcType=VARCHAR}, 
+      #{backTrafficNo,jdbcType=VARCHAR}, #{backTrafficPic,jdbcType=LONGVARCHAR}, #{backTargetTime,jdbcType=DATE}, 
+      #{backPostTime,jdbcType=DATE}, #{backReason,jdbcType=LONGVARCHAR}, #{backCert,jdbcType=LONGVARCHAR}, 
+      #{backIsferver,jdbcType=INTEGER}, #{backIscontact,jdbcType=INTEGER}, #{backIshospital,jdbcType=INTEGER}, 
+      #{backType,jdbcType=INTEGER}, #{backState,jdbcType=INTEGER}, #{backApplyName,jdbcType=VARCHAR}, 
+      #{backRefuseReason,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="back_id" keyProperty="backId" parameterType="cn.edu.bcu.ls.entity.Back" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into back
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="backPlace != null">
+        back_place,
+      </if>
+      <if test="backTraffic != null">
+        back_traffic,
+      </if>
+      <if test="backTrafficNo != null">
+        back_traffic_no,
+      </if>
+      <if test="backTrafficPic != null">
+        back_traffic_pic,
+      </if>
+      <if test="backTargetTime != null">
+        back_target_time,
+      </if>
+      <if test="backPostTime != null">
+        back_post_time,
+      </if>
+      <if test="backReason != null">
+        back_reason,
+      </if>
+      <if test="backCert != null">
+        back_cert,
+      </if>
+      <if test="backIsferver != null">
+        back_isferver,
+      </if>
+      <if test="backIscontact != null">
+        back_iscontact,
+      </if>
+      <if test="backIshospital != null">
+        back_ishospital,
+      </if>
+      <if test="backType != null">
+        back_type,
+      </if>
+      <if test="backState != null">
+        back_state,
+      </if>
+      <if test="backApplyName != null">
+        back_apply_name,
+      </if>
+      <if test="backRefuseReason != null">
+        back_refuse_reason,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="backPlace != null">
+        #{backPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="backTraffic != null">
+        #{backTraffic,jdbcType=VARCHAR},
+      </if>
+      <if test="backTrafficNo != null">
+        #{backTrafficNo,jdbcType=VARCHAR},
+      </if>
+      <if test="backTrafficPic != null">
+        #{backTrafficPic,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="backTargetTime != null">
+        #{backTargetTime,jdbcType=DATE},
+      </if>
+      <if test="backPostTime != null">
+        #{backPostTime,jdbcType=DATE},
+      </if>
+      <if test="backReason != null">
+        #{backReason,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="backCert != null">
+        #{backCert,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="backIsferver != null">
+        #{backIsferver,jdbcType=INTEGER},
+      </if>
+      <if test="backIscontact != null">
+        #{backIscontact,jdbcType=INTEGER},
+      </if>
+      <if test="backIshospital != null">
+        #{backIshospital,jdbcType=INTEGER},
+      </if>
+      <if test="backType != null">
+        #{backType,jdbcType=INTEGER},
+      </if>
+      <if test="backState != null">
+        #{backState,jdbcType=INTEGER},
+      </if>
+      <if test="backApplyName != null">
+        #{backApplyName,jdbcType=VARCHAR},
+      </if>
+      <if test="backRefuseReason != null">
+        #{backRefuseReason,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.bcu.ls.entity.Back">
+    <!--@mbg.generated-->
+    update back
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="backPlace != null">
+        back_place = #{backPlace,jdbcType=VARCHAR},
+      </if>
+      <if test="backTraffic != null">
+        back_traffic = #{backTraffic,jdbcType=VARCHAR},
+      </if>
+      <if test="backTrafficNo != null">
+        back_traffic_no = #{backTrafficNo,jdbcType=VARCHAR},
+      </if>
+      <if test="backTrafficPic != null">
+        back_traffic_pic = #{backTrafficPic,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="backTargetTime != null">
+        back_target_time = #{backTargetTime,jdbcType=DATE},
+      </if>
+      <if test="backPostTime != null">
+        back_post_time = #{backPostTime,jdbcType=DATE},
+      </if>
+      <if test="backReason != null">
+        back_reason = #{backReason,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="backCert != null">
+        back_cert = #{backCert,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="backIsferver != null">
+        back_isferver = #{backIsferver,jdbcType=INTEGER},
+      </if>
+      <if test="backIscontact != null">
+        back_iscontact = #{backIscontact,jdbcType=INTEGER},
+      </if>
+      <if test="backIshospital != null">
+        back_ishospital = #{backIshospital,jdbcType=INTEGER},
+      </if>
+      <if test="backType != null">
+        back_type = #{backType,jdbcType=INTEGER},
+      </if>
+      <if test="backState != null">
+        back_state = #{backState,jdbcType=INTEGER},
+      </if>
+      <if test="backApplyName != null">
+        back_apply_name = #{backApplyName,jdbcType=VARCHAR},
+      </if>
+      <if test="backRefuseReason != null">
+        back_refuse_reason = #{backRefuseReason,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where back_id = #{backId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.bcu.ls.entity.Back">
+    <!--@mbg.generated-->
+    update back
+    set user_id = #{userId,jdbcType=INTEGER},
+      back_place = #{backPlace,jdbcType=VARCHAR},
+      back_traffic = #{backTraffic,jdbcType=VARCHAR},
+      back_traffic_no = #{backTrafficNo,jdbcType=VARCHAR},
+      back_traffic_pic = #{backTrafficPic,jdbcType=LONGVARCHAR},
+      back_target_time = #{backTargetTime,jdbcType=DATE},
+      back_post_time = #{backPostTime,jdbcType=DATE},
+      back_reason = #{backReason,jdbcType=LONGVARCHAR},
+      back_cert = #{backCert,jdbcType=LONGVARCHAR},
+      back_isferver = #{backIsferver,jdbcType=INTEGER},
+      back_iscontact = #{backIscontact,jdbcType=INTEGER},
+      back_ishospital = #{backIshospital,jdbcType=INTEGER},
+      back_type = #{backType,jdbcType=INTEGER},
+      back_state = #{backState,jdbcType=INTEGER},
+      back_apply_name = #{backApplyName,jdbcType=VARCHAR},
+      back_refuse_reason = #{backRefuseReason,jdbcType=VARCHAR}
+    where back_id = #{backId,jdbcType=INTEGER}
+  </update>
+</mapper>
