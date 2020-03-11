@@ -22,13 +22,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="queryUsers" resultType="cn.eud.bcu.ls.entity.User">
 		select * from user
 	</select>
-	
-	<select id="queryUserById" parameterType="int" resultType="cn.eud.bcu.ls.entity.User">
+
+	<select id="queryUserById" parameterType="int"
+		resultType="cn.eud.bcu.ls.entity.User">
 		select * from user where user_id=#{u_id}
 	</select>
-	
-	<update id="updataUser" parameterType="cn.eud.bcu.ls.entity.User">
-		update user set user_name=#{user_name},user_pwd=#{user_pwd},user_school=#{user_school},user_integral=#{user_integral},user_phonenumber=#{user_phonenumber},user_type=#{user_type},user_schoolnumber=#{user_schoolnumber} where user_id=#{user_id}
+
+	<update id="updataUser"
+		parameterType="cn.eud.bcu.ls.entity.User">
+		update user set
+		user_name=#{user_name},user_pwd=#{user_pwd},user_school=#{user_school},user_integral=#{user_integral},user_phonenumber=#{user_phonenumber},user_type=#{user_type},user_schoolnumber=#{user_schoolnumber}
+		where user_id=#{user_id}
 	</update>
-	
+
 </mapper>

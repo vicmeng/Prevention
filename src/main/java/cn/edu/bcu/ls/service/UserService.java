@@ -2,7 +2,7 @@ package cn.edu.bcu.ls.service;
 
 import java.util.List;
 
-import cn.eud.bcu.ls.entity.User;
+import cn.edu.bcu.ls.entity.User;
 
 public interface UserService {
 	
