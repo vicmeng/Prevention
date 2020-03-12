@@ -17,9 +17,9 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 
 	@Override
-	public boolean insertUser(User user) {
+	public int insertUser(User user) {
 		// TODO Auto-generated method stub
-		return userMapper.insertUser(user);
+		return userMapper.insertSelective(user);
 	}
 
 	@Override
@@ -35,15 +35,15 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User queryUserById(Integer u_id) {
+	public User queryUserById(String u_id) {
 		// TODO Auto-generated method stub
-		return userMapper.queryUserById(u_id);
+		return userMapper.selectByPrimaryKey(u_id);
 	}
 
 	@Override
-	public boolean updataUser(User user) {
+	public int updataUser(User user) {
 		// TODO Auto-generated method stub
-		return userMapper.updataUser(user);
+		return userMapper.updateByPrimaryKeySelective(user);
 	}
 
 }

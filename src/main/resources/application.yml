@@ -5,5 +5,5 @@ spring:
   datasource:
     username: root
     password: root
-    url: jdbc:mysql://47.95.141.31/prevention
+    url: jdbc:mysql://47.95.141.31/prevention?characterEncoding=utf-8
 

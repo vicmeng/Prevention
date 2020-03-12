@@ -40,7 +40,7 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping(value = "user")
-	public boolean insertUser(User user) {
+	public int insertUser(User user) {
 
 		return userService.insertUser(user);
 
@@ -62,6 +62,7 @@ public class UserController {
 	 */
 	@GetMapping(value="user")
 	public List<User> queryUsers(){
+		
 		return userService.queryUsers();
 	}
 	/**
@@ -70,7 +71,7 @@ public class UserController {
 	 * @return
 	 */
 	@GetMapping(value="user/{u_id}")
-	public User queryUserById(@PathVariable("u_id") Integer u_id) {
+	public User queryUserById(@PathVariable("u_id") String u_id) {
 		
 		return userService.queryUserById(u_id);
 		
@@ -81,8 +82,8 @@ public class UserController {
 	 * @return
 	 */
 	@PutMapping(value="user")
-	public boolean updataUser(User user) {
-		System.out.println("1");
+	public int updataUser(User user) {
+		
 		return userService.updataUser(user);
 	}
 	

@@ -6,13 +6,15 @@ import cn.edu.bcu.ls.entity.User;
 
 public interface UserService {
 	
-	boolean insertUser(User user);
+	int insertUser(User user);
 
 	boolean deleteUser(Integer u_id);
 
 	List<User> queryUsers();
 
-	User queryUserById(Integer u_id);
+	
 
-	boolean updataUser(User user);
+	int updataUser(User user);
+
+	User queryUserById(String u_id);
 }
