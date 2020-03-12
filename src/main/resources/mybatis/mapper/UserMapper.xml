@@ -238,7 +238,7 @@ FROM
 		select * from user where user_id=#{u_id}
 	</select>
 	
-	<select id="CheckUserById" parameterType="cn.edu.bcu.ls.entity.User" resultType="int" >
+	<select id="CheckUserById" parameterType="cn.edu.bcu.ls.entity.Number" resultMap="BaseResultMap" >
 		select user_type,user_name from user 
 		<where>
 			<if test="user_id !=null and  user_pwd !=null and user_openid == null">
