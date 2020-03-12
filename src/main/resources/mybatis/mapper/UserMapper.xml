@@ -192,7 +192,20 @@
 	<select id="queryUserById" parameterType="int" resultType="cn.edu.bcu.ls.entity.User">
 		select * from user where user_id=#{u_id}
 	</select>
-
+	
+	<select id="CheckUserById" parameterType="String" resultType="int" >
+		select user_type from user 
+		<where>
+			<if test="user_id !=null and  user_pwd !=null and user_openid == null">
+				user_id=#{user_id} and user_pwd=#{user_pwd}
+			</if>
+			<if test="user_id ==null and user_pwd ==null and user_openid != null">
+				user_openid=#{user_openid}
+			</if>
+		</where>
+		
+	</select>
+	
 	<update id="updataUser" parameterType="cn.edu.bcu.ls.entity.User">
 		update user set
 		user_name=#{user_name},user_pwd=#{user_pwd},user_school=#{user_school},user_integral=#{user_integral},user_phonenumber=#{user_phonenumber},user_type=#{user_type},user_schoolnumber=#{user_schoolnumber}

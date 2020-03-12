@@ -2,6 +2,7 @@ package cn.edu.bcu.ls.service;
 
 import java.util.List;
 
+import cn.edu.bcu.ls.entity.Number;
 import cn.edu.bcu.ls.entity.User;
 
 public interface UserService {
@@ -12,7 +13,7 @@ public interface UserService {
 
 	List<User> queryUsers();
 
-	
+	int CheckUserById(Number number);
 
 	int updataUser(User user);
 

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import cn.edu.bcu.ls.mapper.UserMapper;
 import cn.edu.bcu.ls.service.UserService;
+import cn.edu.bcu.ls.entity.Number;
 import cn.edu.bcu.ls.entity.User;
 
 @Service
@@ -44,6 +45,12 @@ public class UserServiceImpl implements UserService {
 	public int updataUser(User user) {
 		// TODO Auto-generated method stub
 		return userMapper.updateByPrimaryKeySelective(user);
+	}
+
+	@Override
+	public int CheckUserById(Number number) {
+		// TODO Auto-generated method stub
+		return userMapper.CheckUserById(number);
 	}
 
 }
