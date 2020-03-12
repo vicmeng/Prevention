@@ -13,6 +13,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Prevention</name>
 	<description>Demo project for Spring Boot</description>
+	<packaging>war</packaging>
+	
 	<properties>
 		<java.version>1.8</java.version>
 		<!-- 如果pom文件有 bug就加上下面这句话,然后更新项目右键项目 maven update -->

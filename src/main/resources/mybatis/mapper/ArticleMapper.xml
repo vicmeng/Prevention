@@ -28,6 +28,25 @@
     from article
     where article_id = #{articleId,jdbcType=INTEGER}
   </select>
+  <select id="selectByNumber"  parameterType="cn.edu.bcu.ls.entity.ArticleNumber" resultMap="BaseResultMap">
+  	select
+  	 <include refid="Base_Column_List" />
+  	 from article
+  	<where>
+  		<if test="article_id!=null">
+  			article_id=#{article_id}
+  		</if>
+  		<if test="article_scope!=null">
+  			and article_scope=#{article_scope}
+  		</if>
+  		<if test="article_type!=null">
+  			and article_type=#{article_type}
+  		</if>
+  		<if test="article_state!=null">
+  			and article_state=#{article_state}
+  		</if>
+  	</where>
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->
     delete from article

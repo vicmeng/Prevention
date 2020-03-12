@@ -3,6 +3,9 @@ package cn.edu.bcu.ls.entity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -61,6 +64,7 @@ public class Article {
     /**
     * 文章发布日期
     */
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy年MM月dd日HH点mm分ss秒")
     @ApiModelProperty(value="文章发布日期")
     private Date articleDate;
 
