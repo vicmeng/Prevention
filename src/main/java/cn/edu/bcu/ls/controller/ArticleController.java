@@ -1,6 +1,8 @@
 package cn.edu.bcu.ls.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -47,11 +49,12 @@ public class ArticleController {
 	 * @return
 	 */
 	@ApiOperation(value = "图片和 文章分别传送，图片必填，文章填写所需部分")
-	@PostMapping(value = "Article")
-	public int insertArticle(Article article, @RequestParam("file") MultipartFile file[],
+	@PostMapping(value = "Article", headers = "content-type=multipart/form-data")
+	public int insertArticle(Article article, @RequestParam(value="file") MultipartFile[] files,
 			RedirectAttributes redirectAttributes, HttpServletRequest request) {
-		String str = null;
-		for (MultipartFile multipartFile : file) {
+		System.out.println(files);
+		String str = "";
+		for (MultipartFile multipartFile : files) {
 
 			str = LoadUtil.upload(multipartFile, request) + ";" + str;
 		}
@@ -71,9 +74,20 @@ public class ArticleController {
 	}
 	@ApiOperation(value = "查看文章，传入需要的参数即可")
 	@GetMapping(value = "Article")
-	public List<Article> queryArticles(ArticleNumber articleNumber) {
-		
-		return articleService.selectByNumber(articleNumber);
+	public Map<String, Object> queryArticles(ArticleNumber articleNumber) {
+		Map<String, Object> map=new HashMap<>();
+		List<Article> articles= articleService.selectByNumber(articleNumber);
+		for (Article article : articles) {
+			
+			if(article.getArticlePic()!=null) {
+				String[] img=article.getArticlePic().split(";");
+				map.put(article.getArticleId().toString(), img);
+			}
+
+		}
+	
+		map.put("articles", articles);
+		return map;
 
 	}
 }
