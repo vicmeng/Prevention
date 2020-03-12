@@ -1,9 +1,15 @@
 package cn.edu.bcu.ls.entity;
 
+import org.hibernate.validator.internal.IgnoreForbiddenApisErrors;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import cn.edu.bcu.ls.config.IgnoreSwaggerParameter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import springfox.documentation.annotations.ApiIgnore;
 
 @ApiModel(value = "cn-edu-bcu-ls-entity-User")
 @Data
@@ -26,21 +32,21 @@ public class User {
 	 */
 	@ApiModelProperty(value = "所属学部id")
 	private Integer depId;
-	
+	@IgnoreSwaggerParameter
 	private Department department;
 	/**
 	 * 班级id
 	 */
 	@ApiModelProperty(value = "班级id")
 	private Integer classId;
-	
+	@IgnoreSwaggerParameter
 	private Clazz clazz;
 	/**
 	 * 宿舍id
 	 */
 	@ApiModelProperty(value = "宿舍id")
 	private Integer dormitoryId;
-	
+	@IgnoreSwaggerParameter
 	private Dormitory dormitory;
 	
 	

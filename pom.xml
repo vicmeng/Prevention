@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.2.5.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>cn.edu.bcu.ls</groupId>
 	<artifactId>Prevention</artifactId>
@@ -14,7 +15,7 @@
 	<name>Prevention</name>
 	<description>Demo project for Spring Boot</description>
 	<packaging>war</packaging>
-	
+
 	<properties>
 		<java.version>1.8</java.version>
 		<!-- 如果pom文件有 bug就加上下面这句话,然后更新项目右键项目 maven update -->
@@ -22,7 +23,7 @@
 	</properties>
 
 	<dependencies>
-	
+
 		<!-- 小辣椒 -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -30,29 +31,36 @@
 			<optional>true</optional>
 			<version>1.16.10</version>
 		</dependency>
-		
-		<dependency><!--添加Swagger依赖 -->
+
+		<!-- 集成swagger2 -->
+		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
-			<version>2.7.0</version>
+			<version>2.9.2</version>
 		</dependency>
-		<dependency><!--添加Swagger-UI依赖 -->
+		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.7.0</version>
+			<version>2.9.2</version>
 		</dependency>
-		
+		<!--google很好用的一个类库 -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>27.0.1-jre</version>
+		</dependency>
+
 		<dependency>
 			<groupId>commons-httpclient</groupId>
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.1</version>
 		</dependency>
 		<dependency>
-		<groupId>mysql</groupId>
-		<artifactId>mysql-connector-java</artifactId>
-		<scope>runtime</scope>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
 		</dependency>
-				
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>

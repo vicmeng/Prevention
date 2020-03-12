@@ -22,10 +22,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 	@Bean
 	public Docket createRestApi() {
-		return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select()
+		return new Docket(DocumentationType.SWAGGER_2)
+				.apiInfo(apiInfo())
+				.select()
 				// 为当前包路径
-				.apis(RequestHandlerSelectors.basePackage("cn.edu.bcu.ls.controller")).paths(PathSelectors.any())
+				.apis(RequestHandlerSelectors.basePackage("cn.edu.bcu.ls.controller"))
+				.paths(PathSelectors.any())
 				.build();
+				
+				 
 //        return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class)).build();
 	}
 

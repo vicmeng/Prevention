@@ -45,21 +45,7 @@
   
   <sql id="select">
   	SELECT
-	user_id,
-	user_openid,
-	`user`.dep_id,
-	dep_name,
-	`user`.class_id,
-	clazz_name,
-	`user`.dormitory_id,
-	dormitory_build_id,
-	dormitory_house_id,
-	user_name,
-	user_pwd,
-	user_integral,
-	user_phone,
-	user_type,
-	user_state 
+	*
 FROM
 	`user`
 	LEFT JOIN department ON `user`.dep_id = department.dep_id

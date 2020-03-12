@@ -7,6 +7,7 @@
     <id column="article_id" jdbcType="INTEGER" property="articleId" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="user_admin_id" jdbcType="VARCHAR" property="userAdminId" />
+    
     <result column="article_scope" jdbcType="VARCHAR" property="articleScope" />
     <result column="article_title" jdbcType="VARCHAR" property="articleTitle" />
     <result column="article_text" jdbcType="LONGVARCHAR" property="articleText" />
@@ -15,23 +16,43 @@
     <result column="article_date" jdbcType="DATE" property="articleDate" />
     <result column="article_type" jdbcType="INTEGER" property="articleType" />
     <result column="article_state" jdbcType="INTEGER" property="articleState" />
+    <association property="user" javaType="cn.edu.bcu.ls.entity.User">
+    	<id column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_openid" jdbcType="VARCHAR" property="userOpenid" />
+    <result column="dep_id" jdbcType="INTEGER" property="depId" />
+     
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+     
+    <result column="dormitory_id" jdbcType="INTEGER" property="dormitoryId" />
+    
+    	
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
+    <result column="user_integral" jdbcType="INTEGER" property="userIntegral" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="user_type" jdbcType="INTEGER" property="userType" />
+    <result column="user_state" jdbcType="INTEGER" property="userState" />
+    </association>
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    article_id, user_id, user_admin_id, article_scope, article_title, article_text, article_pic, 
-    article_like, article_date, article_type, article_state
+    SELECT
+	*
+FROM
+	article
+	LEFT JOIN `user` ON `user`.user_id = article.user_admin_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
+     
     <include refid="Base_Column_List" />
-    from article
+    
     where article_id = #{articleId,jdbcType=INTEGER}
   </select>
   <select id="selectByNumber"  parameterType="cn.edu.bcu.ls.entity.ArticleNumber" resultMap="BaseResultMap">
-  	select
+  	
   	 <include refid="Base_Column_List" />
-  	 from article
+  	 
   	<where>
   		<if test="article_id!=null">
   			article_id=#{article_id}

@@ -1,11 +1,13 @@
 package cn.edu.bcu.ls.entity;
 
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import cn.edu.bcu.ls.config.IgnoreSwaggerParameter;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -30,6 +32,9 @@ public class Article {
     */
     @ApiModelProperty(value="发布者id")
     private String userAdminId;
+    
+    @IgnoreSwaggerParameter
+    private User user;
 
     /**
     * 文章可见范围（全部或学部编号）
