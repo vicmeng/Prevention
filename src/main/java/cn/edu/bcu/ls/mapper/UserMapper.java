@@ -27,5 +27,5 @@ public interface UserMapper {
 
 	boolean updataUser(User user);
 
-	int CheckUserById(Number number);
+	User CheckUserById(Number number);
 }

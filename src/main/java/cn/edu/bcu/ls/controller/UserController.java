@@ -106,7 +106,7 @@ public class UserController {
 
 	@ApiOperation(value = "账户登入，管理端登入输入账号密码即可，微信小程序输入openid即可")
 	@GetMapping(value = "login")
-	public int loginUser(Number number) {
+	public User loginUser(Number number) {
 		return userService.CheckUserById(number);
 	}
 	

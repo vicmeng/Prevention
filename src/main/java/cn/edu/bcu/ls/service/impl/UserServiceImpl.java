@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public int CheckUserById(Number number) {
+	public User CheckUserById(Number number) {
 		// TODO Auto-generated method stub
 		return userMapper.CheckUserById(number);
 	}

@@ -7,25 +7,70 @@
     <id column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="user_openid" jdbcType="VARCHAR" property="userOpenid" />
     <result column="dep_id" jdbcType="INTEGER" property="depId" />
+     
     <result column="class_id" jdbcType="INTEGER" property="classId" />
+     
     <result column="dormitory_id" jdbcType="INTEGER" property="dormitoryId" />
+    
+    	
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
     <result column="user_integral" jdbcType="INTEGER" property="userIntegral" />
     <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
     <result column="user_type" jdbcType="INTEGER" property="userType" />
     <result column="user_state" jdbcType="INTEGER" property="userState" />
+    <association property="department" javaType="cn.edu.bcu.ls.entity.Department">
+    	<id  column="dep_id" property="depId"/>
+    	<result column="dep_name" property="depName"/>
+    </association>
+    <association property="clazz" javaType="cn.edu.bcu.ls.entity.Clazz">
+    	<id column="clazz_id" jdbcType="INTEGER" property="clazzId" />
+    	<result column="dep_id" jdbcType="INTEGER" property="depId" />
+    	<result column="clazz_teacher_id" jdbcType="INTEGER" property="clazzTeacherId" />
+    	<result column="clazz_name" jdbcType="VARCHAR" property="clazzName" />
+    </association>
+    <association property="dormitory" javaType="cn.edu.bcu.ls.entity.Dormitory">
+    		<id column="dormitory_id" jdbcType="INTEGER" property="dormitoryId" />
+    		<result column="dormitory_build_id" jdbcType="VARCHAR" property="dormitoryBuildId" />
+    		<result column="dormitory_house_id" jdbcType="VARCHAR" property="dormitoryHouseId" />
+    		<result column="dormitory_manager_name" jdbcType="VARCHAR" property="dormitoryManagerName" />
+    		<result column="dormitory_manager_phone" jdbcType="VARCHAR" property="dormitoryManagerPhone" />
+    	</association> 
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     user_id, user_openid, dep_id, class_id, dormitory_id, user_name, user_pwd, user_integral, 
     user_phone, user_type, user_state
   </sql>
+  
+  <sql id="select">
+  	SELECT
+	user_id,
+	user_openid,
+	`user`.dep_id,
+	dep_name,
+	`user`.class_id,
+	clazz_name,
+	`user`.dormitory_id,
+	dormitory_build_id,
+	dormitory_house_id,
+	user_name,
+	user_pwd,
+	user_integral,
+	user_phone,
+	user_type,
+	user_state 
+FROM
+	`user`
+	LEFT JOIN department ON `user`.dep_id = department.dep_id
+	LEFT JOIN clazz ON `user`.class_id=clazz.clazz_id
+	LEFT JOIN dormitory ON `user`.dormitory_id=dormitory.dormitory_id
+  </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from user
+   
+    <include refid="select" />
+   
     where user_id = #{userId,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
@@ -186,15 +231,15 @@
 	</delete>
 
 	<select id="queryUsers" resultMap="BaseResultMap">
-		select  <include refid="Base_Column_List" /> from user
+		<include refid="select" />
 	</select>
 
 	<select id="queryUserById" parameterType="int" resultType="cn.edu.bcu.ls.entity.User">
 		select * from user where user_id=#{u_id}
 	</select>
 	
-	<select id="CheckUserById" parameterType="String" resultType="int" >
-		select user_type from user 
+	<select id="CheckUserById" parameterType="cn.edu.bcu.ls.entity.User" resultType="int" >
+		select user_type,user_name from user 
 		<where>
 			<if test="user_id !=null and  user_pwd !=null and user_openid == null">
 				user_id=#{user_id} and user_pwd=#{user_pwd}
