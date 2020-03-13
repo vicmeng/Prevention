@@ -225,7 +225,7 @@ FROM
 	</select>
 	
 	<select id="CheckUserById" parameterType="cn.edu.bcu.ls.entity.Number" resultMap="BaseResultMap" >
-		select user_type,user_name from user 
+		<include refid="select" /> 
 		<where>
 			<if test="user_id !=null and  user_pwd !=null and user_openid == null">
 				user_id=#{user_id} and user_pwd=#{user_pwd}

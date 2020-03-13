@@ -106,15 +106,16 @@ public class UserController {
 
 	@ApiOperation(value = "账户登入，管理端登入输入账号密码即可，微信小程序输入openid即可")
 	@GetMapping(value = "login")
+	@ResponseBody
 	public User loginUser(Number number) {
-		User user=userService.CheckUserById(number);
-		System.out.println(user);
-		return user;
+		
+		
+		return userService.CheckUserById(number);
 	}
 	
 	
 	@ApiOperation(value="输入小程序端自动生成的code 返回对应的openid")
-	@GetMapping(value="openid")
+	@GetMapping(value="openid" )
 	public String getOpenId(String code) throws IOException {
 		return OpenId.userLogin(code);
 	}
