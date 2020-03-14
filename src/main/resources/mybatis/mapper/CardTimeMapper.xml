@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="cn.edu.bcu.ls.entity.CardTime">
     <!--@mbg.generated-->
     <!--@Table card_time-->
-    <result column="card_time_id" jdbcType="INTEGER" property="cardTimeId" />
+    <id column="card_time_id" jdbcType="INTEGER" property="cardTimeId" />
     <result column="card_start_time" jdbcType="TIMESTAMP" property="cardStartTime" />
     <result column="card_end_time" jdbcType="TIMESTAMP" property="cardEndTime" />
     <result column="card_time_name" jdbcType="VARCHAR" property="cardTimeName" />

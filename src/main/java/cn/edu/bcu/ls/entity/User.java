@@ -1,5 +1,7 @@
 package cn.edu.bcu.ls.entity;
 
+import java.util.List;
+
 import org.hibernate.validator.internal.IgnoreForbiddenApisErrors;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -86,8 +88,8 @@ public class User {
 	@ApiModelProperty(value = "用户状态 0：正常 1：隔离 2：上报")
 	private Integer userState;
 
-	
-
+	@IgnoreSwaggerParameter
+	private List<Love> loves;
 	
 	
 	

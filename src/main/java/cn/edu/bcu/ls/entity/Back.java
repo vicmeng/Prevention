@@ -3,6 +3,11 @@ package cn.edu.bcu.ls.entity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import cn.edu.bcu.ls.config.IgnoreSwaggerParameter;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,7 +25,7 @@ public class Back {
     * 用户id
     */
     @ApiModelProperty(value="用户id")
-    private Integer userId;
+    private String userId;
 
     /**
     * 返回地(省市区)
@@ -45,6 +50,10 @@ public class Back {
     */
     @ApiModelProperty(value="车票信息(图片 自驾不用上传此项)")
     private String backTrafficPic;
+    
+    
+    @ApiModelProperty(hidden = true)
+    private List<String> TrafficPics;
 
     /**
     * 返校目标时间
@@ -69,7 +78,8 @@ public class Back {
     */
     @ApiModelProperty(value="返校证明(图片)")
     private String backCert;
-
+    @ApiModelProperty(hidden = true)
+    private List<String> Certs111;
     /**
     * 是否发热 0：不发热 1：发热
     */
@@ -111,4 +121,7 @@ public class Back {
     */
     @ApiModelProperty(value="审批不通过原因")
     private String backRefuseReason;
+    
+    @IgnoreSwaggerParameter
+    private User user;
 }

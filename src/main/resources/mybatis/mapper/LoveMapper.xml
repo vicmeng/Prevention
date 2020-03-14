@@ -4,7 +4,8 @@
   <resultMap id="BaseResultMap" type="cn.edu.bcu.ls.entity.Love">
     <!--@mbg.generated-->
     <!--@Table love-->
-    <result column="love_id" jdbcType="VARCHAR" property="loveId" />
+    
+    <id column="love_id" jdbcType="INTEGER" property="loveId" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="article_id" jdbcType="INTEGER" property="articleId" />
   </resultMap>

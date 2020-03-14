@@ -18,7 +18,7 @@ public class LoadUtil {
 
 	// 项目根路径下的目录 -- SpringBoot static 目录相当于是根路径下（SpringBoot 默认）
 	public final static String UPLOAD_PATH_PREFIX = "static/uploadFile/";
-
+	public final static String REAL = "src/main/resources/";
 	public static String upload(MultipartFile uploadFile, HttpServletRequest request) {
 		if (uploadFile.isEmpty()) {
 			// 返回选择文件提示
@@ -26,11 +26,11 @@ public class LoadUtil {
 		}
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd/");
 		// 构建文件上传所要保存的"文件夹路径"--这里是相对路径，保存到项目根路径的文件夹下
-		String realPath = new String("src/main/resources/" + UPLOAD_PATH_PREFIX);
+		String realPath = new String("/imgs" );
 		logger.info("-----------上传文件保存的路径【" + realPath + "】-----------");
-		String format = sdf.format(new Date());
+		//String format = sdf.format(new Date());
 		// 存放上传文件的文件夹
-		File file = new File(realPath + format);
+		File file = new File(realPath );
 		logger.info("-----------存放上传文件的文件夹【" + file + "】-----------");
 		logger.info("-----------输出文件夹绝对路径 -- 这里的绝对路径是相当于当前项目的路径而不是“容器”路径【" + file.getAbsolutePath() + "】-----------");
 		if (!file.isDirectory()) {
@@ -48,7 +48,7 @@ public class LoadUtil {
 			// 转存文件到指定路径，如果文件名重复的话，将会覆盖掉之前的文件,这里是把文件上传到 “绝对路径”
 			uploadFile.transferTo(newFile);
 			String filePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-					+ "/uploadFile/" + format + newName;
+					+ "/uploadFile/"  + newName;
 			logger.info("-----------【" + filePath + "】-----------");
 			return filePath;
 		} catch (Exception e) {

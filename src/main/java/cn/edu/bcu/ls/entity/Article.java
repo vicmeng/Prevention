@@ -39,7 +39,7 @@ public class Article {
     /**
     * 文章可见范围（全部或学部编号）
     */
-    @ApiModelProperty(value="文章可见范围（全部或学部编号）")
+    @ApiModelProperty(value="文章可见范围（全部或学部编号）,全体是0")
     private String articleScope;
 
     /**
@@ -69,7 +69,7 @@ public class Article {
     /**
     * 文章发布日期
     */
-    @JsonFormat(timezone = "GMT+8", pattern = "yyyy年MM月dd日HH点mm分ss秒")
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy年MM月dd日")
     @ApiModelProperty(value="文章发布日期")
     private Date articleDate;
 

@@ -1,7 +1,12 @@
 package cn.edu.bcu.ls.mapper;
 
-import cn.edu.bcu.ls.entity.Clock;
+import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
+import cn.edu.bcu.ls.entity.Clock;
+import cn.edu.bcu.ls.entity.ClockNumber;
+@Mapper
 public interface ClockMapper {
     int deleteByPrimaryKey(Integer clockId);
 
@@ -9,7 +14,7 @@ public interface ClockMapper {
 
     int insertSelective(Clock record);
 
-    Clock selectByPrimaryKey(Integer clockId);
+    List<Clock> selectByPrimaryKey(ClockNumber clockNumber);
 
     int updateByPrimaryKeySelective(Clock record);
 

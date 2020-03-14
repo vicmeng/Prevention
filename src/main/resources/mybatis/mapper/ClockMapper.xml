@@ -11,17 +11,59 @@
     <result column="clock_remark" jdbcType="VARCHAR" property="clockRemark" />
     <result column="clock_time" jdbcType="DATE" property="clockTime" />
     <result column="clock_state" jdbcType="INTEGER" property="clockState" />
+    <association property="user" javaType="cn.edu.bcu.ls.entity.User">
+    	<id column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_openid" jdbcType="VARCHAR" property="userOpenid" />
+    <result column="dep_id" jdbcType="INTEGER" property="depId" />
+     
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+     
+    <result column="dormitory_id" jdbcType="INTEGER" property="dormitoryId" />
+    
+    	
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
+    <result column="user_integral" jdbcType="INTEGER" property="userIntegral" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="user_type" jdbcType="INTEGER" property="userType" />
+    <result column="user_state" jdbcType="INTEGER" property="userState" />
+    </association>
+    <association property="cardTime" javaType="cn.edu.bcu.ls.entity.CardTime">
+    	<id column="card_time_id" jdbcType="INTEGER" property="cardTimeId" />
+    <result column="card_start_time" jdbcType="TIMESTAMP" property="cardStartTime" />
+    <result column="card_end_time" jdbcType="TIMESTAMP" property="cardEndTime" />
+    <result column="card_time_name" jdbcType="VARCHAR" property="cardTimeName" />
+    </association>
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     clock_id, user_id, card_time_id, clock_temp, clock_remark, clock_time, clock_state
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from clock
-    where clock_id = #{clockId,jdbcType=INTEGER}
+  
+  <sql id="select">
+  	SELECT
+	*
+FROM
+	clock
+	LEFT JOIN `user` on clock.user_id=`user`.user_id
+	LEFT JOIN card_time on clock.card_time_id=card_time.card_time_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.edu.bcu.ls.entity.ClockNumber" resultMap="BaseResultMap">
+    
+    
+    <include refid="select" />
+    <where>
+    	<if test="clock_id !=null">
+    		clock.clock_id=#{clock_id}
+    	</if>
+    	<if test="user_id !=null">
+    		clock.user_id=#{user_id}
+    	</if>
+    	<if test="clock_state !=null">
+    		clock.clock_state=#{clock_state}
+    	</if>
+    </where>
+    
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->

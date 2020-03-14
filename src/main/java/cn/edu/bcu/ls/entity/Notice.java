@@ -3,6 +3,10 @@ package cn.edu.bcu.ls.entity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import cn.edu.bcu.ls.config.IgnoreSwaggerParameter;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,7 +25,9 @@ public class Notice {
      */
     @ApiModelProperty(value = "userid 学管负责人")
     private Integer userId;
-
+    
+    @IgnoreSwaggerParameter
+    private User user;
     /**
      * 公告发布部门
      */
@@ -49,6 +55,7 @@ public class Notice {
     /**
      * 公告上传日期
      */
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy年MM月dd日")
     @ApiModelProperty(value = "公告上传日期")
     private Date noticeDate;
 
@@ -57,4 +64,6 @@ public class Notice {
      */
     @ApiModelProperty(value = "公告状态 0：未上架 1：上架")
     private Integer noticeState;
+    
+    
 }

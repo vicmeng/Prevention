@@ -13,7 +13,7 @@ public class Love {
     * 点赞id
     */
     @ApiModelProperty(value="点赞id")
-    private String loveId;
+    private Integer loveId;
 
     /**
     * 用户id

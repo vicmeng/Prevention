@@ -36,6 +36,11 @@
     		<result column="dormitory_manager_name" jdbcType="VARCHAR" property="dormitoryManagerName" />
     		<result column="dormitory_manager_phone" jdbcType="VARCHAR" property="dormitoryManagerPhone" />
     	</association> 
+    <collection property="loves" ofType="cn.edu.bcu.ls.entity.Love">
+    	<id column="love_id" jdbcType="INTEGER" property="loveId" />
+    	<result column="user_id" jdbcType="VARCHAR" property="userId" />
+    	<result column="article_id" jdbcType="INTEGER" property="articleId" />
+    </collection>
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
@@ -51,6 +56,7 @@ FROM
 	LEFT JOIN department ON `user`.dep_id = department.dep_id
 	LEFT JOIN clazz ON `user`.class_id=clazz.clazz_id
 	LEFT JOIN dormitory ON `user`.dormitory_id=dormitory.dormitory_id
+	LEFT JOIN love on `user`.user_id=love.user_id 
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -228,10 +234,10 @@ FROM
 		<include refid="select" /> 
 		<where>
 			<if test="user_id !=null and  user_pwd !=null and user_openid == null">
-				user_id=#{user_id} and user_pwd=#{user_pwd}
+				`user`.user_id=#{user_id} and `user`.user_pwd=#{user_pwd}
 			</if>
 			<if test="user_id ==null and user_pwd ==null and user_openid != null">
-				user_openid=#{user_openid}
+				`user`.user_openid=#{user_openid}
 			</if>
 		</where>
 		

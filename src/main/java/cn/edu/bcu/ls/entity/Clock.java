@@ -3,6 +3,10 @@ package cn.edu.bcu.ls.entity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import cn.edu.bcu.ls.config.IgnoreSwaggerParameter;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -43,6 +47,7 @@ public class Clock {
     /**
      * 打卡日期
      */
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy年MM月dd日")
     @ApiModelProperty(value = "打卡日期")
     private Date clockTime;
 
@@ -51,4 +56,8 @@ public class Clock {
      */
     @ApiModelProperty(value = "是否不适  0：适 1：不适")
     private Integer clockState;
+    @IgnoreSwaggerParameter
+    private User user;
+    @IgnoreSwaggerParameter
+    private CardTime cardTime;
 }

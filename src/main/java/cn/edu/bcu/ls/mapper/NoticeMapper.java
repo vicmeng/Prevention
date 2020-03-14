@@ -1,7 +1,12 @@
 package cn.edu.bcu.ls.mapper;
 
-import cn.edu.bcu.ls.entity.Notice;
+import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
+import cn.edu.bcu.ls.entity.Notice;
+import cn.edu.bcu.ls.entity.NoticeNumber;
+@Mapper
 public interface NoticeMapper {
     int deleteByPrimaryKey(Integer noticeId);
 
@@ -9,7 +14,7 @@ public interface NoticeMapper {
 
     int insertSelective(Notice record);
 
-    Notice selectByPrimaryKey(Integer noticeId);
+    List<Notice> selectByPrimaryKey(NoticeNumber noticeNumber);
 
     int updateByPrimaryKeySelective(Notice record);
 

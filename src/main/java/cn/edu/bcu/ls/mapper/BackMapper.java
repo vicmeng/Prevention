@@ -1,7 +1,12 @@
 package cn.edu.bcu.ls.mapper;
 
-import cn.edu.bcu.ls.entity.Back;
+import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
+import cn.edu.bcu.ls.entity.Back;
+import cn.edu.bcu.ls.entity.BackNumber;
+@Mapper
 public interface BackMapper {
     int deleteByPrimaryKey(Integer backId);
 
@@ -9,7 +14,7 @@ public interface BackMapper {
 
     int insertSelective(Back record);
 
-    Back selectByPrimaryKey(Integer backId);
+    List<Back> selectByPrimaryKey(BackNumber backNumber);
 
     int updateByPrimaryKeySelective(Back record);
 

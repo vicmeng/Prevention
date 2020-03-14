@@ -12,18 +12,52 @@
     <result column="notice_pic" jdbcType="LONGVARCHAR" property="noticePic" />
     <result column="notice_date" jdbcType="DATE" property="noticeDate" />
     <result column="notice_state" jdbcType="INTEGER" property="noticeState" />
+    <association property="user" javaType="cn.edu.bcu.ls.entity.User">
+    	<id column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_openid" jdbcType="VARCHAR" property="userOpenid" />
+    <result column="dep_id" jdbcType="INTEGER" property="depId" />
+     
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+     
+    <result column="dormitory_id" jdbcType="INTEGER" property="dormitoryId" />
+    
+    	
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
+    <result column="user_integral" jdbcType="INTEGER" property="userIntegral" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="user_type" jdbcType="INTEGER" property="userType" />
+    <result column="user_state" jdbcType="INTEGER" property="userState" />
+    </association>
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     notice_id, user_id, notice_part, notice_title, notice_text, notice_pic, notice_date, 
     notice_state
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <sql id="select">
+  	SELECT
+	* 
+	FROM
+	notice
+	LEFT JOIN `user`
+	ON notice.user_id=`user`.user_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="cn.edu.bcu.ls.entity.NoticeNumber" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from notice
-    where notice_id = #{noticeId,jdbcType=INTEGER}
+     
+    <include refid="select" />
+   	<where>
+   		<if test="notice_id !=null">
+   			notice.notice_id=#{notice_id}
+   		</if>
+   		<if test="notice_part !=null">
+   			and notice.notice_part=#{notice_part}
+   		</if>
+   		<if test="notice_state !=null">
+   			and notice.notice_state=#{notice_state}
+   		</if>
+   	</where>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->
