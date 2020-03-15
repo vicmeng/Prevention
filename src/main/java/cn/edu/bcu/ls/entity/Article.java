@@ -69,7 +69,7 @@ public class Article {
     /**
     * 文章发布日期
     */
-    @JsonFormat(timezone = "GMT+8", pattern = "yyyy年MM月dd日")
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
     @ApiModelProperty(value="文章发布日期")
     private Date articleDate;
 

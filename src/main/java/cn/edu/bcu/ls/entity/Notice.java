@@ -55,7 +55,7 @@ public class Notice {
     /**
      * 公告上传日期
      */
-    @JsonFormat(timezone = "GMT+8", pattern = "yyyy年MM月dd日")
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
     @ApiModelProperty(value = "公告上传日期")
     private Date noticeDate;
 

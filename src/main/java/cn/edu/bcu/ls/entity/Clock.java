@@ -47,7 +47,7 @@ public class Clock {
     /**
      * 打卡日期
      */
-    @JsonFormat(timezone = "GMT+8", pattern = "yyyy年MM月dd日")
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
     @ApiModelProperty(value = "打卡日期")
     private Date clockTime;
 

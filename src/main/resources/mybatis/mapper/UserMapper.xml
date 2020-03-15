@@ -224,10 +224,11 @@ FROM
 
 	<select id="queryUsers" resultMap="BaseResultMap">
 		<include refid="select" />
+		
 	</select>
 
 	<select id="queryUserById" parameterType="int" resultType="cn.edu.bcu.ls.entity.User">
-		select * from user where user_id=#{u_id}
+		<include refid="select" /> where user_id=#{u_id}
 	</select>
 	
 	<select id="CheckUserById" parameterType="cn.edu.bcu.ls.entity.Number" resultMap="BaseResultMap" >
