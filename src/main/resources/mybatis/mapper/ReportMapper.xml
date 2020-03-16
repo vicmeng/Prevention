@@ -5,21 +5,56 @@
     <!--@mbg.generated-->
     <!--@Table report-->
     <id column="report_id" jdbcType="INTEGER" property="reportId" />
-    <result column="report_student_id" jdbcType="INTEGER" property="reportStudentId" />
-    <result column="report_teacher_id" jdbcType="INTEGER" property="reportTeacherId" />
+    <result column="report_student_id" jdbcType="VARCHAR" property="reportStudentId" />
+    <result column="report_teacher_id" jdbcType="VARCHAR" property="reportTeacherId" />
     <result column="report_time" jdbcType="TIMESTAMP" property="reportTime" />
     <result column="report_remark" jdbcType="VARCHAR" property="reportRemark" />
+    <association property="user" javaType="cn.edu.bcu.ls.entity.User">
+    	<id column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_openid" jdbcType="VARCHAR" property="userOpenid" />
+    <result column="dep_id" jdbcType="INTEGER" property="depId" />
+     
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+     
+    <result column="dormitory_id" jdbcType="INTEGER" property="dormitoryId" />
+    
+    	
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
+    <result column="user_integral" jdbcType="INTEGER" property="userIntegral" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="user_type" jdbcType="INTEGER" property="userType" />
+    <result column="user_state" jdbcType="INTEGER" property="userState" />
+    </association>
   </resultMap>
+  
+  <sql id="select">
+  	SELECT
+	* 
+FROM
+	report
+	LEFT JOIN `user` ON report_student_id = `user`.user_id
+  </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     report_id, report_student_id, report_teacher_id, report_time, report_remark
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="cn.edu.bcu.ls.entity.ReportNumber" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from report
-    where report_id = #{reportId,jdbcType=INTEGER}
+     
+    <include refid="select" />
+    <where>
+    	<if test="report_id !=null">
+    		report_id =#{report_id}
+    	</if>
+    	<if test="report_student_id !=null">
+    		and report_student_id=#{report_student_id}
+    	</if>
+    	<if test="report_teacher_id !=null">
+    		and report_teacher_id=#{report_teacher_id}
+    	</if>
+    </where>
+  
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->

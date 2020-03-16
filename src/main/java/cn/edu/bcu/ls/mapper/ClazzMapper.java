@@ -1,7 +1,12 @@
 package cn.edu.bcu.ls.mapper;
 
-import cn.edu.bcu.ls.entity.Clazz;
+import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
+import cn.edu.bcu.ls.entity.Clazz;
+import cn.edu.bcu.ls.entity.ClazzNumber;
+@Mapper
 public interface ClazzMapper {
     int deleteByPrimaryKey(Integer clazzId);
 
@@ -9,7 +14,7 @@ public interface ClazzMapper {
 
     int insertSelective(Clazz record);
 
-    Clazz selectByPrimaryKey(Integer clazzId);
+    List<Clazz> selectByPrimaryKey(ClazzNumber clazzNumber);
 
     int updateByPrimaryKeySelective(Clazz record);
 

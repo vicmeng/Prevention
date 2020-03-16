@@ -14,12 +14,22 @@
     <!--@mbg.generated-->
     dormitory_id, dormitory_build_id, dormitory_house_id, dormitory_manager_name, dormitory_manager_phone
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="cn.edu.bcu.ls.entity.DormitoryNumber" resultMap="BaseResultMap">
     <!--@mbg.generated-->
     select 
     <include refid="Base_Column_List" />
     from dormitory
-    where dormitory_id = #{dormitoryId,jdbcType=INTEGER}
+    <where>
+    	<if test="dormitory_id !=null">
+    		dormitory_id=#{dormitory_id}
+    	</if>
+    	<if test="dormitory_build_id !=null">
+    		and dormitory_build_id=#{dormitory_build_id}
+    	</if>
+    	<if test="dormitory_house_id !=null">
+    		and dormitory_house_id=#{dormitory_house_id}
+    	</if>
+    </where>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->

@@ -1,7 +1,12 @@
 package cn.edu.bcu.ls.mapper;
 
-import cn.edu.bcu.ls.entity.Dormitory;
+import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
+import cn.edu.bcu.ls.entity.Dormitory;
+import cn.edu.bcu.ls.entity.DormitoryNumber;
+@Mapper
 public interface DormitoryMapper {
     int deleteByPrimaryKey(Integer dormitoryId);
 
@@ -9,7 +14,7 @@ public interface DormitoryMapper {
 
     int insertSelective(Dormitory record);
 
-    Dormitory selectByPrimaryKey(Integer dormitoryId);
+    List<Dormitory> selectByPrimaryKey(DormitoryNumber dormitoryNumber);
 
     int updateByPrimaryKeySelective(Dormitory record);
 

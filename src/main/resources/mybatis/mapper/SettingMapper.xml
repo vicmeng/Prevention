@@ -5,7 +5,7 @@
     <!--@mbg.generated-->
     <!--@Table setting-->
     <id column="setting_id" jdbcType="INTEGER" property="settingId" />
-    <result column="setting_school_name" jdbcType="INTEGER" property="settingSchoolName" />
+    <result column="setting_school_name" jdbcType="VARCHAR" property="settingSchoolName" />
     <result column="setting_pic" jdbcType="VARCHAR" property="settingPic" />
   </resultMap>
   <sql id="Base_Column_List">

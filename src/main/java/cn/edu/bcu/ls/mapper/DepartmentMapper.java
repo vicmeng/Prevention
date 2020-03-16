@@ -1,7 +1,12 @@
 package cn.edu.bcu.ls.mapper;
 
-import cn.edu.bcu.ls.entity.Department;
+import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
+import cn.edu.bcu.ls.entity.Department;
+import cn.edu.bcu.ls.entity.DepartmentNumber;
+@Mapper
 public interface DepartmentMapper {
     int deleteByPrimaryKey(Integer depId);
 
@@ -9,7 +14,7 @@ public interface DepartmentMapper {
 
     int insertSelective(Department record);
 
-    Department selectByPrimaryKey(Integer depId);
+    List<Department> selectByPrimaryKey(DepartmentNumber departmentNumber);
 
     int updateByPrimaryKeySelective(Department record);
 

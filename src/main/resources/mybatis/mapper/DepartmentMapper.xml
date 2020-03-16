@@ -10,17 +10,49 @@
     <result column="dep_leader_name" jdbcType="VARCHAR" property="depLeaderName" />
     <result column="dep_leader_phone" jdbcType="VARCHAR" property="depLeaderPhone" />
     <result column="dep_leader_email" jdbcType="VARCHAR" property="depLeaderEmail" />
+    <association property="user" javaType="cn.edu.bcu.ls.entity.User">
+    	<id column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_openid" jdbcType="VARCHAR" property="userOpenid" />
+    <result column="dep_id" jdbcType="INTEGER" property="depId" />
+     
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+     
+    <result column="dormitory_id" jdbcType="INTEGER" property="dormitoryId" />
+    
+    	
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
+    <result column="user_integral" jdbcType="INTEGER" property="userIntegral" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="user_type" jdbcType="INTEGER" property="userType" />
+    <result column="user_state" jdbcType="INTEGER" property="userState" />
+    </association>
   </resultMap>
+  
+  <sql id="select">
+  	SELECT
+	* 
+FROM
+	department
+	
+	LEFT JOIN `user` ON department.dep_leader_id = `user`.user_id
+  </sql>
+  
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     dep_id, dep_name, dep_leader_id, dep_leader_name, dep_leader_phone, dep_leader_email
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from department
-    where dep_id = #{depId,jdbcType=INTEGER}
+  <select id="selectByPrimaryKey" parameterType="cn.edu.bcu.ls.entity.DepartmentNumber" resultMap="BaseResultMap">
+    <!--@mbg.generated-->	
+    <include refid="select" />
+   	<where>
+   		<if test="dep_id !=null">
+   			department.dep_id =#{dep_id}
+   		</if>
+   		<if test="dep_leader_id !=null">
+   			and department.dep_leader_id=#{dep_leader_id}
+   		</if>
+   	</where>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->

@@ -6,6 +6,7 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import cn.edu.bcu.ls.config.IgnoreSwaggerParameter;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,13 +24,13 @@ public class Report {
     * 未到人用户编号
     */
     @ApiModelProperty(value="未到人用户编号")
-    private Integer reportStudentId;
+    private String reportStudentId;
 
     /**
     * 报告发起人
     */
     @ApiModelProperty(value="报告发起人")
-    private Integer reportTeacherId;
+    private String reportTeacherId;
 
     /**
     * 报告时间
@@ -43,4 +44,7 @@ public class Report {
     */
     @ApiModelProperty(value="报告备注")
     private String reportRemark;
+    
+    @IgnoreSwaggerParameter
+    private User user;
 }

@@ -16,6 +16,24 @@
     values (#{loveId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{articleId,jdbcType=INTEGER}
       )
   </insert>
+  <select id="queryLove"  parameterType="cn.edu.bcu.ls.entity.Love" resultMap="BaseResultMap">
+  	select * from love
+  	<where>
+  		<if test="loveId !=null">
+  			love_id=#{loveId}
+  		</if>
+  		<if test="userId !=null">
+  			and user_id=#{userId}
+  		</if>
+  		<if test="articleId !=null">
+  			and article_id=#{articleId}
+  		</if>
+  	</where>
+  </select>
+  <delete id="deleteLove" parameterType="java.lang.Integer">
+  	 delete from love
+    where clazz_id = #{love_id}
+  </delete>
   <insert id="insertSelective" parameterType="cn.edu.bcu.ls.entity.Love">
     <!--@mbg.generated-->
     insert into love

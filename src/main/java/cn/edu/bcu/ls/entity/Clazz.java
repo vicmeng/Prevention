@@ -1,5 +1,6 @@
 package cn.edu.bcu.ls.entity;
 
+import cn.edu.bcu.ls.config.IgnoreSwaggerParameter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -25,11 +26,16 @@ public class Clazz {
      * 班级辅导员用户编号
      */
     @ApiModelProperty(value = "班级辅导员用户编号")
-    private Integer clazzTeacherId;
+    private String clazzTeacherId;
 
     /**
      * 班级名称
      */
     @ApiModelProperty(value = "班级名称")
     private String clazzName;
+    
+    @IgnoreSwaggerParameter
+    private Department department;
+    @IgnoreSwaggerParameter
+    private User user;
 }

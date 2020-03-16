@@ -6,19 +6,62 @@
     <!--@Table clazz-->
     <id column="clazz_id" jdbcType="INTEGER" property="clazzId" />
     <result column="dep_id" jdbcType="INTEGER" property="depId" />
-    <result column="clazz_teacher_id" jdbcType="INTEGER" property="clazzTeacherId" />
+    <result column="clazz_teacher_id" jdbcType="VARCHAR" property="clazzTeacherId" />
     <result column="clazz_name" jdbcType="VARCHAR" property="clazzName" />
+    <association property="user" javaType="cn.edu.bcu.ls.entity.User">
+    	<id column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_openid" jdbcType="VARCHAR" property="userOpenid" />
+    <result column="dep_id" jdbcType="INTEGER" property="depId" />
+     
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+     
+    <result column="dormitory_id" jdbcType="INTEGER" property="dormitoryId" />
+    
+    	
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
+    <result column="user_integral" jdbcType="INTEGER" property="userIntegral" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="user_type" jdbcType="INTEGER" property="userType" />
+    <result column="user_state" jdbcType="INTEGER" property="userState" />
+    </association>
+    <association property="department" javaType="cn.edu.bcu.ls.entity.Department">
+    	<id column="dep_id" jdbcType="INTEGER" property="depId" />
+    <result column="dep_name" jdbcType="VARCHAR" property="depName" />
+    <result column="dep_leader_id" jdbcType="VARCHAR" property="depLeaderId" />
+    <result column="dep_leader_name" jdbcType="VARCHAR" property="depLeaderName" />
+    <result column="dep_leader_phone" jdbcType="VARCHAR" property="depLeaderPhone" />
+    <result column="dep_leader_email" jdbcType="VARCHAR" property="depLeaderEmail" />
+    </association>
   </resultMap>
+  <sql id="select">
+  	SELECT
+	* 
+FROM
+	clazz
+	LEFT JOIN department ON clazz.dep_id = department.dep_id
+	LEFT JOIN `user` ON clazz.clazz_teacher_id = `user`.user_id
+  </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     clazz_id, dep_id, clazz_teacher_id, clazz_name
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="cn.edu.bcu.ls.entity.ClazzNumber" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from clazz
-    where clazz_id = #{clazzId,jdbcType=INTEGER}
+    
+    <include refid="select" />
+    <where>
+    	<if test="clazz_id !=null">
+    		clazz.clazz_id=#{clazz_id}
+    	</if>
+    	<if test="dep_id != null">
+    		and clazz.dep_id=#{dep_id}
+    	</if>
+    	<if test="clazz_teacher_id !=null">
+    		and clazz.clazz_teacher_id=#{clazz_teacher_id}
+    	</if>
+    </where>
+    
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->

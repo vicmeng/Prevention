@@ -86,7 +86,18 @@ public class ArticleController {
 
 	@ApiOperation(value = "按照id更改文章")
 	@PutMapping(value = "Article")
-	public int updateArticle(Article article) {
+	public int updateArticle(Article article, @RequestParam(value = "file",required=false) MultipartFile[] files,
+			RedirectAttributes redirectAttributes, HttpServletRequest request) {
+		String str="";
+		if (files !=null) {
+			for (MultipartFile multipartFile : files) {
+
+				str = LoadUtil.upload(multipartFile, request) + ";" + str;
+			}
+			article.setArticlePic(str);
+		}
+		
+		
 		return articleService.updateByPrimaryKey(article);
 	}
 

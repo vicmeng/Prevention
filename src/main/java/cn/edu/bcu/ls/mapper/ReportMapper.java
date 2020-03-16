@@ -1,6 +1,9 @@
 package cn.edu.bcu.ls.mapper;
 
+import java.util.List;
+
 import cn.edu.bcu.ls.entity.Report;
+import cn.edu.bcu.ls.entity.ReportNumber;
 
 public interface ReportMapper {
     int deleteByPrimaryKey(Integer reportId);
@@ -9,7 +12,7 @@ public interface ReportMapper {
 
     int insertSelective(Report record);
 
-    Report selectByPrimaryKey(Integer reportId);
+    List<Report> selectByPrimaryKey(ReportNumber reportNumber);
 
     int updateByPrimaryKeySelective(Report record);
 
