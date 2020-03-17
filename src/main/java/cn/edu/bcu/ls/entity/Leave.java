@@ -6,6 +6,7 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import cn.edu.bcu.ls.config.IgnoreSwaggerParameter;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,7 +24,7 @@ public class Leave {
      * 用户id
      */
     @ApiModelProperty(value = "用户id")
-    private Integer userId;
+    private String userId;
 
     /**
      * 请假说明
@@ -68,4 +69,7 @@ public class Leave {
      */
     @ApiModelProperty(value = "请假状态 0：未审核 1：驳回 2：通过")
     private Integer leaveState;
+    
+    @IgnoreSwaggerParameter
+    private User user;
 }

@@ -50,7 +50,7 @@ public class SettingController {
 		String str = "";
 		for (MultipartFile multipartFile : files) {
 
-			str = LoadUtil.upload(multipartFile, request) + ";" + str;
+			str = str + ";" + LoadUtil.upload(multipartFile, request);
 		}
 		setting.setSettingPic(str);
 		return settingService.insertSelective(setting);
@@ -70,7 +70,7 @@ public class SettingController {
 		if (files !=null) {
 			for (MultipartFile multipartFile : files) {
 
-				str = LoadUtil.upload(multipartFile, request) + ";" + str;
+				str = str + ";" + LoadUtil.upload(multipartFile, request);
 			}
 			setting.setSettingPic(str);
 		}

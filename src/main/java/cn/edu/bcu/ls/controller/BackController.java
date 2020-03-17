@@ -53,12 +53,12 @@ public class BackController {
 		String str = "";
 		for (MultipartFile multipartFile : traffic_pics) {
 
-			str = LoadUtil.upload(multipartFile, request) + ";" + str;
+			str = str + ";" + LoadUtil.upload(multipartFile, request);
 		}
 		back.setBackTrafficPic(str);
 		for (MultipartFile multipartFile : cert_pics) {
 
-			str = LoadUtil.upload(multipartFile, request) + ";" + str;
+			str = str + ";" + LoadUtil.upload(multipartFile, request);
 		}
 
 		back.setBackCert(str);

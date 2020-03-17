@@ -17,4 +17,6 @@ public class ArticleNumber {
 	private Integer article_type;
 	@ApiModelProperty(value="文章状态")
 	private Integer article_state;
+	@ApiModelProperty(value="发布人id")
+	private String user_admin_id;
 }

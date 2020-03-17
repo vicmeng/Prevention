@@ -2,6 +2,8 @@ package cn.edu.bcu.ls.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiParam;
+
 import java.util.Date;
 import java.util.List;
 
@@ -52,7 +54,7 @@ public class Back {
     private String backTrafficPic;
     
     
-    @ApiModelProperty(hidden = true)
+    @ApiParam(hidden = true)
     private List<String> TrafficPics;
 
     /**
@@ -78,7 +80,7 @@ public class Back {
     */
     @ApiModelProperty(value="返校证明(图片)")
     private String backCert;
-    @ApiModelProperty(hidden = true)
+    @ApiParam(hidden = true)
     private List<String> Certs111;
     /**
     * 是否发热 0：不发热 1：发热

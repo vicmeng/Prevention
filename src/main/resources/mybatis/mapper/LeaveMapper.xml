@@ -5,7 +5,7 @@
     <!--@mbg.generated-->
     <!--@Table leave-->
     <id column="leave_id" jdbcType="INTEGER" property="leaveId" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="leave_text" jdbcType="VARCHAR" property="leaveText" />
     <result column="leave_pic" jdbcType="LONGVARCHAR" property="leavePic" />
     <result column="leave_type" jdbcType="INTEGER" property="leaveType" />
@@ -13,27 +13,68 @@
     <result column="leave_end_date" jdbcType="DATE" property="leaveEndDate" />
     <result column="leave_post_date" jdbcType="TIMESTAMP" property="leavePostDate" />
     <result column="leave_state" jdbcType="INTEGER" property="leaveState" />
+    <association property="user" javaType="cn.edu.bcu.ls.entity.User">
+    	<id column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_openid" jdbcType="VARCHAR" property="userOpenid" />
+    <result column="dep_id" jdbcType="INTEGER" property="depId" />
+     
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+     
+    <result column="dormitory_id" jdbcType="INTEGER" property="dormitoryId" />
+    
+    	
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
+    <result column="user_integral" jdbcType="INTEGER" property="userIntegral" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="user_type" jdbcType="INTEGER" property="userType" />
+    <result column="user_state" jdbcType="INTEGER" property="userState" />
+    </association>
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     leave_id, user_id, leave_text, leave_pic, leave_type, leave_start_date, leave_end_date, 
     leave_post_date, leave_state
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  
+  <sql id="select">
+  
+  	SELECT
+	*
+FROM
+	`leave`
+	LEFT JOIN `user` on `leave`.user_id=`user`.user_id
+	
+  </sql>
+  
+  <select id="selectByPrimaryKey" parameterType="cn.edu.bcu.ls.entity.LeaveNumber" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select 
-    <include refid="Base_Column_List" />
-    from leave
-    where leave_id = #{leaveId,jdbcType=INTEGER}
+   
+    <include refid="select" />
+   
+    <where>
+    	<if test="leave_id !=null">
+    		leave_id=#{leave_id}
+    	</if>
+    	<if test="user_id !=null">
+    		and leave.user_id =#{user_id}
+    	</if>
+    	<if test="leave_type !=null">
+    		and leave_type=#{leave_type}
+    	</if>
+    	<if test="leave_state !=null">
+    		and leave_state=#{leave_state}
+    	</if>
+    </where>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->
-    delete from leave
+    delete from `leave`
     where leave_id = #{leaveId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" keyColumn="leave_id" keyProperty="leaveId" parameterType="cn.edu.bcu.ls.entity.Leave" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into leave (user_id, leave_text, leave_pic, 
+    insert into `leave` (user_id, leave_text, leave_pic, 
       leave_type, leave_start_date, leave_end_date, 
       leave_post_date, leave_state)
     values (#{userId,jdbcType=INTEGER}, #{leaveText,jdbcType=VARCHAR}, #{leavePic,jdbcType=LONGVARCHAR}, 
@@ -42,7 +83,7 @@
   </insert>
   <insert id="insertSelective" keyColumn="leave_id" keyProperty="leaveId" parameterType="cn.edu.bcu.ls.entity.Leave" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into leave
+    insert into `leave`
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userId != null">
         user_id,
@@ -98,7 +139,7 @@
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="cn.edu.bcu.ls.entity.Leave">
     <!--@mbg.generated-->
-    update leave
+    update `leave`
     <set>
       <if test="userId != null">
         user_id = #{userId,jdbcType=INTEGER},
@@ -129,7 +170,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.edu.bcu.ls.entity.Leave">
     <!--@mbg.generated-->
-    update leave
+    update `leave`
     set user_id = #{userId,jdbcType=INTEGER},
       leave_text = #{leaveText,jdbcType=VARCHAR},
       leave_pic = #{leavePic,jdbcType=LONGVARCHAR},

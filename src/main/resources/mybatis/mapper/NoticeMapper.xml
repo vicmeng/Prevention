@@ -57,6 +57,9 @@
    		<if test="notice_state !=null">
    			and notice.notice_state=#{notice_state}
    		</if>
+   		<if test="user_admin_id !=null">
+   			and user_admin_id=#{user_admin_id}
+   		</if>
    	</where>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">

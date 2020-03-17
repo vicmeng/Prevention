@@ -38,7 +38,6 @@ import io.swagger.annotations.ApiOperation;
 //设置跨域
 @CrossOrigin(origins = { "http://localhost:8080", "null" })
 
-
 //swagger配置
 @Api(description = "Article接口")
 @RestController
@@ -46,8 +45,6 @@ public class ArticleController {
 	@Autowired
 	private ArticleService articleService;
 
-
-	
 	/**
 	 * 
 	 * @param article
@@ -64,16 +61,16 @@ public class ArticleController {
 		String str = "";
 		for (MultipartFile multipartFile : files) {
 
-			str = LoadUtil.upload(multipartFile, request) + ";" + str;
+			str = str + ";" + LoadUtil.upload(multipartFile, request);
 		}
 		System.out.println(str);
 		article.setArticlePic(str);
 		TimeZone time = TimeZone.getTimeZone("ETC/GMT-8");
-		 
+
 		TimeZone.setDefault(time);
 
 		Date date = new Date();
-		
+
 		article.setArticleDate(date);
 		return articleService.insertSelective(article);
 	}
@@ -86,19 +83,18 @@ public class ArticleController {
 
 	@ApiOperation(value = "按照id更改文章")
 	@PutMapping(value = "Article")
-	public int updateArticle(Article article, @RequestParam(value = "file",required=false) MultipartFile[] files,
+	public int updateArticle(Article article, @RequestParam(value = "file", required = false) MultipartFile[] files,
 			RedirectAttributes redirectAttributes, HttpServletRequest request) {
-		String str="";
-		if (files !=null) {
+		String str = "";
+		if (files != null) {
 			for (MultipartFile multipartFile : files) {
 
-				str = LoadUtil.upload(multipartFile, request) + ";" + str;
+				str = str + ";" + LoadUtil.upload(multipartFile, request);
 			}
 			article.setArticlePic(str);
 		}
-		
-		
-		return articleService.updateByPrimaryKey(article);
+
+		return articleService.updateByPrimaryKeySelective(article);
 	}
 
 	@ApiOperation(value = "查看文章，传入需要的参数即可")

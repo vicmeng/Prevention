@@ -1,6 +1,9 @@
 package cn.edu.bcu.ls.mapper;
 
+import java.util.List;
+
 import cn.edu.bcu.ls.entity.Leave;
+import cn.edu.bcu.ls.entity.LeaveNumber;
 
 public interface LeaveMapper {
     int deleteByPrimaryKey(Integer leaveId);
@@ -9,7 +12,7 @@ public interface LeaveMapper {
 
     int insertSelective(Leave record);
 
-    Leave selectByPrimaryKey(Integer leaveId);
+    List<Leave> selectByPrimaryKey(LeaveNumber leaveNumber);
 
     int updateByPrimaryKeySelective(Leave record);
 
