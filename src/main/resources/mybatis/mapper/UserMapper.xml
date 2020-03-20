@@ -63,7 +63,7 @@ FROM
    
     <include refid="select" />
    
-    where user_id = #{userId,jdbcType=VARCHAR}
+    where `user`.user_id = #{userId,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     <!--@mbg.generated-->
@@ -219,7 +219,7 @@ FROM
 
 	<delete id="deleteUser" parameterType="int">
 		delete from user where
-		user_id =#{u_id}
+		`user`.user_id =#{u_id}
 	</delete>
 
 	<select id="queryUsers" resultMap="BaseResultMap">
@@ -228,7 +228,7 @@ FROM
 	</select>
 
 	<select id="queryUserById" parameterType="int" resultType="cn.edu.bcu.ls.entity.User">
-		<include refid="select" /> where user_id=#{u_id}
+		<include refid="select" /> where `user`.user_id=#{u_id}
 	</select>
 	
 	<select id="CheckUserById" parameterType="cn.edu.bcu.ls.entity.Number" resultMap="BaseResultMap" >

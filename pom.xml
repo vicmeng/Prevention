@@ -64,6 +64,8 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			
+			<!-- 去除springboot自带的logback -->
 			 <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
