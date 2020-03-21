@@ -3,6 +3,7 @@ package cn.edu.bcu.ls.entity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -64,6 +65,7 @@ public class Notice {
      */
     @ApiModelProperty(value = "公告状态 0：未上架 1：上架")
     private Integer noticeState;
-    
+//    @IgnoreSwaggerParameter
+//    private List<Love> loves;
     
 }

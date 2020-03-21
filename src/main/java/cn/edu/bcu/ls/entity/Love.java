@@ -1,5 +1,7 @@
 package cn.edu.bcu.ls.entity;
 
+import java.util.List;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -26,4 +28,7 @@ public class Love {
     */
     @ApiModelProperty(value="文章id")
     private Integer articleId;
+    
+    
+    
 }

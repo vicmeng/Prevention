@@ -16,6 +16,7 @@
     <result column="article_date" jdbcType="DATE" property="articleDate" />
     <result column="article_type" jdbcType="INTEGER" property="articleType" />
     <result column="article_state" jdbcType="INTEGER" property="articleState" />
+    
     <association property="user" javaType="cn.edu.bcu.ls.entity.User">
     	<id column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="user_openid" jdbcType="VARCHAR" property="userOpenid" />
@@ -33,21 +34,29 @@
     <result column="user_type" jdbcType="INTEGER" property="userType" />
     <result column="user_state" jdbcType="INTEGER" property="userState" />
     </association>
+    
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     SELECT
-	*
+			article.article_id, user_admin_id, article_scope, 
+      article_title, article_text, article_pic, 
+       COUNT(love.love_id) as article_like, article_date, article_type, 
+      article_state,user.*
+     
 FROM
 	article
 	LEFT JOIN `user` ON `user`.user_id = article.user_admin_id
+	LEFT JOIN love on article.article_id=love.article_id
+	
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
      
     <include refid="Base_Column_List" />
     
-    where article_id = #{articleId,jdbcType=INTEGER}
+    where article.article_id = #{articleId,jdbcType=INTEGER}
+    GROUP BY article.article_id
   </select>
   <select id="selectByNumber"  parameterType="cn.edu.bcu.ls.entity.ArticleNumber" resultMap="BaseResultMap">
   	
@@ -55,7 +64,7 @@ FROM
   	 
   	<where>
   		<if test="article_id!=null">
-  			article_id=#{article_id}
+  			article.article_id=#{article_id}
   		</if>
   		<if test="article_scope!=null">
   			and article_scope=#{article_scope}
@@ -67,11 +76,13 @@ FROM
   			and article_state=#{article_state}
   		</if>
   	</where>
+  	GROUP BY article.article_id
+  	
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->
     delete from article
-    where article_id = #{articleId,jdbcType=INTEGER}
+    where article.article_id = #{articleId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" keyColumn="article_id" keyProperty="articleId" parameterType="cn.edu.bcu.ls.entity.Article" useGeneratedKeys="true">
     <!--@mbg.generated-->

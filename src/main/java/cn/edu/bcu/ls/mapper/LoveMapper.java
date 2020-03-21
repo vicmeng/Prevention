@@ -7,7 +7,7 @@ import cn.edu.bcu.ls.entity.Love;
 public interface LoveMapper {
 	int insert(Love record);
 
-	int deleteLove(Integer love_id);
+	int deleteLove(Love love);
 	
 	List<Love> queryLove(Love love);
 

@@ -30,9 +30,9 @@
   		</if>
   	</where>
   </select>
-  <delete id="deleteLove" parameterType="java.lang.Integer">
+  <delete id="deleteLove" parameterType="cn.edu.bcu.ls.entity.Love">
   	 delete from love
-    where clazz_id = #{love_id}
+    where user_id = #{userId} and article_id=#{articleId}
   </delete>
   <insert id="insertSelective" parameterType="cn.edu.bcu.ls.entity.Love">
     <!--@mbg.generated-->

@@ -39,9 +39,9 @@ public class LoveController {
 		return loveService.insert(love);
 	}
 	@ApiOperation(value = "删除 id")
-	@DeleteMapping(value = "Love/{Love_id}")
-	public int deleteLove(@PathVariable("Love_id") Integer Love_id) {
-		return loveService.deleteLove(Love_id);
+	@DeleteMapping(value = "Love")
+	public int deleteLove(Love love) {
+		return loveService.deleteLove(love);
 	}
 	
 	@ApiOperation(value = "查看 传入所需条件 不传就是返回全部")

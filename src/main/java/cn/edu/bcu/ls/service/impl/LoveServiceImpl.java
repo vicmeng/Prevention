@@ -21,9 +21,9 @@ public class LoveServiceImpl implements LoveService{
 	}
 
 	@Override
-	public int deleteLove(Integer love_id) {
+	public int deleteLove(Love love) {
 		// TODO Auto-generated method stub
-		return loveMapper.deleteLove(love_id);
+		return loveMapper.deleteLove(love);
 	}
 
 	@Override

@@ -42,7 +42,7 @@ public class BackServiceImpl implements BackService {
 	@Override
 	public int updateByPrimaryKeySelective(Back record) {
 		// TODO Auto-generated method stub
-		return backMapper.updateByPrimaryKey(record);
+		return backMapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
