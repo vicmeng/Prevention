@@ -81,7 +81,7 @@ FROM
       #{userPwd,jdbcType=VARCHAR}, #{userIntegral,jdbcType=INTEGER}, #{userPhone,jdbcType=VARCHAR}, 
       #{userType,jdbcType=INTEGER}, #{userState,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="cn.edu.bcu.ls.entity.User">
+  <insert id="insertSelective" parameterType="cn.edu.bcu.ls.entity.User" useGeneratedKeys="true" keyProperty="user_id">
     <!--@mbg.generated-->
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -217,7 +217,7 @@ FROM
 		(#{user_name},#{user_pwd},#{user_school},#{user_integral},#{user_phonenumber},#{user_type},#{user_schoolnumber},#{class_id},#{dormitory_id})
 	</insert>
 
-	<delete id="deleteUser" parameterType="int">
+	<delete id="deleteUser" parameterType="String">
 		delete from user where
 		`user`.user_id =#{u_id}
 	</delete>

@@ -45,10 +45,10 @@ public class UserController {
 	 */
 	@ApiOperation(value = "添加用户只需要填写需要的信息即可")
 	@PostMapping(value = "user")
-	public int insertUser(User user) {
+	public User insertUser(User user) {
 
-		return userService.insertUser(user);
-
+		 userService.insertUser(user);
+		 return user;
 	}
 
 	/**
@@ -59,7 +59,7 @@ public class UserController {
 	 */
 	@ApiOperation(value = "传入user_id删除该user")
 	@DeleteMapping(value = "user/{u_id}")
-	public boolean deleteUser(@PathVariable("u_id") Integer u_id) {
+	public boolean deleteUser(@PathVariable("u_id") String u_id) {
 
 		return userService.deleteUser(u_id);
 

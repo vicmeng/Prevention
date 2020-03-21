@@ -75,6 +75,9 @@ FROM
   		<if test="article_state!=null">
   			and article_state=#{article_state}
   		</if>
+  		<if test="user_admin_id!=null">
+  			and user_admin_id=#{user_admin_id}
+  		</if>
   	</where>
   	GROUP BY article.article_id
   	

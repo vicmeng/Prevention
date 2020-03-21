@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean deleteUser(Integer u_id) {
+	public boolean deleteUser(String u_id) {
 		// TODO Auto-generated method stub
 		return userMapper.deleteUser(u_id);
 	}

@@ -19,7 +19,7 @@ public interface UserMapper {
 
 	boolean insertUser(User user);
 
-	boolean deleteUser(Integer u_id);
+	boolean deleteUser(String u_id);
 
 	List<User> queryUsers();
 
