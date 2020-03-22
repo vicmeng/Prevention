@@ -25,7 +25,7 @@ public class Article {
     * 文章主人公
     */
     @ApiModelProperty(value="文章主人公")
-    private String userId;
+    private String articleUserId;
 
     /**
     * 发布者id
@@ -34,7 +34,7 @@ public class Article {
     private String userAdminId;
     
     @IgnoreSwaggerParameter
-    private User user;
+    private User adminUser;
 
     /**
     * 文章可见范围（全部或学部编号）

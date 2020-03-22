@@ -29,6 +29,12 @@
     <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
     <result column="user_type" jdbcType="INTEGER" property="userType" />
     <result column="user_state" jdbcType="INTEGER" property="userState" />
+    <association property="clazz" javaType="cn.edu.bcu.ls.entity.Clazz">
+    	 <id column="clazz_id" jdbcType="INTEGER" property="clazzId" />
+    <result column="dep_id" jdbcType="INTEGER" property="depId" />
+    <result column="clazz_teacher_id" jdbcType="VARCHAR" property="clazzTeacherId" />
+    <result column="clazz_name" jdbcType="VARCHAR" property="clazzName" />
+    </association>
     </association>
   </resultMap>
   <sql id="Base_Column_List">
@@ -44,6 +50,7 @@
 FROM
 	`leave`
 	LEFT JOIN `user` on `leave`.user_id=`user`.user_id
+	LEFT JOIN clazz on `user`.class_id=clazz.clazz_id
 	
   </sql>
   
@@ -64,6 +71,9 @@ FROM
     	</if>
     	<if test="leave_state !=null">
     		and leave_state=#{leave_state}
+    	</if>
+    	<if test="clazz_id !=null">
+    		and user.class_id =#{clazz_id}
     	</if>
     </where>
   </select>

@@ -15,4 +15,6 @@ public class LeaveNumber {
 	private Integer leave_type;
 	@ApiModelProperty(value = "请假状态 0：未审核 1：驳回 2：通过")
 	private Integer leave_state;
+	@ApiModelProperty(value ="班级id")
+	private Integer clazz_id;
 }

@@ -5,7 +5,7 @@
     <!--@mbg.generated-->
     <!--@Table article-->
     <id column="article_id" jdbcType="INTEGER" property="articleId" />
-    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="article_user_id" jdbcType="VARCHAR" property="articleUserId" />
     <result column="user_admin_id" jdbcType="VARCHAR" property="userAdminId" />
     
     <result column="article_scope" jdbcType="VARCHAR" property="articleScope" />
@@ -17,7 +17,7 @@
     <result column="article_type" jdbcType="INTEGER" property="articleType" />
     <result column="article_state" jdbcType="INTEGER" property="articleState" />
     
-    <association property="user" javaType="cn.edu.bcu.ls.entity.User">
+    <association property="adminUser" javaType="cn.edu.bcu.ls.entity.User">
     	<id column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="user_openid" jdbcType="VARCHAR" property="userOpenid" />
     <result column="dep_id" jdbcType="INTEGER" property="depId" />
@@ -39,7 +39,7 @@
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     SELECT
-			article.article_id, user_admin_id, article_scope, 
+			article.article_id, article.article_user_id, article.user_admin_id, 
       article_title, article_text, article_pic, 
        COUNT(love.love_id) as article_like, article_date, article_type, 
       article_state,user.*
