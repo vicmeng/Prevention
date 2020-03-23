@@ -1,6 +1,10 @@
 package cn.edu.bcu.ls.controller;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -57,5 +61,22 @@ public class DormitoryController {
 	@GetMapping(value = "Dormitory")
 	public List<Dormitory> queryDormitorys(DormitoryNumber dormitoryNumber) {
 		return dormitoryService.selectByPrimaryKey(dormitoryNumber);
+	}
+	@ApiOperation(value = "查看楼号和房间号 传入所需条件 不传就是返回全部")
+	@GetMapping(value = "DormitoryList")
+	public Map<String, Object> queryDormitorysSet(DormitoryNumber dormitoryNumber) {
+		Map<String , Object> map =new HashMap<String, Object>();
+		
+		List<Dormitory> selectByPrimaryKey = dormitoryService.selectByPrimaryKey(dormitoryNumber);
+		
+		Set<String> buildId=new HashSet<>();
+		Set<String> houseId=new HashSet<>();
+		for (Dormitory item : selectByPrimaryKey) {
+			buildId.add(item.getDormitoryBuildId());
+			houseId.add(item.getDormitoryHouseId());
+		}
+		map.put("buildId", buildId);
+		map.put("houseId", houseId);
+		return map;
 	}
 }

@@ -27,6 +27,12 @@
     <result column="user_type" jdbcType="INTEGER" property="userType" />
     <result column="user_state" jdbcType="INTEGER" property="userState" />
     </association>
+    <collection property="clazzs" ofType="cn.edu.bcu.ls.entity.Clazz">
+    	<id column="clazz_id" jdbcType="INTEGER" property="clazzId" />
+    <result column="dep_id" jdbcType="INTEGER" property="depId" />
+    <result column="clazz_teacher_id" jdbcType="VARCHAR" property="clazzTeacherId" />
+    <result column="clazz_name" jdbcType="VARCHAR" property="clazzName" />
+    </collection>
   </resultMap>
   
   <sql id="select">
@@ -36,6 +42,7 @@ FROM
 	department
 	
 	LEFT JOIN `user` ON department.dep_leader_id = `user`.user_id
+	LEFT JOIN clazz on department.dep_id=clazz.dep_id
   </sql>
   
   <sql id="Base_Column_List">

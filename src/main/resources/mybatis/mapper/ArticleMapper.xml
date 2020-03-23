@@ -39,7 +39,7 @@
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     SELECT
-			article.article_id, article.article_user_id, article.user_admin_id, 
+			article.article_id,article_scope, article.article_user_id, article.user_admin_id, 
       article_title, article_text, article_pic, 
        COUNT(love.love_id) as article_like, article_date, article_type, 
       article_state,user.*
@@ -102,8 +102,8 @@ FROM
     <!--@mbg.generated-->
     insert into article
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="userId != null">
-        user_id,
+      <if test="articleUserId != null">
+        article_user_id,
       </if>
       <if test="userAdminId != null">
         user_admin_id,
@@ -134,8 +134,8 @@ FROM
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="userId != null">
-        #{userId,jdbcType=VARCHAR},
+      <if test="articleUserId != null">
+        #{articleUserId,jdbcType=VARCHAR},
       </if>
       <if test="userAdminId != null">
         #{userAdminId,jdbcType=VARCHAR},
@@ -170,8 +170,8 @@ FROM
     <!--@mbg.generated-->
     update article
     <set>
-      <if test="userId != null">
-        user_id = #{userId,jdbcType=VARCHAR},
+      <if test="articleUserId != null">
+        article_user_id = #{articleUserId,jdbcType=VARCHAR},
       </if>
       <if test="userAdminId != null">
         user_admin_id = #{userAdminId,jdbcType=VARCHAR},

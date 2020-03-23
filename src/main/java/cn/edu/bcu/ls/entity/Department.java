@@ -1,5 +1,7 @@
 package cn.edu.bcu.ls.entity;
 
+import java.util.List;
+
 import cn.edu.bcu.ls.config.IgnoreSwaggerParameter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -48,4 +50,7 @@ public class Department {
     
     @IgnoreSwaggerParameter
     private User user;
+    
+    @IgnoreSwaggerParameter
+    private List<Clazz> clazzs;
 }

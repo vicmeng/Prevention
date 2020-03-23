@@ -17,4 +17,7 @@ public class LeaveNumber {
 	private Integer leave_state;
 	@ApiModelProperty(value ="班级id")
 	private Integer clazz_id;
+	@ApiModelProperty(value="辅导员id")
+	private String clazz_teacher_id;
+	
 }

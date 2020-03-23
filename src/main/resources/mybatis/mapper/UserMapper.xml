@@ -234,11 +234,14 @@ FROM
 	<select id="CheckUserById" parameterType="cn.edu.bcu.ls.entity.Number" resultMap="BaseResultMap" >
 		<include refid="select" /> 
 		<where>
-			<if test="user_id !=null and  user_pwd !=null and user_openid == null">
-				`user`.user_id=#{user_id} and `user`.user_pwd=#{user_pwd}
+			<if test="user_id !=null ">
+				`user`.user_id=#{user_id} 
 			</if>
-			<if test="user_id ==null and user_pwd ==null and user_openid != null">
-				`user`.user_openid=#{user_openid}
+			<if test=" user_openid != null">
+				and `user`.user_openid=#{user_openid}
+			</if>
+			<if test="user_pwd !=null">
+				and `user`.user_pwd=#{user_pwd}
 			</if>
 		</where>
 		

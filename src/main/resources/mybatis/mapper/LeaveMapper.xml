@@ -75,6 +75,9 @@ FROM
     	<if test="clazz_id !=null">
     		and user.class_id =#{clazz_id}
     	</if>
+    	<if test="clazz_teacher_id !=null">
+    		and clazz_teacher_id =#{clazz_teacher_id}
+    	</if>
     </where>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
