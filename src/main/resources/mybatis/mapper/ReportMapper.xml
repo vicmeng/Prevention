@@ -9,7 +9,8 @@
     <result column="report_teacher_id" jdbcType="VARCHAR" property="reportTeacherId" />
     <result column="report_time" jdbcType="TIMESTAMP" property="reportTime" />
     <result column="report_remark" jdbcType="VARCHAR" property="reportRemark" />
-    <association property="user" javaType="cn.edu.bcu.ls.entity.User">
+    
+    <association property="student" javaType="cn.edu.bcu.ls.entity.User">
     	<id column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="user_openid" jdbcType="VARCHAR" property="userOpenid" />
     <result column="dep_id" jdbcType="INTEGER" property="depId" />
@@ -26,14 +27,29 @@
     <result column="user_type" jdbcType="INTEGER" property="userType" />
     <result column="user_state" jdbcType="INTEGER" property="userState" />
     </association>
+    <association property="teacher" javaType="cn.edu.bcu.ls.entity.User">
+    	<id column="teacherId" jdbcType="VARCHAR" property="userId" />
+    
+    
+    	
+    <result column="teacherName" jdbcType="VARCHAR" property="userName" />
+   
+    <result column="teacherPhone" jdbcType="VARCHAR" property="userPhone" />
+    
+    </association>
   </resultMap>
   
   <sql id="select">
   	SELECT
-	* 
-FROM
+	report.*,
+	student.*,
+	teacher.user_name as teacherName ,teacher.user_phone as teacherPhone,teacher.user_id as teacherId
+FROM 
 	report
-	LEFT JOIN `user` ON report_student_id = `user`.user_id
+	LEFT JOIN `user` as student ON report_student_id = student.user_id
+	Left JOIN `user` as teacher on report_teacher_id = teacher.user_id
+	
+
   </sql>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->

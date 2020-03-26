@@ -113,6 +113,26 @@ public class UserController {
 		return userService.CheckUserById(number);
 	}
 	
+	@ApiOperation(value = "老师第一次登入")
+	@GetMapping(value = "teacherLogin")
+	public User teacherLogin(Number number) {
+		String openid=number.getUser_openid();
+		number.setUser_openid(null);
+		User user=userService.CheckUserById(number);
+		System.out.println(user);
+		if (user!=null) {
+			if (openid !=null) {
+				user.setUserOpenid(openid);
+				if (userService.updataUser(user)>0) {
+					return user;
+				}
+				
+			}
+			
+		} 
+		
+		return user;
+	}
 	
 	@ApiOperation(value="输入小程序端自动生成的code 返回对应的openid")
 	@GetMapping(value="openid" )

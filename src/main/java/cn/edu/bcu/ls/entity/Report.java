@@ -46,5 +46,7 @@ public class Report {
     private String reportRemark;
     
     @IgnoreSwaggerParameter
-    private User user;
+    private User student;
+    @IgnoreSwaggerParameter
+    private User teacher;
 }

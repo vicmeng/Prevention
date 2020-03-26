@@ -1,5 +1,25 @@
-[ WARN ] 2020-03-25 10:39:49 [ http-nio-8080-exec-1:40750 ] [org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.logException(AbstractHandlerExceptionResolver.java:199)] Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'application/x-www-form-urlencoded' not supported]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:28995 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ INFO ] [2020-03-23 11:14:27] [ LOGID: ] [org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)] Starting PreventionApplication on DESKTOP-AS2RTRS with PID 11700 (C:\Users\11379\git\repository4\Prevention\target\classes started by 11379 in C:\Users\11379\git\repository4\Prevention)
+[ INFO ] [2020-03-23 11:14:27] [ LOGID: ] [org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)] No active profile set, falling back to default profiles: default
+[ INFO ] [2020-03-23 11:14:30] [ LOGID: ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:92)] Tomcat initialized with port(s): 8080 (http)
+[ INFO ] [2020-03-23 11:14:30] [ LOGID: ] [org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)] Initializing ProtocolHandler ["http-nio-8080"]
+[ INFO ] [2020-03-23 11:14:30] [ LOGID: ] [org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)] Starting service [Tomcat]
+[ INFO ] [2020-03-23 11:14:30] [ LOGID: ] [org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)] Starting Servlet engine: [Apache Tomcat/9.0.31]
+[ INFO ] [2020-03-23 11:14:30] [ LOGID: ] [org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)] Initializing Spring embedded WebApplicationContext
+[ INFO ] [2020-03-23 11:14:30] [ LOGID: ] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:284)] Root WebApplicationContext: initialization completed in 3539 ms
+[ INFO ] [2020-03-23 11:14:32] [ LOGID: ] [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods(PropertySourcedRequestMappingHandlerMapping.java:69)] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[ INFO ] [2020-03-23 11:14:32] [ LOGID: ] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)] Initializing ExecutorService 'applicationTaskExecutor'
+[ INFO ] [2020-03-23 11:14:32] [ LOGID: ] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping.<init>(WelcomePageHandlerMapping.java:54)] Adding welcome page: class path resource [static/index.html]
+[ INFO ] [2020-03-23 11:14:32] [ LOGID: ] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:160)] Context refreshed
+[ INFO ] [2020-03-23 11:14:32] [ LOGID: ] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:163)] Found 1 custom documentation plugin(s)
+[ INFO ] [2020-03-23 11:14:32] [ LOGID: ] [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:41)] Scanning for api listing references
+[ INFO ] [2020-03-23 11:14:33] [ LOGID: ] [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator.startingWith(CachingOperationNameGenerator.java:40)] Generating unique operation named: deleteClazzUsingDELETE_1
+[ INFO ] [2020-03-23 11:14:33] [ LOGID: ] [org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)] Starting ProtocolHandler ["http-nio-8080"]
+[ INFO ] [2020-03-23 11:14:33] [ LOGID: ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)] Tomcat started on port(s): 8080 (http) with context path '/prevention'
+[ INFO ] [2020-03-23 11:14:33] [ LOGID: ] [org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)] Started PreventionApplication in 8.434 seconds (JVM running for 11.069)
+[ INFO ] [2020-03-23 11:15:18] [ LOGID: ] [org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[ INFO ] [2020-03-23 11:15:18] [ LOGID: ] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:525)] Initializing Servlet 'dispatcherServlet'
+[ INFO ] [2020-03-23 11:15:18] [ LOGID: ] [org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:547)] Completed initialization in 9 ms
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
@@ -87,7 +107,7 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29004 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
@@ -175,7 +195,7 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29006 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
@@ -263,7 +283,7 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29045 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
@@ -351,7 +371,7 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29046 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
@@ -439,7 +459,7 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29049 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
@@ -527,7 +547,7 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29050 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
@@ -615,13 +635,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29063 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -702,13 +722,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29069 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -789,13 +809,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29072 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -876,13 +896,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29075 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -963,14 +983,14 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29077 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type number
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type number
 java.lang.NumberFormatException: empty String
 	at sun.misc.FloatingDecimal.readJavaFormatString(Unknown Source) ~[?:1.8.0_161]
 	at sun.misc.FloatingDecimal.parseDouble(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Double.parseDouble(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Double.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:414) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -1051,13 +1071,13 @@ java.lang.NumberFormatException: empty String
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29081 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -1138,13 +1158,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29084 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -1225,13 +1245,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29087 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -1312,14 +1332,14 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29090 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type number
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type number
 java.lang.NumberFormatException: empty String
 	at sun.misc.FloatingDecimal.readJavaFormatString(Unknown Source) ~[?:1.8.0_161]
 	at sun.misc.FloatingDecimal.parseDouble(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Double.parseDouble(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Double.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:414) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -1400,13 +1420,13 @@ java.lang.NumberFormatException: empty String
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29096 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -1487,13 +1507,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29101 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -1574,13 +1594,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29105 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -1661,13 +1681,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29108 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -1748,13 +1768,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29111 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -1835,13 +1855,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29114 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -1922,13 +1942,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29118 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -2009,13 +2029,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29120 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -2096,13 +2116,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29122 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -2183,13 +2203,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29125 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -2270,13 +2290,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29128 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -2357,13 +2377,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29132 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -2444,13 +2464,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29135 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -2531,13 +2551,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29137 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -2618,13 +2638,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29142 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -2705,13 +2725,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29145 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -2792,13 +2812,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29161 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -2879,13 +2899,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29165 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -2966,13 +2986,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29168 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -3053,13 +3073,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29173 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -3140,13 +3160,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29202 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -3227,13 +3247,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29208 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -3314,13 +3334,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29213 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -3401,13 +3421,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29218 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -3488,13 +3508,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29220 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -3575,13 +3595,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29223 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -3662,13 +3682,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29226 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -3749,13 +3769,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29229 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -3836,13 +3856,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29233 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -3923,13 +3943,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29236 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:18] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -4010,13 +4030,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29239 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -4097,13 +4117,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:56 [ http-nio-8080-exec-5:29243 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -4184,13 +4204,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29333 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -4271,13 +4291,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29336 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -4358,13 +4378,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29338 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -4445,13 +4465,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29342 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -4532,13 +4552,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29365 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -4619,13 +4639,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29368 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -4706,13 +4726,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29370 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -4793,13 +4813,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29373 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -4880,13 +4900,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29376 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -4967,13 +4987,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29378 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -5054,13 +5074,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29380 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -5141,13 +5161,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29383 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -5228,13 +5248,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29386 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -5315,13 +5335,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29388 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -5402,13 +5422,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29390 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -5489,13 +5509,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29433 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -5576,13 +5596,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29435 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -5663,13 +5683,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29437 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -5750,13 +5770,13 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
-[ WARN ] 2020-03-25 11:20:57 [ http-nio-8080-exec-5:29439 ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
+[ WARN ] [2020-03-23 11:15:19] [ LOGID: ] [io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:421)] Illegal DefaultValue null for parameter type integer
 java.lang.NumberFormatException: For input string: ""
 	at java.lang.NumberFormatException.forInputString(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.parseLong(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.Long.valueOf(Unknown Source) ~[?:1.8.0_161]
 	at io.swagger.models.parameters.AbstractSerializableParameter.getExample(AbstractSerializableParameter.java:412) [swagger-models-1.5.20.jar:1.5.20]
-	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.GeneratedMethodAccessor120.invoke(Unknown Source) ~[?:?]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.8.0_161]
 	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.8.0_161]
 	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:688) [jackson-databind-2.10.2.jar:2.10.2]
@@ -5837,3 +5857,74 @@ java.lang.NumberFormatException: For input string: ""
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [?:1.8.0_161]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
 	at java.lang.Thread.run(Unknown Source) [?:1.8.0_161]
+[ INFO ] [2020-03-23 11:15:33] [ LOGID: ] [com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:110)] HikariPool-1 - Starting...
+[ INFO ] [2020-03-23 11:15:34] [ LOGID: ] [com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:123)] HikariPool-1 - Start completed.
+[ INFO ] [2020-03-23 11:20:29] [ LOGID: ] [org.springframework.test.context.support.AbstractTestContextBootstrapper.buildDefaultMergedContextConfiguration(AbstractTestContextBootstrapper.java:308)] Neither @ContextConfiguration nor @ContextHierarchy found for test class [cn.edu.bcu.ls.PreventionApplicationTests], using SpringBootContextLoader
+[ INFO ] [2020-03-23 11:20:29] [ LOGID: ] [org.springframework.test.context.support.AbstractContextLoader.generateDefaultLocations(AbstractContextLoader.java:264)] Could not detect default resource locations for test class [cn.edu.bcu.ls.PreventionApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+[ INFO ] [2020-03-23 11:20:29] [ LOGID: ] [org.springframework.test.context.support.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses(AnnotationConfigContextLoaderUtils.java:83)] Could not detect default configuration classes for test class [cn.edu.bcu.ls.PreventionApplicationTests]: PreventionApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[ INFO ] [2020-03-23 11:20:29] [ LOGID: ] [org.springframework.boot.test.context.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses(SpringBootTestContextBootstrapper.java:235)] Found @SpringBootConfiguration cn.edu.bcu.ls.PreventionApplication for test class cn.edu.bcu.ls.PreventionApplicationTests
+[ INFO ] [2020-03-23 11:20:29] [ LOGID: ] [org.springframework.test.context.support.AbstractTestContextBootstrapper.getDefaultTestExecutionListenerClassNames(AbstractTestContextBootstrapper.java:248)] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[ INFO ] [2020-03-23 11:20:29] [ LOGID: ] [org.springframework.test.context.support.AbstractTestContextBootstrapper.getTestExecutionListeners(AbstractTestContextBootstrapper.java:177)] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@460ebd80, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6f3c660a, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@74f5ce22, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@25aca718, org.springframework.test.context.support.DirtiesContextTestExecutionListener@16fdec90, org.springframework.test.context.transaction.TransactionalTestExecutionListener@1afdd473, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@40238dd0, org.springframework.test.context.event.EventPublishingTestExecutionListener@7776ab, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@79179359, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@dbd8e44, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@51acdf2e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6a55299e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2f1de2d6]
+[ INFO ] [2020-03-23 11:20:29] [ LOGID: ] [org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)] Starting PreventionApplicationTests on DESKTOP-AS2RTRS with PID 4680 (started by 11379 in C:\Users\11379\git\repository4\Prevention)
+[ INFO ] [2020-03-23 11:20:29] [ LOGID: ] [org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)] No active profile set, falling back to default profiles: default
+[ INFO ] [2020-03-23 11:20:32] [ LOGID: ] [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods(PropertySourcedRequestMappingHandlerMapping.java:69)] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[ INFO ] [2020-03-23 11:20:33] [ LOGID: ] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)] Initializing ExecutorService 'applicationTaskExecutor'
+[ INFO ] [2020-03-23 11:20:33] [ LOGID: ] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping.<init>(WelcomePageHandlerMapping.java:54)] Adding welcome page: class path resource [static/index.html]
+[ INFO ] [2020-03-23 11:20:33] [ LOGID: ] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:160)] Context refreshed
+[ INFO ] [2020-03-23 11:20:33] [ LOGID: ] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:163)] Found 1 custom documentation plugin(s)
+[ INFO ] [2020-03-23 11:20:33] [ LOGID: ] [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:41)] Scanning for api listing references
+[ INFO ] [2020-03-23 11:20:34] [ LOGID: ] [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator.startingWith(CachingOperationNameGenerator.java:40)] Generating unique operation named: deleteClazzUsingDELETE_1
+[ INFO ] [2020-03-23 11:20:35] [ LOGID: ] [org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)] Started PreventionApplicationTests in 5.606 seconds (JVM running for 8.64)
+[ INFO ] [2020-03-23 11:20:35] [ LOGID: ] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:218)] Shutting down ExecutorService 'applicationTaskExecutor'
+[ INFO ] [2020-03-23 20:06:25] [ LOGID: ] [org.springframework.test.context.support.AbstractTestContextBootstrapper.buildDefaultMergedContextConfiguration(AbstractTestContextBootstrapper.java:308)] Neither @ContextConfiguration nor @ContextHierarchy found for test class [cn.edu.bcu.ls.PreventionApplicationTests], using SpringBootContextLoader
+[ INFO ] [2020-03-23 20:06:25] [ LOGID: ] [org.springframework.test.context.support.AbstractContextLoader.generateDefaultLocations(AbstractContextLoader.java:264)] Could not detect default resource locations for test class [cn.edu.bcu.ls.PreventionApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+[ INFO ] [2020-03-23 20:06:25] [ LOGID: ] [org.springframework.test.context.support.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses(AnnotationConfigContextLoaderUtils.java:83)] Could not detect default configuration classes for test class [cn.edu.bcu.ls.PreventionApplicationTests]: PreventionApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[ INFO ] [2020-03-23 20:06:25] [ LOGID: ] [org.springframework.boot.test.context.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses(SpringBootTestContextBootstrapper.java:235)] Found @SpringBootConfiguration cn.edu.bcu.ls.PreventionApplication for test class cn.edu.bcu.ls.PreventionApplicationTests
+[ INFO ] [2020-03-23 20:06:25] [ LOGID: ] [org.springframework.test.context.support.AbstractTestContextBootstrapper.getDefaultTestExecutionListenerClassNames(AbstractTestContextBootstrapper.java:248)] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[ INFO ] [2020-03-23 20:06:25] [ LOGID: ] [org.springframework.test.context.support.AbstractTestContextBootstrapper.getTestExecutionListeners(AbstractTestContextBootstrapper.java:177)] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6436a7db, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@460ebd80, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6f3c660a, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@74f5ce22, org.springframework.test.context.support.DirtiesContextTestExecutionListener@25aca718, org.springframework.test.context.transaction.TransactionalTestExecutionListener@16fdec90, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1afdd473, org.springframework.test.context.event.EventPublishingTestExecutionListener@40238dd0, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7776ab, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@79179359, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@dbd8e44, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@51acdf2e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6a55299e]
+[ INFO ] [2020-03-23 20:06:26] [ LOGID: ] [org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)] Starting PreventionApplicationTests on DESKTOP-AS2RTRS with PID 3336 (started by 11379 in C:\Users\11379\git\repository4\Prevention)
+[ INFO ] [2020-03-23 20:06:26] [ LOGID: ] [org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)] No active profile set, falling back to default profiles: default
+[ INFO ] [2020-03-23 20:06:30] [ LOGID: ] [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods(PropertySourcedRequestMappingHandlerMapping.java:69)] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[ INFO ] [2020-03-23 20:06:30] [ LOGID: ] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)] Initializing ExecutorService 'applicationTaskExecutor'
+[ INFO ] [2020-03-23 20:06:30] [ LOGID: ] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping.<init>(WelcomePageHandlerMapping.java:54)] Adding welcome page: class path resource [static/index.html]
+[ INFO ] [2020-03-23 20:06:31] [ LOGID: ] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:160)] Context refreshed
+[ INFO ] [2020-03-23 20:06:31] [ LOGID: ] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:163)] Found 1 custom documentation plugin(s)
+[ INFO ] [2020-03-23 20:06:31] [ LOGID: ] [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:41)] Scanning for api listing references
+[ INFO ] [2020-03-23 20:06:32] [ LOGID: ] [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator.startingWith(CachingOperationNameGenerator.java:40)] Generating unique operation named: deleteClazzUsingDELETE_1
+[ INFO ] [2020-03-23 20:06:32] [ LOGID: ] [org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)] Started PreventionApplicationTests in 6.535 seconds (JVM running for 9.962)
+[ INFO ] [2020-03-23 20:06:32] [ LOGID: ] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:218)] Shutting down ExecutorService 'applicationTaskExecutor'
+[ INFO ] [2020-03-23 20:10:18] [ LOGID: ] [org.springframework.test.context.support.AbstractTestContextBootstrapper.buildDefaultMergedContextConfiguration(AbstractTestContextBootstrapper.java:308)] Neither @ContextConfiguration nor @ContextHierarchy found for test class [cn.edu.bcu.ls.PreventionApplicationTests], using SpringBootContextLoader
+[ INFO ] [2020-03-23 20:10:18] [ LOGID: ] [org.springframework.test.context.support.AbstractContextLoader.generateDefaultLocations(AbstractContextLoader.java:264)] Could not detect default resource locations for test class [cn.edu.bcu.ls.PreventionApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+[ INFO ] [2020-03-23 20:10:18] [ LOGID: ] [org.springframework.test.context.support.AnnotationConfigContextLoaderUtils.detectDefaultConfigurationClasses(AnnotationConfigContextLoaderUtils.java:83)] Could not detect default configuration classes for test class [cn.edu.bcu.ls.PreventionApplicationTests]: PreventionApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[ INFO ] [2020-03-23 20:10:18] [ LOGID: ] [org.springframework.boot.test.context.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses(SpringBootTestContextBootstrapper.java:235)] Found @SpringBootConfiguration cn.edu.bcu.ls.PreventionApplication for test class cn.edu.bcu.ls.PreventionApplicationTests
+[ INFO ] [2020-03-23 20:10:18] [ LOGID: ] [org.springframework.test.context.support.AbstractTestContextBootstrapper.getDefaultTestExecutionListenerClassNames(AbstractTestContextBootstrapper.java:248)] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+[ INFO ] [2020-03-23 20:10:18] [ LOGID: ] [org.springframework.test.context.support.AbstractTestContextBootstrapper.getTestExecutionListeners(AbstractTestContextBootstrapper.java:177)] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6436a7db, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@460ebd80, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6f3c660a, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@74f5ce22, org.springframework.test.context.support.DirtiesContextTestExecutionListener@25aca718, org.springframework.test.context.transaction.TransactionalTestExecutionListener@16fdec90, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1afdd473, org.springframework.test.context.event.EventPublishingTestExecutionListener@40238dd0, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7776ab, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@79179359, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@dbd8e44, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@51acdf2e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6a55299e]
+[ INFO ] [2020-03-23 20:10:19] [ LOGID: ] [org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)] Starting PreventionApplicationTests on DESKTOP-AS2RTRS with PID 19404 (started by 11379 in C:\Users\11379\git\repository4\Prevention)
+[ INFO ] [2020-03-23 20:10:19] [ LOGID: ] [org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)] No active profile set, falling back to default profiles: default
+[ INFO ] [2020-03-23 20:10:22] [ LOGID: ] [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods(PropertySourcedRequestMappingHandlerMapping.java:69)] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[ INFO ] [2020-03-23 20:10:22] [ LOGID: ] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)] Initializing ExecutorService 'applicationTaskExecutor'
+[ INFO ] [2020-03-23 20:10:22] [ LOGID: ] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping.<init>(WelcomePageHandlerMapping.java:54)] Adding welcome page: class path resource [static/index.html]
+[ INFO ] [2020-03-23 20:10:23] [ LOGID: ] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:160)] Context refreshed
+[ INFO ] [2020-03-23 20:10:23] [ LOGID: ] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:163)] Found 1 custom documentation plugin(s)
+[ INFO ] [2020-03-23 20:10:23] [ LOGID: ] [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:41)] Scanning for api listing references
+[ INFO ] [2020-03-23 20:10:24] [ LOGID: ] [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator.startingWith(CachingOperationNameGenerator.java:40)] Generating unique operation named: deleteClazzUsingDELETE_1
+[ INFO ] [2020-03-23 20:10:24] [ LOGID: ] [org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)] Started PreventionApplicationTests in 5.683 seconds (JVM running for 8.535)
+[ INFO ] [2020-03-23 20:10:24] [ LOGID: ] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.shutdown(ExecutorConfigurationSupport.java:218)] Shutting down ExecutorService 'applicationTaskExecutor'
+[ INFO ] [2020-03-23 20:11:38] [ LOGID: ] [org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:55)] Starting PreventionApplication on DESKTOP-AS2RTRS with PID 3080 (C:\Users\11379\git\repository4\Prevention\target\classes started by 11379 in C:\Users\11379\git\repository4\Prevention)
+[ INFO ] [2020-03-23 20:11:38] [ LOGID: ] [org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:651)] No active profile set, falling back to default profiles: default
+[ INFO ] [2020-03-23 20:11:40] [ LOGID: ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:92)] Tomcat initialized with port(s): 8080 (http)
+[ INFO ] [2020-03-23 20:11:40] [ LOGID: ] [org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)] Initializing ProtocolHandler ["http-nio-8080"]
+[ INFO ] [2020-03-23 20:11:40] [ LOGID: ] [org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)] Starting service [Tomcat]
+[ INFO ] [2020-03-23 20:11:40] [ LOGID: ] [org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)] Starting Servlet engine: [Apache Tomcat/9.0.31]
+[ INFO ] [2020-03-23 20:11:40] [ LOGID: ] [org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)] Initializing Spring embedded WebApplicationContext
+[ INFO ] [2020-03-23 20:11:40] [ LOGID: ] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:284)] Root WebApplicationContext: initialization completed in 1936 ms
+[ INFO ] [2020-03-23 20:11:42] [ LOGID: ] [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods(PropertySourcedRequestMappingHandlerMapping.java:69)] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[ INFO ] [2020-03-23 20:11:42] [ LOGID: ] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport.initialize(ExecutorConfigurationSupport.java:181)] Initializing ExecutorService 'applicationTaskExecutor'
+[ INFO ] [2020-03-23 20:11:42] [ LOGID: ] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping.<init>(WelcomePageHandlerMapping.java:54)] Adding welcome page: class path resource [static/index.html]
+[ INFO ] [2020-03-23 20:11:42] [ LOGID: ] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:160)] Context refreshed
+[ INFO ] [2020-03-23 20:11:42] [ LOGID: ] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:163)] Found 1 custom documentation plugin(s)
+[ INFO ] [2020-03-23 20:11:42] [ LOGID: ] [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner.scan(ApiListingReferenceScanner.java:41)] Scanning for api listing references
+[ INFO ] [2020-03-23 20:11:43] [ LOGID: ] [springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator.startingWith(CachingOperationNameGenerator.java:40)] Generating unique operation named: deleteClazzUsingDELETE_1
+[ INFO ] [2020-03-23 20:11:43] [ LOGID: ] [org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:173)] Starting ProtocolHandler ["http-nio-8080"]
+[ INFO ] [2020-03-23 20:11:43] [ LOGID: ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:204)] Tomcat started on port(s): 8080 (http) with context path '/prevention'
+[ INFO ] [2020-03-23 20:11:43] [ LOGID: ] [org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:61)] Started PreventionApplication in 4.947 seconds (JVM running for 7.168)
