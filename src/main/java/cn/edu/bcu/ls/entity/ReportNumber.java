@@ -9,4 +9,6 @@ public class ReportNumber {
 	private Integer report_id;
 	private String report_student_id;
 	private String report_teacher_id;
+	private Integer clazz_id;
+	private String teacher_id;
 }

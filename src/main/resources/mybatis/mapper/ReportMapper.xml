@@ -26,6 +26,12 @@
     <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
     <result column="user_type" jdbcType="INTEGER" property="userType" />
     <result column="user_state" jdbcType="INTEGER" property="userState" />
+     <association property="clazz" javaType="cn.edu.bcu.ls.entity.Clazz">
+ 	
+   		<id column="clazz_id" jdbcType="INTEGER" property="clazzId" />
+		<result column="clazz_teacher_id" jdbcType="VARCHAR" property="clazzTeacherId" />
+    	<result column="clazz_name" jdbcType="VARCHAR" property="clazzName" />
+    </association>
     </association>
     <association property="teacher" javaType="cn.edu.bcu.ls.entity.User">
     	<id column="teacherId" jdbcType="VARCHAR" property="userId" />
@@ -37,20 +43,25 @@
     <result column="teacherPhone" jdbcType="VARCHAR" property="userPhone" />
     
     </association>
+   
   </resultMap>
   
   <sql id="select">
   	SELECT
 	report.*,
-	student.*,
+	student.*,clazz.clazz_id,clazz.clazz_name,clazz.clazz_teacher_id,
 	teacher.user_name as teacherName ,teacher.user_phone as teacherPhone,teacher.user_id as teacherId
 FROM 
 	report
 	LEFT JOIN `user` as student ON report_student_id = student.user_id
 	Left JOIN `user` as teacher on report_teacher_id = teacher.user_id
+	LEFT JOIN clazz  on clazz.clazz_id=student.class_id
+	
 	
 
   </sql>
+  
+  
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     report_id, report_student_id, report_teacher_id, report_time, report_remark
@@ -68,6 +79,12 @@ FROM
     	</if>
     	<if test="report_teacher_id !=null">
     		and report_teacher_id=#{report_teacher_id}
+    	</if>
+    	<if test="clazz_id !=null">
+    		and clazz.clazz_id=#{clazz_id}
+    	</if>
+    	<if test="teacher_id !=null">
+    		and teacher.user_id =#{teacher_id}
     	</if>
     </where>
   
@@ -150,4 +167,17 @@ FROM
       report_remark = #{reportRemark,jdbcType=VARCHAR}
     where report_id = #{reportId,jdbcType=INTEGER}
   </update>
+  
+  <select id="queryTemp" parameterType="String" resultType="cn.edu.bcu.ls.entity.UserTemp">
+  	SELECT clock.user_id,clock.clock_temp,clock.clock_time,clock.clock_id FROM clock WHERE clock.user_id =#{user_id} ORDER BY clock.clock_time DESC
+  </select>
+  <select id="queryUserId" parameterType="String" resultType="cn.edu.bcu.ls.entity.UserDor">
+  	SELECT
+	`user`.user_id,
+	`user`.user_name 
+FROM
+	`user` 
+WHERE
+	`user`.dormitory_id IN ( SELECT `user`.dormitory_id FROM `user` WHERE `user`.user_id = #{user_id} ) 
+  </select>
 </mapper>

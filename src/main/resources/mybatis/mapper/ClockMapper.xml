@@ -27,12 +27,25 @@
     <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
     <result column="user_type" jdbcType="INTEGER" property="userType" />
     <result column="user_state" jdbcType="INTEGER" property="userState" />
+    <association property="clazz" javaType="cn.edu.bcu.ls.entity.Clazz">
+ 	
+   		<id column="clazz_id" jdbcType="INTEGER" property="clazzId" />
+		<result column="clazz_teacher_id" jdbcType="VARCHAR" property="clazzTeacherId" />
+    	<result column="clazz_name" jdbcType="VARCHAR" property="clazzName" />
+    </association>
     </association>
     <association property="cardTime" javaType="cn.edu.bcu.ls.entity.CardTime">
     	<id column="card_time_id" jdbcType="INTEGER" property="cardTimeId" />
     <result column="card_start_time" jdbcType="TIMESTAMP" property="cardStartTime" />
     <result column="card_end_time" jdbcType="TIMESTAMP" property="cardEndTime" />
     <result column="card_time_name" jdbcType="VARCHAR" property="cardTimeName" />
+    </association>
+    <association property="dormitory" javaType="cn.edu.bcu.ls.entity.Dormitory">
+    	<id column="dormitory_id" jdbcType="INTEGER" property="dormitoryId" />
+    <result column="dormitory_build_id" jdbcType="VARCHAR" property="dormitoryBuildId" />
+    <result column="dormitory_house_id" jdbcType="VARCHAR" property="dormitoryHouseId" />
+    <result column="dormitory_manager_name" jdbcType="VARCHAR" property="dormitoryManagerName" />
+    <result column="dormitory_manager_phone" jdbcType="VARCHAR" property="dormitoryManagerPhone" />
     </association>
   </resultMap>
   <sql id="Base_Column_List">
@@ -41,12 +54,14 @@
   </sql>
   
   <sql id="select">
-  	SELECT
+SELECT
 	*
 FROM
 	clock
-	LEFT JOIN `user` on clock.user_id=`user`.user_id
+	LEFT JOIN `user` as student on clock.user_id=student.user_id
+	LEFT JOIN clazz on student.class_id = clazz.clazz_id 
 	LEFT JOIN card_time on clock.card_time_id=card_time.card_time_id
+	LEFT JOIN dormitory on student.dormitory_id = dormitory.dormitory_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="cn.edu.bcu.ls.entity.ClockNumber" resultMap="BaseResultMap">
     
@@ -57,10 +72,19 @@ FROM
     		clock.clock_id=#{clock_id}
     	</if>
     	<if test="user_id !=null">
-    		clock.user_id=#{user_id}
+    		and clock.user_id=#{user_id}
     	</if>
     	<if test="clock_state !=null">
-    		clock.clock_state=#{clock_state}
+    		and clock.clock_state=#{clock_state}
+    	</if>
+    	<if test="clazz_id !=null">
+    		and clazz.clazz_id=#{clazz_id}
+    	</if>
+    	<if test="teacher_id !=null">
+    		and clazz.clazz_teacher_id =#{teacher_id}
+    	</if>
+    	<if test="dormitory_id !=null">
+    		and student.dormitory_id=#{dormitory_id}
     	</if>
     </where>
     

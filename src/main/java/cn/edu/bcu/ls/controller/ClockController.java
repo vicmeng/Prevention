@@ -1,7 +1,10 @@
 package cn.edu.bcu.ls.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -34,8 +37,13 @@ public class ClockController {
 	private ClockService clockService;
 	@ApiOperation(value = "添加打卡填写所需部分")
 	@PostMapping(value="Clock")
-	public int insertClock(Clock clock) {
+	public int insertClock(Clock clock) throws ParseException {
+		
+//		SimpleDateFormat bjSdf = new SimpleDateFormat("yyyy-MM-dd");
+//		bjSdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
 		Date date=new Date();
+		
+		date.setHours(date.getHours()+8);
 		clock.setClockTime(date);
 		return clockService.insertSelective(clock);
 	}

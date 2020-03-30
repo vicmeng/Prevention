@@ -60,4 +60,6 @@ public class Clock {
     private User user;
     @IgnoreSwaggerParameter
     private CardTime cardTime;
+    @IgnoreSwaggerParameter
+    private Dormitory dormitory;
 }

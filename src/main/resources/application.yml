@@ -8,5 +8,7 @@ spring:
     url: jdbc:mysql://47.95.141.31/prevention?characterEncoding=utf-8
   jackson:
     time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    
 logging:
   config: classpath:log4j2.xml

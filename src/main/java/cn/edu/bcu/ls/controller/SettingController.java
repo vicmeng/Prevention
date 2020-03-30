@@ -44,15 +44,9 @@ public class SettingController {
 
 	@ApiOperation(value = "添加 所需的")
 	@PostMapping(value = "Setting", headers = "content-type=multipart/form-data")
-	public int insertSetting(Setting setting, @RequestParam(value = "file") MultipartFile[] files,
-			RedirectAttributes redirectAttributes, HttpServletRequest request) {
+	public int insertSetting(Setting setting) {
 		
-		String str = "";
-		for (MultipartFile multipartFile : files) {
-
-			str = str + ";" + LoadUtil.upload(multipartFile, request);
-		}
-		setting.setSettingPic(str);
+		
 		return settingService.insertSelective(setting);
 	}
 
@@ -64,16 +58,7 @@ public class SettingController {
 
 	@ApiOperation(value = "修改 所需属性")
 	@PutMapping(value = "Setting", headers = "content-type=multipart/form-data")
-	public int updataSetting(Setting setting, @RequestParam(value = "file",required=false) MultipartFile[] files,
-			RedirectAttributes redirectAttributes, HttpServletRequest request) {
-		String str="";
-		if (files !=null) {
-			for (MultipartFile multipartFile : files) {
-
-				str = str + ";" + LoadUtil.upload(multipartFile, request);
-			}
-			setting.setSettingPic(str);
-		}
+	public int updataSetting(Setting setting) {
 		
 		return settingService.updateByPrimaryKeySelective(setting);
 	}

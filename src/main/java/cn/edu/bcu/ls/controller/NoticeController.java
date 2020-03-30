@@ -56,7 +56,7 @@ public class NoticeController {
 		
 
 		Date date=new Date();
-		
+		date.setHours(date.getHours()+8);
 		notice.setNoticeDate(date);
 		return noticeService.insertSelective(notice);
 	}

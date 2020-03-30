@@ -55,22 +55,10 @@ public class ArticleController {
 	 */
 	@ApiOperation(value = "图片和 文章分别传送，图片必填，文章填写所需部分")
 	@PostMapping(value = "Article", headers = "content-type=multipart/form-data")
-	public int insertArticle(Article article, @RequestParam(value = "file") MultipartFile[] files,
-			RedirectAttributes redirectAttributes, HttpServletRequest request) {
-		System.out.println(files);
-		String str = "";
-		for (MultipartFile multipartFile : files) {
-
-			str = str + ";" + LoadUtil.upload(multipartFile, request);
-		}
-		System.out.println(str);
-		article.setArticlePic(str);
-		TimeZone time = TimeZone.getTimeZone("ETC/GMT-8");
-
-		TimeZone.setDefault(time);
+	public int insertArticle(Article article) {
 
 		Date date = new Date();
-
+		date.setHours(date.getHours()+8);
 		article.setArticleDate(date);
 		return articleService.insertSelective(article);
 	}
@@ -83,16 +71,8 @@ public class ArticleController {
 
 	@ApiOperation(value = "按照id更改文章")
 	@PutMapping(value = "Article")
-	public int updateArticle(Article article, @RequestParam(value = "file", required = false) MultipartFile[] files,
-			RedirectAttributes redirectAttributes, HttpServletRequest request) {
-		String str = "";
-		if (files != null) {
-			for (MultipartFile multipartFile : files) {
-
-				str = str + ";" + LoadUtil.upload(multipartFile, request);
-			}
-			article.setArticlePic(str);
-		}
+	public int updateArticle(Article article) {
+		
 
 		return articleService.updateByPrimaryKeySelective(article);
 	}
@@ -114,5 +94,13 @@ public class ArticleController {
 		map.put("articles", articles);
 		return map;
 
+	}
+	
+	@ApiOperation(value="上传图片")
+	@PostMapping(value="Images" , headers = "content-type=multipart/form-data")
+	public String getImages( @RequestParam(value = "file") MultipartFile files,
+			RedirectAttributes redirectAttributes, HttpServletRequest request) {
+				return LoadUtil.upload(files, request);
+		
 	}
 }

@@ -9,4 +9,7 @@ public class ClockNumber {
 	private Integer clock_id;
 	private String user_id;
 	private Integer clock_state;
+	private String  teacher_id;
+	private Integer clazz_id;
+	private Integer dormitory_id;
 }

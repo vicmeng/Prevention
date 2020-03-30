@@ -42,12 +42,12 @@ public class LeaveController {
 	@Autowired
 	private LeaveService leaveService;
 	@ApiOperation(value = "添加 所需的")
-	@PostMapping(value = "Leave")
-	public int insertLeave(Leave leave,@RequestParam(value = "leavePic") MultipartFile leavePic, RedirectAttributes redirectAttributes,
-			HttpServletRequest request) {
+	@PostMapping(value = "Leave" ,headers = "content-type=multipart/form-data")
+	public int insertLeave(Leave leave) {
 		Date date=new Date();
+		date.setHours(date.getHours()+8);
 		leave.setLeavePostDate(date);
-		leave.setLeavePic(LoadUtil.upload(leavePic, request));
+	
 		return leaveService.insertSelective(leave);
 	}
 	@ApiOperation(value = "删除 id")

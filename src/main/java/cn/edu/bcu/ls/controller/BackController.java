@@ -45,25 +45,11 @@ public class BackController {
 
 	@ApiOperation(value = "添加回校申请，图片必填，其他填写所需部分")
 	@PostMapping(value = "Back", headers = "content-type=multipart/form-data")
-	public int insertBack(Back back,
-			@RequestParam(value = "traffic_pics", required = false) MultipartFile[] traffic_pics,
-			@RequestParam(value = "certs") MultipartFile[] cert_pics, RedirectAttributes redirectAttributes,
-			HttpServletRequest request) {
+	public int insertBack(Back back) {
 
-		String str = "";
-		for (MultipartFile multipartFile : traffic_pics) {
-
-			str = str + ";" + LoadUtil.upload(multipartFile, request);
-		}
-		back.setBackTrafficPic(str);
-		for (MultipartFile multipartFile : cert_pics) {
-
-			str = str + ";" + LoadUtil.upload(multipartFile, request);
-		}
-
-		back.setBackCert(str);
-
+		
 		Date date = new Date();
+		date.setHours(date.getHours()+8);
 		back.setBackPostTime(date);
 
 		return backService.insertSelective(back);

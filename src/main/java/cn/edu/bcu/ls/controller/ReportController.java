@@ -16,6 +16,7 @@ import cn.edu.bcu.ls.entity.Clazz;
 import cn.edu.bcu.ls.entity.ClazzNumber;
 import cn.edu.bcu.ls.entity.Report;
 import cn.edu.bcu.ls.entity.ReportNumber;
+import cn.edu.bcu.ls.entity.ReportTemp;
 import cn.edu.bcu.ls.service.ClazzService;
 import cn.edu.bcu.ls.service.ReportService;
 import io.swagger.annotations.Api;
@@ -40,6 +41,7 @@ public class ReportController {
 	@PostMapping(value = "Report")
 	public int insertReport(Report report) {
 		Date date=new Date();
+		date.setHours(date.getHours()+8);
 		report.setReportTime(date);
 		return reportService.insertSelective(report);
 	}
@@ -60,5 +62,9 @@ public class ReportController {
 	@GetMapping(value = "Report")
 	public List<Report> queryReports(ReportNumber reportNumber) {
 		return reportService.selectByPrimaryKey(reportNumber);
+	}
+	@GetMapping(value="queryTemp/{user_id}/{date}")
+	public List<ReportTemp> queryTemp(@PathVariable("user_id") String user_id, @PathVariable("date")  Date date){
+		return reportService.queryTemp(user_id,date);
 	}
 }

@@ -1,5 +1,7 @@
 package cn.edu.bcu.ls;
 
+import java.util.TimeZone;
+
 import org.mybatis.spring.annotation.MapperScan;
 
 import org.springframework.boot.SpringApplication;
@@ -15,6 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class PreventionApplication extends SpringBootServletInitializer{
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(PreventionApplication.class, args);
 	}
 
