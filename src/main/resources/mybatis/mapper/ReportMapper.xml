@@ -90,7 +90,9 @@ FROM
     	<if test="dep_id !=null">
     		and clazz.dep_id=#{dep_id}
     	</if>
-    	
+    	<if test="nowTime !=null">
+    		and report_time LIKE CONCAT(#{nowTime},'%')
+    	</if>
     </where>
   
   </select>

@@ -12,5 +12,5 @@ public class ReportNumber {
 	private Integer clazz_id;
 	private String teacher_id;
 	private Integer dep_id;
-	
+	private String nowTime;
 }

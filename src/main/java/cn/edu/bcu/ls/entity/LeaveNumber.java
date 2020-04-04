@@ -19,5 +19,7 @@ public class LeaveNumber {
 	private Integer clazz_id;
 	@ApiModelProperty(value="辅导员id")
 	private String clazz_teacher_id;
+	@ApiModelProperty(value="日期")
+	private String date;
 	
 }

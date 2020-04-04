@@ -93,6 +93,9 @@ FROM
     	<if test="clock_temp !=null">
     		and clock.clock_temp &gt;= ${clock_temp}
     	</if>
+    	<if test="nowTime !=null">
+    		and clock.clock_time LIKE CONCAT(#{nowTime},'%')
+    	</if>
     </where>
     
   </select>

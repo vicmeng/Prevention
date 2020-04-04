@@ -78,6 +78,9 @@ FROM
     	<if test="clazz_teacher_id !=null">
     		and clazz_teacher_id =#{clazz_teacher_id}
     	</if>
+    	<if test="date !=null">
+    			and	`leave`.leave_end_date&gt;=#{date} and `leave`.leave_start_date&lt;=#{date}
+    	</if>
     </where>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">

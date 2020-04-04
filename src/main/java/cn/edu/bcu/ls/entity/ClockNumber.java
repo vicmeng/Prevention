@@ -14,4 +14,5 @@ public class ClockNumber {
 	private Integer dormitory_id;
 	private Integer dep_id;
 	private Float clock_temp;
+	private String nowTime;
 }
