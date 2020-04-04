@@ -54,7 +54,7 @@ public class ArticleController {
 	 * @return
 	 */
 	@ApiOperation(value = "图片和 文章分别传送，图片必填，文章填写所需部分")
-	@PostMapping(value = "Article", headers = "content-type=multipart/form-data")
+	@PostMapping(value = "Article")
 	public int insertArticle(Article article) {
 
 		Date date = new Date();
@@ -79,20 +79,20 @@ public class ArticleController {
 
 	@ApiOperation(value = "查看文章，传入需要的参数即可")
 	@GetMapping(value = "Article")
-	public Map<String, Object> queryArticles(ArticleNumber articleNumber) {
-		Map<String, Object> map = new HashMap<>();
+	public List<Article> queryArticles(ArticleNumber articleNumber) {
+		
 		List<Article> articles = articleService.selectByNumber(articleNumber);
 		for (Article article : articles) {
 
 			if (article.getArticlePic() != null) {
 				String[] img = article.getArticlePic().split(";");
-				map.put(article.getArticleId().toString(), img);
+				article.setImgs(img);
 			}
 
 		}
 
-		map.put("articles", articles);
-		return map;
+		
+		return articles;
 
 	}
 	
@@ -102,5 +102,17 @@ public class ArticleController {
 			RedirectAttributes redirectAttributes, HttpServletRequest request) {
 				return LoadUtil.upload(files, request);
 		
+	}
+	
+	
+	@ApiOperation(value = "管理端查看文章，传入需要的参数即可")
+	@GetMapping(value = "ArticleAdmin")
+	public List<Article> queryArticlesAdmin(ArticleNumber articleNumber) {
+		
+		List<Article> articles = articleService.selectByNumberAdmin(articleNumber);
+		
+		
+		return articles;
+
 	}
 }

@@ -43,7 +43,7 @@ public class SettingController {
 	private SettingService settingService;
 
 	@ApiOperation(value = "添加 所需的")
-	@PostMapping(value = "Setting", headers = "content-type=multipart/form-data")
+	@PostMapping(value = "Setting")
 	public int insertSetting(Setting setting) {
 		
 		
@@ -57,7 +57,7 @@ public class SettingController {
 	}
 
 	@ApiOperation(value = "修改 所需属性")
-	@PutMapping(value = "Setting", headers = "content-type=multipart/form-data")
+	@PutMapping(value = "Setting")
 	public int updataSetting(Setting setting) {
 		
 		return settingService.updateByPrimaryKeySelective(setting);

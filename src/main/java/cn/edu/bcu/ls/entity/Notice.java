@@ -67,5 +67,7 @@ public class Notice {
     private Integer noticeState;
 //    @IgnoreSwaggerParameter
 //    private List<Love> loves;
+    @ApiModelProperty(value="图片集")
+    private String  imgs[];
     
 }

@@ -12,4 +12,6 @@ public class ClockNumber {
 	private String  teacher_id;
 	private Integer clazz_id;
 	private Integer dormitory_id;
+	private Integer dep_id;
+	private Float clock_temp;
 }

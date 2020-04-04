@@ -72,20 +72,20 @@ public class NoticeController {
 	}
 	@ApiOperation(value = "查询notice，传入需要的参数即可,图片的key是id值")
 	@GetMapping(value="notice")
-	public Map<String, Object> queryNotice(NoticeNumber noticeNumber){
-		 Map<String, Object> map=new HashMap<>();
+	public List<Notice> queryNotice(NoticeNumber noticeNumber){
+		
 		 List<Notice> notices= noticeService.selectByPrimaryKey(noticeNumber);
 		 for (Notice notice : notices) {
 				
 				if(notice.getNoticePic()!=null) {
 					String[] img=notice.getNoticePic().split(";");
-					map.put(notice.getNoticeId().toString(), img);
+					notice.setImgs(img);
 				}
 
 			}
 		 
-		 map.put("notices", notices);
-		 return map;
+		 
+		 return notices;
 	}
 
 }

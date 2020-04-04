@@ -22,4 +22,6 @@ public interface ArticleMapper {
 	int updateByPrimaryKey(Article record);
 
 	List<Article> selectByNumber(ArticleNumber articleNumber);
+	
+	List<Article> selectByNumberAdmin(ArticleNumber articleNumber);
 }

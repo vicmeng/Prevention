@@ -64,7 +64,7 @@ public class ReportController {
 		return reportService.selectByPrimaryKey(reportNumber);
 	}
 	@GetMapping(value="queryTemp/{user_id}/{date}")
-	public List<ReportTemp> queryTemp(@PathVariable("user_id") String user_id, @PathVariable("date")  Date date){
+	public List<ReportTemp> queryTemp(@PathVariable("user_id") String user_id, @PathVariable("date")  String date){
 		return reportService.queryTemp(user_id,date);
 	}
 }

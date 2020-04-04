@@ -42,7 +42,7 @@ public class LeaveController {
 	@Autowired
 	private LeaveService leaveService;
 	@ApiOperation(value = "添加 所需的")
-	@PostMapping(value = "Leave" ,headers = "content-type=multipart/form-data")
+	@PostMapping(value = "Leave" )
 	public int insertLeave(Leave leave) {
 		Date date=new Date();
 		date.setHours(date.getHours()+8);

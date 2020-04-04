@@ -58,7 +58,7 @@ public class ReportServiceImpl implements ReportService {
 		return reportMapper.updateByPrimaryKey(record);
 	}
 
-	public List<ReportTemp> queryTemp(String user_id, Date date) {
+	public List<ReportTemp> queryTemp(String user_id, String date) {
 
 		List<UserDor> queryUserId = reportMapper.queryUserId(user_id);
 		List<ReportTemp> reportTemps = new ArrayList<>();
@@ -72,8 +72,8 @@ public class ReportServiceImpl implements ReportService {
 				
 				SimpleDateFormat bjSdf = new SimpleDateFormat("yyyy-MM-dd");
 				String time= bjSdf.format( queryTemp.get(i).getClock_time());
-				String time1= bjSdf.format(date);
-				if (time.equals(time1)) {
+				
+				if (time.equals(date)) {
 					System.out.println(queryTemp.get(i));
 					while (i < queryTemp.size()) {
 
@@ -86,6 +86,8 @@ public class ReportServiceImpl implements ReportService {
 			}
 			reportTemp.setUserTemps(queryTemps);
 			reportTemp.setUser_name(userDor.getUser_name());
+			reportTemp.setDormitory_build_id(userDor.getDormitory_build_id());
+			reportTemp.setDormitory_house_id(userDor.getDormitory_house_id());
 			reportTemps.add(reportTemp);
 		}
 

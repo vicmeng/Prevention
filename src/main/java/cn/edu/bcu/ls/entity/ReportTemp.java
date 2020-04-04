@@ -10,4 +10,6 @@ import lombok.NoArgsConstructor;
 public class ReportTemp {
 	private String user_name;
 	private List<UserTemp> userTemps;
+	private String dormitory_build_id;
+	private String dormitory_house_id;
 }

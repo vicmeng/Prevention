@@ -20,5 +20,5 @@ public interface ReportService {
 
 	int updateByPrimaryKey(Report record);
 
-	List<ReportTemp> queryTemp(String user_id,Date date);
+	List<ReportTemp> queryTemp(String user_id,String date);
 }

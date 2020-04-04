@@ -57,4 +57,10 @@ public class ArticleServiceImpl implements ArticleService{
 		return articMapper.selectByNumber(articleNumber);
 	}
 
+	@Override
+	public List<Article> selectByNumberAdmin(ArticleNumber articleNumber) {
+		// TODO Auto-generated method stub
+		return articMapper.selectByNumberAdmin(articleNumber);
+	}
+
 }

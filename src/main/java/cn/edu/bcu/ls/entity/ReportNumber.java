@@ -11,4 +11,6 @@ public class ReportNumber {
 	private String report_teacher_id;
 	private Integer clazz_id;
 	private String teacher_id;
+	private Integer dep_id;
+	
 }

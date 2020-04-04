@@ -36,6 +36,25 @@
     </association>
     
   </resultMap>
+  <resultMap id="BaseResultAdminMap" type="cn.edu.bcu.ls.entity.Article">
+    <!--@mbg.generated-->
+    <!--@Table article-->
+    <id column="article_id" jdbcType="INTEGER" property="articleId" />
+    <result column="article_user_id" jdbcType="VARCHAR" property="articleUserId" />
+    <result column="user_admin_id" jdbcType="VARCHAR" property="userAdminId" />
+    
+    <result column="article_scope" jdbcType="VARCHAR" property="articleScope" />
+    <result column="article_title" jdbcType="VARCHAR" property="articleTitle" />
+    <result column="article_text" jdbcType="LONGVARCHAR" property="articleText" />
+    <result column="article_pic" jdbcType="LONGVARCHAR" property="articlePic" />
+    <result column="article_like" jdbcType="INTEGER" property="articleLike" />
+    <result column="article_date" jdbcType="DATE" property="articleDate" />
+    <result column="article_type" jdbcType="INTEGER" property="articleType" />
+    <result column="article_state" jdbcType="INTEGER" property="articleState" />
+    
+    
+    
+  </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
     SELECT
@@ -58,6 +77,32 @@ FROM
     where article.article_id = #{articleId,jdbcType=INTEGER}
     GROUP BY article.article_id
   </select>
+  
+  <select id="selectByNumberAdmin"  parameterType="cn.edu.bcu.ls.entity.ArticleNumber" resultMap="BaseResultAdminMap">
+  	
+  	 select * from article
+  	 
+  	<where>
+  		<if test="article_id!=null">
+  			article.article_id=#{article_id}
+  		</if>
+  		<if test="article_scope!=null">
+  			and article_scope=#{article_scope}
+  		</if>
+  		<if test="article_type!=null">
+  			and article_type=#{article_type}
+  		</if>
+  		<if test="article_state!=null">
+  			and article_state=#{article_state}
+  		</if>
+  		<if test="user_admin_id!=null">
+  			and user_admin_id=#{user_admin_id}
+  		</if>
+  	</where>
+  	GROUP BY article.article_id
+  	
+  </select>
+  
   <select id="selectByNumber"  parameterType="cn.edu.bcu.ls.entity.ArticleNumber" resultMap="BaseResultMap">
   	
   	 <include refid="Base_Column_List" />

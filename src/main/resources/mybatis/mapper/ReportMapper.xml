@@ -31,6 +31,7 @@
    		<id column="clazz_id" jdbcType="INTEGER" property="clazzId" />
 		<result column="clazz_teacher_id" jdbcType="VARCHAR" property="clazzTeacherId" />
     	<result column="clazz_name" jdbcType="VARCHAR" property="clazzName" />
+    	<result column="dep_id" jdbcType="INTEGER" property="depId" />
     </association>
     </association>
     <association property="teacher" javaType="cn.edu.bcu.ls.entity.User">
@@ -49,7 +50,7 @@
   <sql id="select">
   	SELECT
 	report.*,
-	student.*,clazz.clazz_id,clazz.clazz_name,clazz.clazz_teacher_id,
+	student.*,clazz.clazz_id,clazz.clazz_name,clazz.clazz_teacher_id,clazz.dep_id,
 	teacher.user_name as teacherName ,teacher.user_phone as teacherPhone,teacher.user_id as teacherId
 FROM 
 	report
@@ -86,6 +87,10 @@ FROM
     	<if test="teacher_id !=null">
     		and teacher.user_id =#{teacher_id}
     	</if>
+    	<if test="dep_id !=null">
+    		and clazz.dep_id=#{dep_id}
+    	</if>
+    	
     </where>
   
   </select>
@@ -174,9 +179,11 @@ FROM
   <select id="queryUserId" parameterType="String" resultType="cn.edu.bcu.ls.entity.UserDor">
   	SELECT
 	`user`.user_id,
-	`user`.user_name 
+	`user`.user_name ,
+	dormitory.dormitory_build_id,dormitory_house_id
 FROM
 	`user` 
+	LEFT JOIN dormitory on dormitory.dormitory_id=`user`.dormitory_id
 WHERE
 	`user`.dormitory_id IN ( SELECT `user`.dormitory_id FROM `user` WHERE `user`.user_id = #{user_id} ) 
   </select>

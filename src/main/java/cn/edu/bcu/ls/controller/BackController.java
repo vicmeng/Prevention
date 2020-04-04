@@ -44,10 +44,9 @@ public class BackController {
 	private BackService backService;
 
 	@ApiOperation(value = "添加回校申请，图片必填，其他填写所需部分")
-	@PostMapping(value = "Back", headers = "content-type=multipart/form-data")
+	@PostMapping(value = "Back", headers = "content-type=application/json")
 	public int insertBack(Back back) {
 
-		
 		Date date = new Date();
 		date.setHours(date.getHours()+8);
 		back.setBackPostTime(date);

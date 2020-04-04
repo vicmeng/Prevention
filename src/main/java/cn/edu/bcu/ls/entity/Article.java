@@ -84,4 +84,6 @@ public class Article {
     */
     @ApiModelProperty(value="文章状态")
     private Integer articleState;
+    @ApiModelProperty(value="图片集")
+    private String  imgs[];
 }

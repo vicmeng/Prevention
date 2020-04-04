@@ -32,6 +32,7 @@
    		<id column="clazz_id" jdbcType="INTEGER" property="clazzId" />
 		<result column="clazz_teacher_id" jdbcType="VARCHAR" property="clazzTeacherId" />
     	<result column="clazz_name" jdbcType="VARCHAR" property="clazzName" />
+    	<result column="dep_id" jdbcType="INTEGER" property="depId" />
     </association>
     </association>
     <association property="cardTime" javaType="cn.edu.bcu.ls.entity.CardTime">
@@ -85,6 +86,12 @@ FROM
     	</if>
     	<if test="dormitory_id !=null">
     		and student.dormitory_id=#{dormitory_id}
+    	</if>
+    	<if test="dep_id !=null">
+    		and clazz.dep_id=#{dep_id}
+    	</if>
+    	<if test="clock_temp !=null">
+    		and clock.clock_temp &gt;= ${clock_temp}
     	</if>
     </where>
     
