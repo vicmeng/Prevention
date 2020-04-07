@@ -42,7 +42,7 @@ public class LeaveController {
 	@Autowired
 	private LeaveService leaveService;
 	@ApiOperation(value = "添加 所需的")
-	@PostMapping(value = "Leave" )
+	@PostMapping(value = "Leave" , headers = "content-type=application/json")
 	public int insertLeave(Leave leave) {
 		Date date=new Date();
 		leave.setLeavePostDate(date);

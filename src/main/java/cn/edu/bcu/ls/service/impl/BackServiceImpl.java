@@ -30,6 +30,7 @@ public class BackServiceImpl implements BackService {
 	@Override
 	public int insertSelective(Back record) {
 		// TODO Auto-generated method stub
+		System.out.println(record);
 		return backMapper.insertSelective(record);
 	}
 
