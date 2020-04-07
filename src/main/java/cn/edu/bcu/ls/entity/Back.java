@@ -55,7 +55,7 @@ public class Back {
     
     
     @ApiParam(hidden = true)
-    private List<String> TrafficPics;
+    private List<String> TrafficPics=null;
 
     /**
     * 返校目标时间
@@ -81,7 +81,7 @@ public class Back {
     @ApiModelProperty(value="返校证明(图片)")
     private String backCert;
     @ApiParam(hidden = true)
-    private List<String> Certs111;
+    private List<String> Certs111=null;
     /**
     * 是否发热 0：不发热 1：发热
     */

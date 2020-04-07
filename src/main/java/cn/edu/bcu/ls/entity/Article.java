@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @ApiModel(value="cn-edu-bcu-ls-entity-Article")
 @Data
 @NoArgsConstructor
-public class Article {
+public  class Article {
     /**
     * 文章id
     */
