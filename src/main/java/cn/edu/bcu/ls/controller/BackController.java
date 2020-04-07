@@ -48,7 +48,7 @@ public class BackController {
 	public int insertBack(Back back) {
 
 		Date date = new Date();
-		date.setHours(date.getHours()+8);
+		
 		back.setBackPostTime(date);
 
 		return backService.insertSelective(back);

@@ -75,11 +75,16 @@ public class ReportServiceImpl implements ReportService {
 				
 				if (time.equals(date)) {
 					System.out.println(queryTemp.get(i));
+					int j=0;
 					while (i < queryTemp.size()) {
-
+						
 						queryTemps.add(queryTemp.get(i));
+						j++;
 						
 						i++;
+						if (j>=5) {
+							break;
+						}
 					}
 
 				}

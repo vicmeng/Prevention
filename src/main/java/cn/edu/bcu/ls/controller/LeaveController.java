@@ -45,7 +45,6 @@ public class LeaveController {
 	@PostMapping(value = "Leave" )
 	public int insertLeave(Leave leave) {
 		Date date=new Date();
-		date.setHours(date.getHours()+8);
 		leave.setLeavePostDate(date);
 	
 		return leaveService.insertSelective(leave);

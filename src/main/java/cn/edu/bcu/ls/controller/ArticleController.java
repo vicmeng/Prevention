@@ -58,7 +58,7 @@ public class ArticleController {
 	public int insertArticle(Article article) {
 
 		Date date = new Date();
-		date.setHours(date.getHours()+8);
+		
 		article.setArticleDate(date);
 		return articleService.insertSelective(article);
 	}

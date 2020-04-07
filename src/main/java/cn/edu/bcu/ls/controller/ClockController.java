@@ -43,7 +43,7 @@ public class ClockController {
 //		bjSdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
 		Date date=new Date();
 		
-		date.setHours(date.getHours()+8);
+		
 		clock.setClockTime(date);
 		return clockService.insertSelective(clock);
 	}

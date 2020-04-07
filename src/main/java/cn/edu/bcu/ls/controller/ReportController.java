@@ -41,7 +41,7 @@ public class ReportController {
 	@PostMapping(value = "Report")
 	public int insertReport(Report report) {
 		Date date=new Date();
-		date.setHours(date.getHours()+8);
+		
 		report.setReportTime(date);
 		return reportService.insertSelective(report);
 	}
