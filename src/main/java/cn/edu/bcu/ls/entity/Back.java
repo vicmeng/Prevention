@@ -68,7 +68,10 @@ public class Back {
     */
     @ApiModelProperty(value="返回登记/申请 发送时间")
     private Date backPostTime;
-
+    
+    @ApiModelProperty(value="返校目标时间传入这个就行")
+    private String backTargetTimeString;
+    
     /**
     * 返回原因
     */

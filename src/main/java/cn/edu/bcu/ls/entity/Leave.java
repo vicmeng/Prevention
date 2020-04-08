@@ -50,6 +50,9 @@ public class Leave {
     @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
     @ApiModelProperty(value = "请假开始日期")
     private Date leaveStartDate;
+    
+    @ApiModelProperty(value = "请假开始日期 时间传这个")
+    private String leaveStartDateString;
 
     /**
      * 请假结束日期
@@ -57,6 +60,9 @@ public class Leave {
     @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
     @ApiModelProperty(value = "请假结束日期")
     private Date leaveEndDate;
+    
+    @ApiModelProperty(value = "请假结束日期 时间传这个")
+    private String leaveEndDateString;
 
     /**
      * 请假单发布时间

@@ -1,5 +1,7 @@
 package cn.edu.bcu.ls.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
@@ -45,12 +47,14 @@ public class BackController {
 
 	@ApiOperation(value = "添加回校申请，图片必填，其他填写所需部分")
 	@PostMapping(value = "Back")
-	public Back insertBack(Back back) {
-
+	public Back insertBack(Back back) throws ParseException {
 		Date date = new Date();
 		
 		back.setBackPostTime(date);
-
+		Date date2=null; 
+		SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd"); 
+		date2=formatter.parse(back.getBackTargetTimeString()); 
+		back.setBackTargetTime(date2);
 		return backService.insertSelective(back);
 	}
 
