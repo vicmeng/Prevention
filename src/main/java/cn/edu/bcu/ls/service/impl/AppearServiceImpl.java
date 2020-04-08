@@ -1,6 +1,7 @@
 package cn.edu.bcu.ls.service.impl;
 
 import cn.edu.bcu.ls.entity.Appear;
+import cn.edu.bcu.ls.entity.AppearNumber;
 import cn.edu.bcu.ls.mapper.AppearMapper;
 import cn.edu.bcu.ls.service.AppearService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ public class AppearServiceImpl implements AppearService {
     private AppearMapper appearMapper;
 
     @Override
-    public int insert(Appear record) {
+    public Appear insert(Appear record) {
         return appearMapper.insert(record);
     }
 
@@ -24,7 +25,7 @@ public class AppearServiceImpl implements AppearService {
     }
 
     @Override
-    public List<Appear> selectByuserid2(String user_id2) {
-        return selectByuserid2(user_id2);
+    public List<Appear> selectByuserid2(AppearNumber appearNumber) {
+        return appearMapper.selectByuserid2(appearNumber);
     }
 }

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>高校疫情防控 管理中心</title>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.bootcss.com/mdui/0.4.3/css/mdui.min.css" rel="stylesheet">
+   <script src="https://cdn.bootcss.com/mdui/0.4.3/js/mdui.min.js"></script>
+
+
+</head>
+<style type="text/css">
+	#content{
+        margin-top: 30px;
+       /* display: table-cell;
+        vertical-align: top;*/
+    }
+    #frame{
+        height: 650px;
+        width: 100%;
+    }
+</style>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar  mdui-theme-primary-light-blue" >
+	<header class="mdui-appbar  mdui-appbar-fixed">
+	<div class="mdui-toolbar mdui-color-blue-300 ">
+  <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-container"  id="toggle"><i class="mdui-icon material-icons">menu</i></a>
+  <span class="mdui-typo-title">高校疫情防控平台管理中心</span>
+  <div class="mdui-toolbar-spacer"></div>
+  <a > <i class="mdui-icon material-icons">&#xe853;</i><span id="uname"></span></a>
+  <a href="index.html" mdui-tooltip="{content: '注销'}" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">&#xe879;</i></a>
+  <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">more_vert</i></a>
+</div>
+</header>
+	<div class="mdui-drawer" id="main-drawer">
+  <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
+    
+
+    <div class="mdui-collapse-item ">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">widgets</i>
+        <div class="mdui-list-item-content">抗疫事迹</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list">
+        <a  onclick="switich('Release-Pre.html')"class="mdui-list-item mdui-ripple ">发布</a>
+        <a onclick="switich('Revoke-Pre.html')" class="mdui-list-item mdui-ripple ">撤销</a>
+      </div>
+    </div>
+
+    <div class="mdui-collapse-item ">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">layers</i>
+        <div class="mdui-list-item-content">学习分享</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list">
+        <a onclick="switich('Release-Stu.html')"class="mdui-list-item mdui-ripple ">发布</a>
+        <a onclick="switich('Revoke-Stu.html')" class="mdui-list-item mdui-ripple ">撤销</a>
+      </div>
+    </div>
+
+    
+
+    <div class="mdui-collapse-item ">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">collections</i>
+        <div class="mdui-list-item-content">学生返校登记</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list">
+        <a onclick="switich('registration-Stu.html')" class="mdui-list-item mdui-ripple ">查看学生登记</a>
+      </div>
+    </div>
+    <div class="mdui-collapse-item ">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-light-blue-a700">face</i>
+        <div class="mdui-list-item-content">学生请假</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list">
+        <a onclick="switich('Apply-leave.html')" class="mdui-list-item mdui-ripple ">今日请假申请</a>
+        <a onclick="switich('Absence.html')" class="mdui-list-item mdui-ripple ">今日缺勤</a>
+      </div>
+    </div>
+    <div class="mdui-collapse-item ">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-orange-700">event_available</i>
+        <div class="mdui-list-item-content">学生打卡</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list">
+        <a onclick="switich('clock.html')" class="mdui-list-item mdui-ripple ">今日打卡</a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item ">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue-900">ac_unit</i>
+        <div class="mdui-list-item-content">发烧学生管理</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list">
+        <a onclick="switich('feverstu.html')"  class="mdui-list-item mdui-ripple ">查看发烧学生</a>
+
+      </div>
+    </div>
+    <div class="mdui-collapse-item ">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-lime-500">receipt</i>
+        <div onclick="switich('score.html')" class="mdui-list-item-content" >抗疫积分管理</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      
+    </div>
+
+    <div class="mdui-collapse-item ">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">&#xe638;</i>
+        <div  class="mdui-list-item-content">问题上报</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      
+       <div class="mdui-collapse-item-body mdui-list">
+        <a onclick="switich('post.html')"  class="mdui-list-item mdui-ripple ">问题上报</a>
+
+      </div>
+      
+    </div>
+
+      <div class="mdui-collapse-item ">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">settings</i>
+        <div  class="mdui-list-item-content">系统设置</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      
+       <div class="mdui-collapse-item-body mdui-list">
+        <a onclick="switich('setting.html')"  class="mdui-list-item mdui-ripple ">账号管理</a>
+
+      </div>
+      
+    </div>
+  </div>
+
+    
+  </div>
+
+  
+
+</div>
+  <div id="content" class="mdui-container">
+                    <iframe name="frame" id="frame"  src="" frameborder="0" scrolling="auto" >
+                        您的浏览器不支持HTML5，请升级浏览器再试
+                    </iframe>
+                </div>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+<script>
+    var $$=mdui.JQ;
+    var username = JSON.parse(sessionStorage.getItem("username"))
+    var userid = JSON.parse(sessionStorage.getItem("userid"))
+    console.log(username)
+    $("#uname").html(username);
+    
+    function switich(url) {
+        $$("#frame").attr('src',url);
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

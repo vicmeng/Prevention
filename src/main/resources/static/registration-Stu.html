@@ -1,0 +1,364 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+    <title>查看返校登记</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.js"></script>
+
+    
+    <link href="https://cdn.bootcss.com/mdui/0.4.3/css/mdui.min.css" rel="stylesheet">
+    <script src="js/mdui.min.js"></script>
+    
+    
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.js"></script>
+    <!-- Latest compiled and minified Locales -->
+    <script src="https://unpkg.com/bootstrap-table@1.14.2/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+
+
+</head>
+<style type="text/css">
+    .mdui-btn{
+        margin-right: 5px;
+    }
+</style>
+
+<body class="mdui-theme-primary-light-blue mdui-theme-accent-blue">
+    <h2 class="mdui-text-color-theme">查看返校登记</h2>
+    <div id="content">
+       <div id="tableArea">
+           <table id="table"></table>
+       </div>
+    </div>
+
+    <div id="record" class="mdui-dialog">
+        <div class="mdui-dialog-content">
+            <div class="mdui-dialog-title">申请信息</div>
+            <div>
+
+                <div id="basicInfoLabel" class="mylabel" >一、学生健康信息</div>
+
+                <form action="" id="detail_form">
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">是否发热</label>
+                    <input class="mdui-textfield-input" type="text" id="backIsferver" name="backIsferver" readonly/>
+                    <div class="mdui-textfield-error">此项不能为空</div>
+                </div>
+
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">是否有接触史</label>
+                    <input class="mdui-textfield-input" type="text" id="backIscontact" name="backIscontact" readonly required/>
+                    <div class="mdui-textfield-error">此项不能为空</div>
+                </div>
+
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">是否就医</label>
+                    <input class="mdui-textfield-input" type="text" id="backIshospital" name="backIshospital" readonly  required/>
+                    <div class="mdui-textfield-error">此项不能为空</div>
+                </div>
+
+
+                <div id="roomInfoLabel" class="mylabel">二、返校行程</div>
+
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">返回地</label>
+                    <input class="mdui-textfield-input" type="text" id="backPlace" name="backPlace" readonly/>
+                </div>
+
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">交通工具</label>
+                    <input class="mdui-textfield-input" type="text" id="backTraffic" name="backTraffic" readonly/>
+                </div>
+
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">车次号</label>
+                    <input class="mdui-textfield-input" type="text" id="backTrafficNo" name="backTrafficNo" readonly/>
+                </div>
+
+                
+
+
+
+                    <div id="PhotoInfoLabel" class="mylabel" >车票信息</div>
+                   
+
+                    车票
+                    <table id="backTrafficPic" class="mytable">
+
+                    </table>
+                    
+
+                </form>
+            </div>
+
+
+        </div>
+        <div class="mdui-dialog-actions">
+            
+            <button class="mdui-btn mdui-ripple" mdui-dialog-close>关闭</button>
+        </div>
+    </div>
+
+    
+        
+</body>
+
+<script>
+    var $$=mdui.JQ;
+    
+    var detailDialog=new mdui.Dialog("#record");
+    window.operateEvents={
+        "click .detail":function (index,value,row){
+            rm()
+            getDetail(row.backId)
+        },
+        "click .status":function(index,value,row){
+            changeSubmit(row.backId,row.backState)
+        },
+        "click .delete":function(index,value,row){
+            deleteSubmit(row.backId)
+        }
+    }
+    
+   $$.ajax({
+              method:'GET',
+              url:'http://47.95.141.31:8080/prevention/back',
+              dataType: "json",
+              
+              success:function (data) {
+                console.log(data)
+                
+               for(i=0;i<data.length;i++)
+               {
+                console.log(data[i].backId)
+               }
+
+            }
+        })
+
+
+    
+        $("#table").bootstrapTable({
+        url: 'http://47.95.141.31:8080/prevention/back?back_type=1',         //请求后台的URL（*）
+        method: 'get',                      //请求方式（*）
+        toolbar: '#toolbar',                //工具按钮用哪个容器
+        striped: true,                      //是否显示行间隔色
+        cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        pagination: true,                   //是否显示分页（*）
+        sortOrder: "asc",                   //排序方式
+        //    queryParams: oTableInit.queryParams,//传递参数（*）
+        sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*）
+        smartDisplay:true,
+        pageNumber: 1,                       //初始化加载第一页，默认第一页
+        pageSize: 9,                       //每页的记录行数（*）
+        pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+        search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+       // showColumns: true,                  //是否显示所有的列
+        showRefresh: true,                  //是否显示刷新按钮
+        minimumCountColumns: 2,             //最少允许的列数
+         clickToSelect: true,                //是否启用点击选中行
+        height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+        uniqueId: "backType",                     //每一行的唯一标识，一般为主键列
+        showExport: true,                     //是否显示导出
+        exportDataType: "basic",
+        columns: [ {
+            field:'backId',
+            title:'登记编号',
+            align:'center'
+            
+        },{
+            field:'userId',
+            title:'学生姓名',
+            align:'center',
+            formatter:getName
+            
+        },{
+            field:'backPlace',
+            title:'返回地',
+            align:'center'
+        } ,{
+            field: 'operation',
+            title: '操作',
+            align: 'center',
+            events:operateEvents,//给按钮注册事件
+            formatter:addFunctionAlty//表格中增加按钮 
+        }
+        ]
+    })
+ 
+   
+
+
+    function getuserName(userId){
+        var username;
+        $$.ajax({
+            url:"http://47.95.141.31:8080/prevention/user/"+userId,
+            method:"get",
+            dataType:"json",
+            data:{
+                  u_id:userId,
+                  
+              },
+              contentType:false,
+              async: false,
+              success:function(data){
+                 username=data.userName;
+                 console.log(username)
+                 
+               }});
+        
+            return username;
+        
+
+    }
+        
+    function getName(value,row,index){
+        var userqqq=getuserName(row.userId);
+
+        return ['<span>'+userqqq+'</span>'].join('');
+
+    }      
+    
+    
+
+    
+  
+
+    function addFunctionAlty(){
+        return[
+            '<button class="mdui-btn mdui-color-theme-accent mdui-ripple detail"> 查看学生具体信息</button>',
+            '<button class="mdui-btn mdui-color-theme-accent mdui-ripple delete">删除登记记录</button>'
+        ].join('')
+    }
+   
+
+    
+    
+    function rm() {
+        $(".myimg").remove();
+    }
+
+    function getDetail(backId) {
+        $$.ajax({
+            url:"http://47.95.141.31:8080/prevention/back",
+            method:"get",
+            dataType:"json",
+            data:{
+                  back_id:backId,
+                  
+              },
+            contentType:false,
+            success:function (obj) {
+                var data = eval(obj);
+
+                console.log(data)
+                if(data[0].backIsferver==0){
+                    $$("#backIsferver").val("否");
+                }else if(data[0].backIsferver==1){
+                    $$("#backIsferver").val("是");
+                }
+
+                if(data[0].backIscontact==0)
+                {
+                    $$("#backIscontact").val("否");
+                }else if(data[0].backIscontact==1)
+                {
+                    $$("#backIscontact").val("是");
+                }
+
+                if(data[0].backIshospital==0)
+                {
+                    $$("#backIshospital").val("否");
+                }else if(data[0].backIshospital==1)
+                {
+                    $$("#backIshospital").val("是");
+                }
+                
+                
+                
+                $$("#backPlace").val(data[0].backPlace);
+                $$("#backTraffic").val(data[0].backTraffic);
+                $$("#backTrafficNo").val(data[0].backTrafficNo);
+               
+                
+
+                
+
+              
+             
+             var backTrafficPic =data[0].backTrafficPic.split(";");
+             console.log(backTrafficPic)
+
+             for (var i=0;i<backTrafficPic.length;i++) {
+                 //console.log(backTrafficPic[i])
+                 $$("#backTrafficPic").append("<div class='myimg' style='text-align:center;margin: 5px'> <img src='" + backTrafficPic[i] + "' width='200px' height='120px'/> </div>");
+             }
+                detailDialog.open();
+            }
+        })
+    }
+
+   
+
+function deleteSubmit(back_id) {
+
+          
+          mdui.dialog({
+           title: '删除申请',
+            content: '您想要删除申请吗？',
+          buttons: [
+        {
+          text: '取消'
+        },
+        {
+        text: '确认',
+        onClick: function(inst){
+          
+
+           mdui.snackbar({
+            message: '删除中...',
+            position: 'right-top'
+        });
+        $$.ajax({
+            method: 'DELETE',
+            url: 'http://47.95.141.31:8080/prevention/back/'+back_id,
+            dataType: "json",
+              data:{
+                  back_id:back_id
+                  
+              },
+            success: function (data) {
+                $$("#submit").removeAttr("disabled");
+                mdui.snackbar({
+                    message: '删除成功',
+                    position: 'right-top'
+                });
+                history.go(0)
+            },
+            fail:function () {
+                $$("#submit").removeAttr("disabled");
+                mdui.snackbar({
+                    message: '删除失败',
+                    position: 'right-top'
+                });
+            }
+        });
+          
+        }
+      }
+    ]
+  });
+};
+   
+  
+</script>
+
+</html>

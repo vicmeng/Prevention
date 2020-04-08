@@ -1,0 +1,333 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+    <title>今日缺勤</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.js"></script>
+
+    
+    <link href="https://cdn.bootcss.com/mdui/0.4.3/css/mdui.min.css" rel="stylesheet">
+    <script src="js/mdui.min.js"></script>
+    
+    
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.js"></script>
+    <!-- Latest compiled and minified Locales -->
+    <script src="https://unpkg.com/bootstrap-table@1.14.2/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+
+
+</head>
+<style type="text/css">
+    .mdui-btn{
+        margin-right: 5px;
+    }
+</style>
+
+<body class="mdui-theme-primary-light-blue mdui-theme-accent-blue">
+    <h2 class="mdui-text-color-theme">查看今日缺勤</h2>
+    <div id="content">
+       <div id="tableArea">
+           <table id="table"></table>
+       </div>
+    </div>
+
+    <div id="record" class="mdui-dialog">
+        <div class="mdui-dialog-content">
+            <div class="mdui-dialog-title">学生信息</div>
+            <div>
+
+                <div id="basicInfoLabel" class="mylabel" >一、学生基本信息</div>
+
+                <form action="" id="detail_form">
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">学生姓名</label>
+                    <input class="mdui-textfield-input" type="text" id="userName" name="userName" readonly/>
+                    <div class="mdui-textfield-error">此项不能为空</div>
+                </div>
+
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">学部</label>
+                    <input class="mdui-textfield-input" type="text" id="depName" name="depName" readonly required/>
+                    <div class="mdui-textfield-error">此项不能为空</div>
+                </div>
+
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">班级</label>
+                    <input class="mdui-textfield-input" type="text" id="clazzName" name="clazzName" readonly required/>
+                    <div class="mdui-textfield-error">此项不能为空</div>
+                </div>
+
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">宿舍楼</label>
+                    <input class="mdui-textfield-input" type="text" id="dormitoryBuildId" name="dormitoryBuildId" readonly required/>
+                    <div class="mdui-textfield-error">此项不能为空</div>
+                </div>
+
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">房间号</label>
+                    <input class="mdui-textfield-input" type="text" id="dormitoryHouseId" name="dormitoryHouseId" readonly required/>
+                    <div class="mdui-textfield-error">此项不能为空</div>
+                </div>
+
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">学生电话</label>
+                    <input class="mdui-textfield-input" type="text" id="userPhone" name="userPhone" readonly  required/>
+                    <div class="mdui-textfield-error">此项不能为空</div>
+                </div>
+
+            
+
+                
+
+                
+
+                </form>
+            </div>
+
+
+        </div>
+        <div class="mdui-dialog-actions">
+            
+            <button class="mdui-btn mdui-ripple" mdui-dialog-close>关闭</button>
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+    var $$=mdui.JQ;
+    
+    var detailDialog=new mdui.Dialog("#record");
+    window.operateEvents={
+        "click .detail":function (index,value,row){
+            rm()
+            getDetail(row.reportStudentId)
+        },
+        
+        "click .delete":function(index,value,row){
+            deleteSubmit(row.reportId)
+        }
+    }
+
+    var now = new Date();
+        var year = now.getFullYear(); //得到年份
+         var month = now.getMonth()+1;//得到月份
+         console.log(month)
+          var date = now.getDate();//得到日期
+          function PrefixInteger(num, length) {
+ return (Array(length).join('0') + num).slice(-length);
+}
+        month=PrefixInteger(month,2);
+        date=PrefixInteger(date,2);
+          var time = "";
+        time = year + "-" + month + "-" + date  ;
+        console.log(time);
+
+
+    
+        $("#table").bootstrapTable({
+        url: 'http://47.95.141.31:8080/prevention/Report?nowTime='+time,         //请求后台的URL（*）
+        method: 'get',                      //请求方式（*）
+        toolbar: '#toolbar',                //工具按钮用哪个容器
+        striped: true,                      //是否显示行间隔色
+        cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        pagination: true,                   //是否显示分页（*）
+        sortOrder: "asc",                   //排序方式
+        //    queryParams: oTableInit.queryParams,//传递参数（*）
+        sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*）
+        smartDisplay:true,
+        pageNumber: 1,                       //初始化加载第一页，默认第一页
+        pageSize: 9,                       //每页的记录行数（*）
+        pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+        search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+       // showColumns: true,                  //是否显示所有的列
+        showRefresh: true,                  //是否显示刷新按钮
+        minimumCountColumns: 2,             //最少允许的列数
+         clickToSelect: true,                //是否启用点击选中行
+        height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+        uniqueId: "reportId",                     //每一行的唯一标识，一般为主键列
+        showExport: true,                     //是否显示导出
+        exportDataType: "basic",
+        columns: [ {
+            field:'reportId',
+            title:'编号',
+            align:'center'
+            
+        },{
+            field:'reportStudentId',
+            title:'缺勤学生',
+            align:'center',
+            formatter:getName
+            
+        },{
+            field:'reportTeacherId',
+            title:'报告发起人',
+            align:'center',
+            formatter:getteaName
+        } ,{
+            field:'reportTime',
+            title:'报告时间' ,
+            align:'center',
+            
+            
+        },{
+            field:'reportRemark',
+            title:'报告备注',
+            align:'center'
+            
+        },{
+            field: 'operation',
+            title: '操作',
+            align: 'center',
+            events:operateEvents,//给按钮注册事件
+            formatter:addFunctionAlty//表格中增加按钮 
+        }
+        ]
+    })
+ 
+    
+
+    function getuserName(userId){
+        var username;
+        $$.ajax({
+            url:"http://47.95.141.31:8080/prevention/user/"+userId,
+            method:"get",
+            dataType:"json",
+            data:{
+                  u_id:userId,
+                  
+              },
+              contentType:false,
+              async: false,
+              success:function(data){
+                 username=data.userName;
+                 console.log(username)
+                 
+               }});
+        
+            return username;
+        
+
+    }
+        
+    function getName(value,row,index){
+        var userqqq=getuserName(row.reportStudentId);
+
+        return ['<span>'+userqqq+'</span>'].join('');
+
+    }      
+    function getteaName(value,row,index){
+        var userqq=getuserName(row.reportTeacherId);
+
+        return ['<span>'+userqq+'</span>'].join('');
+
+    }      
+    
+    
+
+
+
+    function addFunctionAlty(){
+        return[
+            '<button class="mdui-btn mdui-color-theme-accent mdui-ripple detail"> 查看学生信息</button>',
+            
+            '<button class="mdui-btn mdui-color-theme-accent mdui-ripple delete">删除申请</button>'
+        ].join('')
+    }
+   
+
+    
+    
+    function rm() {
+        $(".myimg").remove();
+    }
+
+    function getDetail(userId) {
+        console.log(userId)
+        $$.ajax({
+            url:"http://47.95.141.31:8080/prevention/user/"+userId,
+            method:"get",
+            dataType:"json",
+            data:{
+                  u_id:userId,
+                  
+              },
+            contentType:false,
+            success:function (data) {
+                
+                 $$("#userName").val(data.userName);
+                 $$("#depName").val(data.department.depName);
+                 $$("#clazzName").val(data.clazz.clazzName);
+                 $$("#dormitoryBuildId").val(data.dormitory.dormitoryBuildId);
+                 $$("#dormitoryHouseId").val(data.dormitory.dormitoryHouseId);
+                 $$("#userPhone").val(data.userPhone);
+                detailDialog.open();
+
+                
+            }
+        })
+    }
+
+    
+function deleteSubmit(Report_id) {
+
+          
+          mdui.dialog({
+           title: '删除信息',
+            content: '您想要删除信息吗？',
+          buttons: [
+        {
+          text: '取消'
+        },
+        {
+        text: '确认',
+        onClick: function(inst){
+          
+
+           mdui.snackbar({
+            message: '删除中...',
+            position: 'right-top'
+        });
+        $$.ajax({
+            method: 'DELETE',
+            url: 'http://47.95.141.31:8080/prevention/Report/'+Report_id,
+            dataType: "json",
+              data:{
+                  Report_id:Report_id
+                  
+              },
+            success: function (data) {
+                $$("#submit").removeAttr("disabled");
+                mdui.snackbar({
+                    message: '删除成功',
+                    position: 'right-top'
+                });
+                history.go(0)
+            },
+            fail:function () {
+                $$("#submit").removeAttr("disabled");
+                mdui.snackbar({
+                    message: '删除失败',
+                    position: 'right-top'
+                });
+            }
+        });
+          
+        }
+      }
+    ]
+  });
+};
+
+</script>
+
+</html>

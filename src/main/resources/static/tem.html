@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temperature</title>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <style>
+        .box{
+            width: 600px;
+            height: 300px;
+            border: 1px solid black;
+            position: absolute;
+            left: 0;
+            top:0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+
+        
+        // var id = GetQueryString("number");
+        // console.log(id)
+
+        var name = []
+        // console.log(echarts)
+        let oBox = document.querySelector('.box')
+ 
+        let option = {
+        title: {
+            text: '同宿舍小伙伴的体温走势图'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: []
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series:function(){
+            var dataArr = []
+            var aa = []
+            var serie=[];
+            for( var i=0;i < 10;i++) {
+                var item={
+                    name:aa[i],
+                    type:'line',
+                    data:dataArr
+                }
+                serie.push(item)
+            };
+            // console.log(serie); 
+            return serie;
+        }()
+    };
+        var result
+        let chart = echarts.init(oBox)
+        chart.setOption(option)
+
+        var username;
+        var time;
+
+        ajax({
+            type:"get",
+            url:'http://47.95.141.31:8080/prevention/queryTemp/17111652227/2020-03-27',
+            success:function(data1){
+                result = eval('('+data1+')');
+                let temp = []
+                let templist=[]
+                var time = []
+                let tem = []
+                let teml = []
+
+                console.log(name)
+
+                result.forEach((value,index,array) => {
+                    // temp.push(value.user_name)
+                    value.userTemps.forEach((value,index,array)=>{
+                        temp.push(value.clock_temp)
+                        time.push(value.clock_time)
+                        tem.push(value.clock_temp)
+                    })
+                    templist.push(temp)
+                    temp=[]
+                });
+                console.log(templist)
+                let a = []
+                // console.log(temp[1])
+                result.forEach(function(value){
+                    a.push(value.user_name)
+                })
+                name = a
+
+                
+                function unique (arr) {
+                    return Array.from(new Set(arr))
+                }
+                let time_1 = unique(time)
+                time_1.reverse();
+                option.xAxis.data = time_1
+                console.log(time_1)
+
+                console.log(templist,templist.length)
+                for(let j = 0 ; j<templist.length ; j++){
+                    option.series[j].data = templist[j]
+                    option.series[j].name = a[j]
+                }
+                option.legend.data = a
+                chart.setOption(option)
+            }
+        })
+
+        
+
+        function ajax(option){
+            var ajax = new XMLHttpRequest();
+            ajax.open(option.type,option.url+'?'+JsonToString(option.data),true)
+            ajax.send();
+            ajax.onreadystatechange = function(){
+            if(ajax.readyState == 4){
+                if(ajax.status >=200 && ajax.status<300 || ajax.status ==304){
+                    option.success(ajax.responseText)
+                }else{
+                    option.error();
+                }
+            }
+        }
+        function JsonToString(json){
+            var arr = []
+            for(var i in option.data){
+                arr.push(i+'='+option.data[i])
+            }
+            return arr.join('&')
+        }
+
+    }
+    </script>
+</body>
+</html>

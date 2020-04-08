@@ -1,10 +1,165 @@
-<!DOCTYPE html>
+
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	prevention
-</body>
+  <head>
+    <title>高校疫情防控 平台管理中心 登录</title>
+
+	<meta charset="utf-8">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.bootcss.com/mdui/0.4.3/css/mdui.min.css" rel="stylesheet">
+   <script src="https://cdn.bootcss.com/mdui/0.4.3/js/mdui.min.js"></script>
+
+
+    <!-- Compiled and minified JavaScript -->
+  </head>
+
+  <style type="text/css">
+    html,
+    body {
+      background-image: url("images/system/login.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+
+    #loginFrame{
+      width: 400px;
+      height: 500px;
+      /*实现居中 这几个属性都要去设置！↓*/
+      margin: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 800px;
+      right: 0;
+      /*实现居中 这几个属性都要去设置！↑*/
+      background-color: white;
+      opacity: 0.85;
+    }
+
+
+    #title{
+      text-align: center;
+      font-weight: 400;
+    }
+
+    #mainTitle{
+      margin-top: 15px;
+      font-size: 35px;
+    }
+    #subTitle{
+      margin-top: 15px;
+      font-size: 20px;
+    }
+    #wenben{
+      margin-top: 10px;
+      width: 80%;
+      margin-left: 30px;
+    }
+    #anniu{
+      margin-top: 10px;
+    }
+    #copyRight{
+      margin-top: 65px;
+      font-size: 10px;
+      color: #757575;
+      text-align: center;
+    }
+    
+    
+
+
+
+
+  </style>
+
+  <body class="mdui-theme-primary-black mdui-theme-accent-blue">
+<div id="loginFrame" class="mdui-shadow-24">
+    <div id="logo"></div>
+    <div id="title" class="mdui-text-color-theme" >
+      <div id="mainTitle">高校疫情防控</div>
+      <div id="subTitle">管理中心</div>
+    </div>
+
+    <div id="wenben">
+<div class="mdui-textfield mdui-textfield-floating-label">
+  <i class="mdui-icon material-icons">account_circle</i>
+  <label class="mdui-textfield-label">账户</label>
+  <input class="mdui-textfield-input required" type="text" id="username" required/>
+  <div class="mdui-textfield-error">用户名不能为空</div>
+</div>
+
+<!-- 浮动标签、多行文本框 -->
+<div class="mdui-textfield mdui-textfield-floating-label">
+  <i class="mdui-icon material-icons">lock</i>
+  <label class="mdui-textfield-label">密码</label>
+  <input class="mdui-textfield-input required" type="password" id="password" required/>
+  <div class="mdui-textfield-error">密码不能为空</div>
+</div>
+  <div id="anniu">
+  <button id="login" onclick="login()" class="mdui-btn mdui-center mdui-btn-icon mdui-color-grey-200 mdui-ripple"><i class="mdui-icon material-icons">done</i></button>
+  </div>
+</div>
+<div id="copyRight" >
+      © 2020 BCU<br>Mobile Application Development Studio<br>All Right Received
+    </div>
+
+
+
+  </div>
+  </body>
+
+
+
+  <script>
+
+      var $$=mdui.JQ;
+
+      function login () {
+          
+         
+          var user_id = $$("#username").val();
+          var user_pwd = $$("#password").val();
+          $$.ajax({
+              method:'GET',
+              url:'http://47.95.141.31:8080/prevention/login',
+              dataType: "json",
+              data:{
+                  user_id:user_id,
+                  user_pwd:user_pwd
+              },
+              success:function (data) {
+                  console.log(data)
+
+                  sessionStorage.setItem("username",JSON.stringify(data.userName));
+                   sessionStorage.setItem("userid",JSON.stringify(data.userId));
+                  console.log(data.userName)
+                  if(data.userType==1)
+                  {window.location.href="index1.html";} //专业老师
+                  else if(data.userType==2)
+                  {window.location.href="index2.html";} //辅导员
+                  else if(data.userType==3)
+                  {window.location.href="index3.html";} //学部主任
+                  else if(data.userType==4)
+                  {window.location.href="index4.html";} //学管负责人
+                  else if(data.userType==5)
+                  {window.location.href="index5.html";} //校长
+                  else if(data.userType==6)
+                  {window.location.href="index0.html";} //管理员
+                  
+               },
+              error:function(data){
+                mdui.alert("用户名或密码错误！")
+              }
+
+               
+              
+              
+          })
+      }
+
+
+  </script>
+
+
 </html>
