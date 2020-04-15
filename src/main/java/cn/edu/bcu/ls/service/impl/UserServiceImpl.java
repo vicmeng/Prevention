@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import cn.edu.bcu.ls.mapper.UserMapper;
 import cn.edu.bcu.ls.service.UserService;
 import cn.edu.bcu.ls.entity.Number;
+import cn.edu.bcu.ls.entity.StudentIntegral;
 import cn.edu.bcu.ls.entity.User;
 
 @Service
@@ -51,6 +52,14 @@ public class UserServiceImpl implements UserService {
 	public User CheckUserById(Number number) {
 		// TODO Auto-generated method stub
 		return userMapper.CheckUserById(number);
+	}
+
+	@Override
+	public StudentIntegral addScore(StudentIntegral studentIntegral) {
+		// TODO Auto-generated method stub
+		userMapper.addScore(studentIntegral);
+		studentIntegral.setIntegral(userMapper.queryIntegral(studentIntegral.getUser_id()));
+		return studentIntegral;
 	}
 
 }

@@ -1,8 +1,7 @@
 
 <html>
 <head>
-<meta charset="utf-8">
-    <title>查看学生打卡</title>
+    <title>发烧学生管理</title>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/echarts.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
@@ -32,7 +31,7 @@
 </style>
 
 <body class="mdui-theme-primary-light-blue mdui-theme-accent-blue">
-    <h2 class="mdui-text-color-theme">查看学生打卡</h2>
+    <h2 class="mdui-text-color-theme">发烧学生管理</h2>
     <div id="content">
        <div id="tableArea">
            <table id="table"></table>
@@ -106,7 +105,7 @@
 
 <script>
     var $$=mdui.JQ;
-    
+     var teaid = JSON.parse(sessionStorage.getItem("userid"))
     var detailDialog=new mdui.Dialog("#record");
     window.operateEvents={
         "click .detail":function (index,value,row){
@@ -136,7 +135,7 @@
 
     
         $("#table").bootstrapTable({
-        url: 'http://47.95.141.31:8080/prevention/Clock?clock_temp='+37.0+'&nowTime='+time,         //请求后台的URL（*）
+        url: 'http://47.95.141.31:8080/prevention/Clock?clock_temp='+37.3+'&nowTime='+time+'&teacher_id='+teaid,         //请求后台的URL（*）
         method: 'get',                      //请求方式（*）
         toolbar: '#toolbar',                //工具按钮用哪个容器
         striped: true,                      //是否显示行间隔色

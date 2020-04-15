@@ -62,6 +62,26 @@ public class ArticleController {
 		article.setArticleDate(date);
 		return articleService.insertSelective(article);
 	}
+	
+	@ApiOperation(value = "管理端图片和 文章分别传送，图片必填，文章填写所需部分")
+	@PostMapping(value = "ArticleAdmin", headers = "content-type=multipart/form-data")
+	public int insertArticleAdmin(Article article, @RequestParam(value = "file") MultipartFile[] files,
+			RedirectAttributes redirectAttributes, HttpServletRequest request) {
+		String str = "";
+		for (MultipartFile multipartFile : files) {
+
+			str = LoadUtil.upload(multipartFile, request) + ";" + str;
+		}
+		if (str.equals("")) {
+			article.setArticlePic(str);
+		}
+		
+		Date date = new Date();
+		
+		article.setArticleDate(date);
+		return articleService.insertSelective(article);
+	}
+	
 
 	@ApiOperation(value = "按照id删除")
 	@DeleteMapping(value = "Article/{article_id}")

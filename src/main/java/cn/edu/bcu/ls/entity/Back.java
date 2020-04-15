@@ -129,4 +129,6 @@ public class Back {
     
     @IgnoreSwaggerParameter
     private User user;
+    @IgnoreSwaggerParameter
+    private Clazz clazz;
 }

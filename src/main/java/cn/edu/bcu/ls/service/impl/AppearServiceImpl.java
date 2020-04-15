@@ -16,7 +16,8 @@ public class AppearServiceImpl implements AppearService {
 
     @Override
     public Appear insert(Appear record) {
-        return appearMapper.insert(record);
+    	appearMapper.insert(record);
+        return record;
     }
 
     @Override

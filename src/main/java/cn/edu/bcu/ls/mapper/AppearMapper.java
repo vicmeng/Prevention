@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface AppearMapper {
 
-	Appear insert(Appear record);
+	int insert(Appear record);
 
     int deleteByPrimaryKey(Integer appear_id);
 

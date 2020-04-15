@@ -22,7 +22,7 @@ public class LoadExecl {
 	private static final Logger logger = LoggerFactory.getLogger(LoadExecl.class);
 
 	// 项目根路径下的目录 -- SpringBoot static 目录相当于是根路径下（SpringBoot 默认）
-	public final static String UPLOAD_PATH_PREFIX = "/imgs";
+	public final static String UPLOAD_PATH_PREFIX = "/Excel";
 
 	public static String upload(MultipartFile uploadFile, HttpServletRequest request) {
 		if (uploadFile.isEmpty()) {
@@ -50,9 +50,10 @@ public class LoadExecl {
 		try {
 			// 构建真实的文件路径
 			File newFile = new File(file.getAbsolutePath() + File.separator + newName);
+			logger.info("-----------【真实路径" + newFile + "】-----------");
 			// 转存文件到指定路径，如果文件名重复的话，将会覆盖掉之前的文件,这里是把文件上传到 “绝对路径”
 			uploadFile.transferTo(newFile);
-			String filePath =  realPath + format + newName;
+			String filePath =  realPath +"/"+ newName;
 			logger.info("-----------【" + filePath + "】-----------");
 			return filePath;
 		} catch (Exception e) {

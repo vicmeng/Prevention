@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 @ApiModel(value="cn-edu-bcu-ls-entity-Appear")
 @Data
@@ -39,6 +41,9 @@ public class Appear {
     /**
      * 问题上报时间
      */
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
     @ApiModelProperty(value = "问题上报时间")
     private Date appear_posttime;
+    @ApiModelProperty(value = "问题上报标题")
+    private String appear_title;
 }

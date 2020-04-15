@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.bcu.ls.mapper.AppearMapper">
+
+    <insert id="insert" keyColumn="appear_id" keyProperty="appear_id" parameterType="cn.edu.bcu.ls.entity.Appear" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into appear
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        	<if test="appear_userid2 !=null">
+        		appear_userid2,
+        	</if>
+        	<if test="appear_userid !=null">
+        		appear_userid,
+        	</if>
+        	<if test="appear_text !=null">
+        		appear_text,
+        	</if>
+        	<if test="appear_posttime !=null">
+        		appear_posttime,
+        	</if>
+        	<if test="appear_title !=null">
+        		appear_title,
+        	</if>
+        
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        	<if test="appear_userid2 !=null">
+        		#{appear_userid2},
+        	</if>
+        		<if test="appear_userid !=null">
+        		#{appear_userid},
+        	</if>
+        		<if test="appear_text !=null">
+        		#{appear_text},
+        	</if>
+        		<if test="appear_posttime !=null">
+        		#{appear_posttime},
+        	</if>
+        	<if test="appear_title !=null">
+        		#{appear_title},
+        	</if>
+        </trim>
+        
+       
+    </insert>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete from appear
+        where appear.appear_id=#{appear_id,jdbcType=INTEGER}
+    </delete>
+
+    <select id="selectByuserid2" parameterType="cn.edu.bcu.ls.entity.AppearNumber" resultType="cn.edu.bcu.ls.entity.Appear">
+
+        select * from appear 
+        <where>
+        	<if test="appear_id !=null">
+        		appear_id =${appear_id}
+        	</if>
+        	<if test="appear_userid !=null">
+        		and  appear_userid =${appear_userid}
+        	</if>
+        	<if test="appear_userid2 !=null">
+        		and appear_userid2 =${appear_userid2}
+        	</if>
+        	</where>
+
+    </select>
+
+
+
+
+
+
+
+
+</mapper>

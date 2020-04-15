@@ -1,7 +1,6 @@
 
 <html>
 <head>
-<meta charset="utf-8">
     <title>查看返校登记</title>
     <script src="js/jquery-3.3.1.min.js"></script>
 
@@ -113,7 +112,7 @@
 
 <script>
     var $$=mdui.JQ;
-    
+    var userteaid = JSON.parse(sessionStorage.getItem("userid"))
     var detailDialog=new mdui.Dialog("#record");
     window.operateEvents={
         "click .detail":function (index,value,row){
@@ -147,7 +146,7 @@
 
     
         $("#table").bootstrapTable({
-        url: 'http://47.95.141.31:8080/prevention/back?back_type=1',         //请求后台的URL（*）
+        url: 'http://47.95.141.31:8080/prevention/back?back_type=1&clazz_teacher_id='+userteaid,         //请求后台的URL（*）
         method: 'get',                      //请求方式（*）
         toolbar: '#toolbar',                //工具按钮用哪个容器
         striped: true,                      //是否显示行间隔色
@@ -298,7 +297,8 @@
              console.log(backTrafficPic)
 
              for (var i=0;i<backTrafficPic.length;i++) {
-                 //console.log(backTrafficPic[i])
+                 console.log(backTrafficPic[i])
+                 if(backTrafficPic[i]!="")
                  $$("#backTrafficPic").append("<div class='myimg' style='text-align:center;margin: 5px'> <img src='" + backTrafficPic[i] + "' width='200px' height='120px'/> </div>");
              }
                 detailDialog.open();

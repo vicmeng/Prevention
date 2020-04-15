@@ -1,7 +1,7 @@
 
 <html>
 <head>
-    <title>查看请假申请</title>
+    <title>查看返校申请</title>
     <script src="js/jquery-3.3.1.min.js"></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
@@ -31,7 +31,7 @@
 </style>
 
 <body class="mdui-theme-primary-light-blue mdui-theme-accent-blue">
-    <h2 class="mdui-text-color-theme">查看请假申请</h2>
+    <h2 class="mdui-text-color-theme">查看返校申请</h2>
     <div id="content">
        <div id="tableArea">
            <table id="table"></table>
@@ -40,53 +40,78 @@
 
     <div id="record" class="mdui-dialog">
         <div class="mdui-dialog-content">
-            <div class="mdui-dialog-title">学生信息</div>
+            <div class="mdui-dialog-title">申请信息</div>
             <div>
 
-                <div id="basicInfoLabel" class="mylabel" >一、学生基本信息</div>
+                <div id="basicInfoLabel" class="mylabel" >一、学生健康信息</div>
 
                 <form action="" id="detail_form">
                 <div class="mdui-textfield">
-                    <label class="mdui-textfield-label">学生姓名</label>
-                    <input class="mdui-textfield-input" type="text" id="userName" name="userName" readonly/>
+                    <label class="mdui-textfield-label">是否发热</label>
+                    <input class="mdui-textfield-input" type="text" id="backIsferver" name="backIsferver" readonly/>
                     <div class="mdui-textfield-error">此项不能为空</div>
                 </div>
 
                 <div class="mdui-textfield">
-                    <label class="mdui-textfield-label">学部</label>
-                    <input class="mdui-textfield-input" type="text" id="depName" name="depName" readonly required/>
+                    <label class="mdui-textfield-label">是否有接触史</label>
+                    <input class="mdui-textfield-input" type="text" id="backIscontact" name="backIscontact" readonly required/>
                     <div class="mdui-textfield-error">此项不能为空</div>
                 </div>
 
                 <div class="mdui-textfield">
-                    <label class="mdui-textfield-label">班级</label>
-                    <input class="mdui-textfield-input" type="text" id="clazzName" name="clazzName" readonly required/>
+                    <label class="mdui-textfield-label">是否就医</label>
+                    <input class="mdui-textfield-input" type="text" id="backIshospital" name="backIshospital" readonly  required/>
                     <div class="mdui-textfield-error">此项不能为空</div>
+                </div>
+
+
+                <div id="roomInfoLabel" class="mylabel">二、返校行程</div>
+
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">返回地</label>
+                    <input class="mdui-textfield-input" type="text" id="backPlace" name="backPlace" readonly/>
                 </div>
 
                 <div class="mdui-textfield">
-                    <label class="mdui-textfield-label">宿舍楼</label>
-                    <input class="mdui-textfield-input" type="text" id="dormitoryBuildId" name="dormitoryBuildId" readonly required/>
-                    <div class="mdui-textfield-error">此项不能为空</div>
+                    <label class="mdui-textfield-label">交通工具</label>
+                    <input class="mdui-textfield-input" type="text" id="backTraffic" name="backTraffic" readonly/>
                 </div>
 
                 <div class="mdui-textfield">
-                    <label class="mdui-textfield-label">房间号</label>
-                    <input class="mdui-textfield-input" type="text" id="dormitoryHouseId" name="dormitoryHouseId" readonly required/>
-                    <div class="mdui-textfield-error">此项不能为空</div>
+                    <label class="mdui-textfield-label">车次号</label>
+                    <input class="mdui-textfield-input" type="text" id="backTrafficNo" name="backTrafficNo" readonly/>
                 </div>
-
-                <div class="mdui-textfield">
-                    <label class="mdui-textfield-label">学生电话</label>
-                    <input class="mdui-textfield-input" type="text" id="userPhone" name="userPhone" readonly  required/>
-                    <div class="mdui-textfield-error">此项不能为空</div>
-                </div>
-
-            
 
                 
 
-                
+
+
+                    <div id="PhotoInfoLabel" class="mylabel" >车票信息</div>
+                   
+
+                    车票
+                    <table id="backTrafficPic" class="mytable">
+
+                    </table>
+                    <div id="roomInfoLabel" class="mylabel">三、返校原因</div>
+
+                <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">返校目标时间</label>
+                    <input class="mdui-textfield-input" type="text" id="backTargetTime" name="backTargetTime"readonly />
+                </div>
+
+                <div class="mdui-textfield"> 
+                    <label class="mdui-textfield-label">返校原因</label>
+                    <input class="mdui-textfield-input" type="text" id="backReason" name="backReason" readonly/>
+                </div>
+
+                <div id="PhotoInfoLabel" class="mylabel" >返校证明</div>
+                   
+
+                    
+                    <table id="backCert" class="mytable">
+
+                    </table>
 
                 </form>
             </div>
@@ -99,7 +124,6 @@
         </div>
     </div>
 
-
     
         
 </body>
@@ -111,35 +135,36 @@
     window.operateEvents={
         "click .detail":function (index,value,row){
             rm()
-            getDetail(row.userId)
+            getDetail(row.backId)
         },
         "click .status":function(index,value,row){
-            changeSubmit(row.leaveId,row.leaveState)
+            changeSubmit(row.backId,row.backState)
         },
         "click .delete":function(index,value,row){
-            deleteSubmit(row.leaveId)
+            deleteSubmit(row.backId)
         }
     }
     
-  
-   var now = new Date();
-        var year = now.getFullYear(); //得到年份
-         var month = now.getMonth()+1;//得到月份
-         console.log(month)
-          var date = now.getDate();//得到日期
-          function PrefixInteger(num, length) {
- return (Array(length).join('0') + num).slice(-length);
-}
-        month=PrefixInteger(month,2);
-        date=PrefixInteger(date,2);
-          var time = "";
-        time = year + "-" + month + "-" + date  ;
-        console.log(time);
+   $$.ajax({
+              method:'GET',
+              url:'http://47.95.141.31:8080/prevention/back',
+              dataType: "json",
+              
+              success:function (data) {
+                console.log(data)
+                
+               for(i=0;i<data.length;i++)
+               {
+                console.log(data[i].backId)
+               }
+
+            }
+        })
 
 
     
         $("#table").bootstrapTable({
-        url: 'http://47.95.141.31:8080/prevention/Leave?date=time',         //请求后台的URL（*）
+        url: 'http://47.95.141.31:8080/prevention/back?back_type=0',         //请求后台的URL（*）
         method: 'get',                      //请求方式（*）
         toolbar: '#toolbar',                //工具按钮用哪个容器
         striped: true,                      //是否显示行间隔色
@@ -158,11 +183,11 @@
         minimumCountColumns: 2,             //最少允许的列数
          clickToSelect: true,                //是否启用点击选中行
         height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
-        uniqueId: "leaveId",                     //每一行的唯一标识，一般为主键列
+        uniqueId: "backType",                     //每一行的唯一标识，一般为主键列
         showExport: true,                     //是否显示导出
         exportDataType: "basic",
         columns: [ {
-            field:'leaveId',
+            field:'backId',
             title:'申请编号',
             align:'center'
             
@@ -173,32 +198,20 @@
             formatter:getName
             
         },{
-            field:'leaveType',
-            title:'请假类别',
-            align:'center',
-            formatter:gettype
-        } ,{
-            field:'leaveStartDate',
-            title:'请假时间' ,
-            align:'center',
-            formatter:add
-            
-        },{
-            field:'leaveText',
-            title:'请假说明',
+            field:'backReason',
+            title:'返校原因',
             align:'center'
-            
         } ,{
-            field:'leavePostDate',
-            title:'申请时间',
+            field:'backPostTime',
+            title:'申请时间' ,
             align:'center',
             
         },{
-            field:'leaveState',
+            field:'backState',
             title:'申请状态',
             align:'center',
             formatter:status
-        },{
+        } ,{
             field: 'operation',
             title: '操作',
             align: 'center',
@@ -208,19 +221,8 @@
         ]
     })
  
-    function add(value,row,index){
-        return [row.leaveStartDate+'至'+row.leaveEndDate].join('');
-    }
-    function gettype(value,row,index){
-        switch(row.leaveType){
-            case 0:
-                return ['<span>事假</span>'].join('');
-                break;
-            case 1:
-                return ['<span>病假</span>'].join('');
-                break;
-        }
-    }
+   
+
 
     function getuserName(userId){
         var username;
@@ -257,17 +259,17 @@
     
     function status(value,row,index){
 
-        switch(row.leaveState){
+        switch(row.backState){
             case 0:
                 return ['<span>未审批</span>'].join('');
                 break;
 
             case 1:
-                return ['<span>驳回</span>'].join('');
+                return ['<span>通过</span>'].join('');
                 break;
 
             case 2:
-                return ['<span>通过</span>'].join('');
+                return ['<span>未通过</span>'].join('');
                 break;
 
         }
@@ -288,33 +290,75 @@
         $(".myimg").remove();
     }
 
-     function getDetail(userId) {
-        console.log(userId)
+    function getDetail(backId) {
         $$.ajax({
-            url:"http://47.95.141.31:8080/prevention/user/"+userId,
+            url:"http://47.95.141.31:8080/prevention/back",
             method:"get",
             dataType:"json",
             data:{
-                  u_id:userId,
+                  back_id:backId,
                   
               },
             contentType:false,
-            success:function (data) {
+            success:function (obj) {
+                var data = eval(obj);
+
+                console.log(data)
+                if(data[0].backIsferver==0){
+                    $$("#backIsferver").val("否");
+                }else if(data[0].backIsferver==1){
+                    $$("#backIsferver").val("是");
+                }
+
+                if(data[0].backIscontact==0)
+                {
+                    $$("#backIscontact").val("否");
+                }else if(data[0].backIscontact==1)
+                {
+                    $$("#backIscontact").val("是");
+                }
+
+                if(data[0].backIshospital==0)
+                {
+                    $$("#backIshospital").val("否");
+                }else if(data[0].backIshospital==1)
+                {
+                    $$("#backIshospital").val("是");
+                }
                 
-                 $$("#userName").val(data.userName);
-                 $$("#depName").val(data.department.depName);
-                 $$("#clazzName").val(data.clazz.clazzName);
-                 $$("#dormitoryBuildId").val(data.dormitory.dormitoryBuildId);
-                 $$("#dormitoryHouseId").val(data.dormitory.dormitoryHouseId);
-                 $$("#userPhone").val(data.userPhone);
-                detailDialog.open();
+                
+                
+                $$("#backPlace").val(data[0].backPlace);
+                $$("#backTraffic").val(data[0].backTraffic);
+                $$("#backTrafficNo").val(data[0].backTrafficNo);
+                $$("#backTargetTime").val(data[0].backTargetTime);
+                $$("#backReason").val(data[0].backReason);
+                
 
                 
+
+               var backCert=data[0].backCert.split(";");
+                console.log(backCert)
+
+             for (var i=0;i<backCert.length;i++) {
+                console.log(backCert[i])
+                if(backCert[i]!="")
+                 $$("#backCert").append("<div class='myimg' style='text-align:center;margin: 5px'> <img src='" + backCert[i] + "' width='200px' height='120px'/> </div>");
+             }
+             var backTrafficPic =data[0].backTrafficPic.split(";");
+             console.log(backTrafficPic)
+
+             for (var i=0;i<backTrafficPic.length;i++) {
+                 //console.log(backTrafficPic[i])
+                 if(backTrafficPic[i]!="")
+                 $$("#backTrafficPic").append("<div class='myimg' style='text-align:center;margin: 5px'> <img src='" + backTrafficPic[i] + "' width='200px' height='120px'/> </div>");
+             }
+                detailDialog.open();
             }
         })
     }
 
-    function changeSubmit(leaveId,leaveState) {
+    function changeSubmit(backId,backState) {
 
           
           mdui.dialog({
@@ -332,11 +376,11 @@
         });
         $$.ajax({
             method: 'PUT',
-            url: 'http://47.95.141.31:8080/prevention/Leave',
+            url: 'http://47.95.141.31:8080/prevention/back',
             dataType: "json",
               data:{
-                  leaveId:leaveId,
-                  leaveState:1
+                  backId:backId,
+                  backState:"2"
               },
             success: function (data) {
                 $$("#submit").removeAttr("disabled");
@@ -369,11 +413,11 @@
         });
         $$.ajax({
             method: 'PUT',
-            url: 'http://47.95.141.31:8080/prevention/Leave',
+            url: 'http://47.95.141.31:8080/prevention/back',
             dataType: "json",
               data:{
-                   leaveId:leaveId,
-                  leaveState:"2"
+                  backId:backId,
+                  backState:"1"
               },
             success: function (data) {
                 $$("#submit").removeAttr("disabled");
@@ -398,7 +442,7 @@
   });
 };
 
- function deleteSubmit(Leave_id) {
+function deleteSubmit(back_id) {
 
           
           mdui.dialog({
@@ -419,10 +463,10 @@
         });
         $$.ajax({
             method: 'DELETE',
-            url: 'http://47.95.141.31:8080/prevention/Leave/'+Leave_id,
+            url: 'http://47.95.141.31:8080/prevention/back/'+back_id,
             dataType: "json",
               data:{
-                  Leave_id:Leave_id
+                  back_id:back_id
                   
               },
             success: function (data) {
@@ -447,6 +491,8 @@
     ]
   });
 };
+   
+  
 </script>
 
 </html>

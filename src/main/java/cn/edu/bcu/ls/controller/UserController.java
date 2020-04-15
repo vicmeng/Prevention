@@ -1,7 +1,9 @@
 package cn.edu.bcu.ls.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,7 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cn.edu.bcu.ls.service.UserService;
 import cn.edu.bcu.ls.utils.OpenId;
+import cn.edu.bcu.ls.utils.RedisUtil;
 import cn.edu.bcu.ls.entity.Number;
+import cn.edu.bcu.ls.entity.StudentIntegral;
 import cn.edu.bcu.ls.entity.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -36,6 +40,8 @@ public class UserController {
 	// 依赖注入UserService
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private RedisUtil redisUtil;
 
 	/**
 	 * 添加用户
@@ -138,5 +144,18 @@ public class UserController {
 	@GetMapping(value="openid" )
 	public String getOpenId(String code) throws IOException {
 		return OpenId.userLogin(code);
+	}
+	@ApiOperation(value="输入类别学号加的分数0公告 1文章 2打卡")
+	@PostMapping(value="studentScore")
+	public Map<String, Object> addScore(StudentIntegral studentIntegral){
+		Map<String, Object> map=new HashMap<String, Object>();
+		if (redisUtil.hasKey(studentIntegral.getUser_id()+studentIntegral.getTpye())) {
+			map.put("error", redisUtil.getExpire(studentIntegral.getUser_id()+studentIntegral.getTpye()));
+		}else {
+			redisUtil.set(studentIntegral.getUser_id()+studentIntegral.getTpye(), studentIntegral.getIntegral());
+			redisUtil.expire(studentIntegral.getUser_id()+studentIntegral.getTpye(), 12*3600);
+			map.put("success", userService.addScore(studentIntegral));
+		}
+		return map;
 	}
 }

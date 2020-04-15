@@ -3,6 +3,7 @@ package cn.edu.bcu.ls.service;
 import java.util.List;
 
 import cn.edu.bcu.ls.entity.Number;
+import cn.edu.bcu.ls.entity.StudentIntegral;
 import cn.edu.bcu.ls.entity.User;
 
 public interface UserService {
@@ -18,4 +19,5 @@ public interface UserService {
 	int updataUser(User user);
 
 	User queryUserById(String u_id);
+	StudentIntegral addScore(StudentIntegral studentIntegral);
 }

@@ -16,8 +16,5 @@ public class AppearNumber {
     private String appear_userid;
     @ApiModelProperty(value = "问题上报接收人ID")
     private String appear_userid2;
-    @ApiModelProperty(value = "问题上报内容")
-    private String appear_text;
-    @ApiModelProperty(value = "问题上报时间")
-    private Date appear_posttime;
+
 }

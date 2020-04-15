@@ -1,10 +1,279 @@
-<!DOCTYPE html>
+
 <html>
 <head>
-<meta charset="utf-8">
-	<title>抗疫积分</title>
+    <title>积分管理</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.js"></script>
+
+    
+    <link href="https://cdn.bootcss.com/mdui/0.4.3/css/mdui.min.css" rel="stylesheet">
+    <script src="js/mdui.min.js"></script>
+    
+    
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.js"></script>
+    <!-- Latest compiled and minified Locales -->
+    <script src="https://unpkg.com/bootstrap-table@1.14.2/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+
+
 </head>
-<body>
-											抗疫积分
+<style type="text/css">
+    .mdui-btn{
+        margin-right: 5px;
+    }
+</style>
+
+<body class="mdui-theme-primary-light-blue mdui-theme-accent-blue">
+    <h2 class="mdui-text-color-theme">积分管理</h2>
+    <div id="content">
+       <div id="tableArea">
+           <table id="table"></table>
+       </div>
+    </div>
+
+    <div id="record" class="mdui-dialog">
+        <div class="mdui-dialog-content">
+             <div class="mdui-dialog-title">积分修改</div>
+             <div>
+                  
+                  <form action="" id="detail_form">
+                     <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">用户ID：</label>
+                    <input class="mdui-textfield-input" type="text" id="userid" name="userid" readonly/>
+                    <div class="mdui-textfield-error">此项不能为空</div>
+                </div>
+                    <div class="mdui-textfield">
+                    <label class="mdui-textfield-label">当前积分为：</label>
+                    <input class="mdui-textfield-input" type="text" id="userIntegralnow" name="userIntegralnow" readonly/>
+                    <div class="mdui-textfield-error">此项不能为空</div>
+                </div>
+                     <div class="mdui-textfield">
+                     <label class="mdui-textfield-label">积分修改为：</label>
+                    <input class="mdui-textfield-input" type="text" id="userIntegralnew" name="userIntegralnew" />
+                     </div>
+                  </form>
+             </div>
+        </div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn mdui-ripple" onclick="update()">修改</button>
+            <button class="mdui-btn mdui-ripple" mdui-dialog-close>关闭</button>
+        </div>
+    </div>
+    
+
+    
+        
 </body>
+
+<script>
+    var $$=mdui.JQ;
+    
+    var detailDialog=new mdui.Dialog("#record");
+    window.operateEvents={
+        
+        "click .add":function(index,value,row){
+            addSubmit(row.userId)
+        }
+    }
+    
+
+    
+        $("#table").bootstrapTable({
+        url: 'http://47.95.141.31:8080/prevention/user',         //请求后台的URL（*）
+        method: 'get',                      //请求方式（*）
+        toolbar: '#toolbar',                //工具按钮用哪个容器
+        striped: true,                      //是否显示行间隔色
+        cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        pagination: true,                   //是否显示分页（*）
+        sortOrder: "asc",                   //排序方式
+        //    queryParams: oTableInit.queryParams,//传递参数（*）
+        sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*）
+        smartDisplay:true,
+        pageNumber: 1,                       //初始化加载第一页，默认第一页
+        pageSize: 9,                       //每页的记录行数（*）
+        pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+        search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+       // showColumns: true,                  //是否显示所有的列
+        showRefresh: true,                  //是否显示刷新按钮
+        minimumCountColumns: 2,             //最少允许的列数
+         clickToSelect: true,                //是否启用点击选中行
+        height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+        uniqueId: "userId",                     //每一行的唯一标识，一般为主键列
+        showExport: true,                     //是否显示导出
+        exportDataType: "basic",
+        columns: [{
+            field:'userId',
+            title:'姓名',
+            align:'center',
+            formatter:getName
+            
+        },{
+            field:'depId',
+            title:'学部',
+            align:'center',
+            formatter:getdepname
+        } ,{
+            field:'classId',
+            title:'班级',
+            align:'center',
+            formatter:getclassname
+        },{
+            field:'userIntegral',
+            title:'积分' ,
+            align:'center',
+            
+        },{
+            field: 'operation',
+            title: '操作',
+            align: 'center',
+            events:operateEvents,//给按钮注册事件
+            formatter:addFunctionAlty//表格中增加按钮 
+        }
+        ]
+    })
+ 
+   
+
+
+    function getuserName(userId){
+        var username;
+        $$.ajax({
+            url:"http://47.95.141.31:8080/prevention/user/"+userId,
+            method:"get",
+            dataType:"json",
+            data:{
+                  u_id:userId,
+                  
+              },
+              contentType:false,
+              async: false,
+              success:function(data){
+                 username=data.userName;
+                
+                 
+               }});
+        
+            return username;
+        
+
+    }
+        
+    function getName(value,row,index){
+        var userqqq=getuserName(row.userId);
+
+        return ['<span>'+userqqq+'</span>'].join('');
+
+    }      
+    
+    function getdepname(value,row,index){
+        var depname;
+        $$.ajax({
+            url:"http://47.95.141.31:8080/prevention/user/"+row.userId,
+            method:"get",
+            dataType:"json",
+            data:{
+                  u_id:row.userId,
+                  
+              },
+              contentType:false,
+              async: false,
+              success:function(data){
+                 depname=data.department.depName;
+                 
+            
+                 
+               }});
+        return ['<span>'+depname+'</span>'].join('');
+    }
+
+    function getclassname(value,row,index){
+        var classname;
+        $$.ajax({
+            url:"http://47.95.141.31:8080/prevention/user/"+row.userId,
+            method:"get",
+            dataType:"json",
+            data:{
+                  u_id:row.userId,
+                  
+              },
+              contentType:false,
+              async: false,
+              success:function(data){
+                 classname=data.clazz.clazzName;
+                }});
+        return ['<span>'+classname+'</span>'].join('');
+    }
+ 
+
+    function addFunctionAlty(){
+        return[
+            '<button class="mdui-btn mdui-color-theme-accent mdui-ripple add">更改积分</button>'
+        ].join('')
+    }
+   
+
+    
+    
+    function rm() {
+        $(".myimg").remove();
+    }
+
+    function addSubmit(userId){
+        $$.ajax({
+            url:"http://47.95.141.31:8080/prevention/user/"+userId,
+            method:"get",
+            dataType:"json",
+            data:{
+                  u_id:userId,
+                  
+              },
+              contentType:false,
+              async: false,
+              success:function(data){
+                var userid=data.userId
+                 var userIntegral=data.userIntegral;
+                 $$("#userIntegralnow").val(userIntegral);
+                 $$("#userid").val(userid);
+                }
+            });
+        detailDialog.open();
+    }
+    function update(){
+         var userIntegralnew = $$("#userIntegralnew").val();
+          var userid = $$("#userid").val();
+        $$.ajax({
+            url:"http://47.95.141.31:8080/prevention/user?userId="+userid+"&userIntegral="+userIntegralnew,
+            method:"PUT",
+            contentType:false,
+            data:{
+                userId:userid,
+                userIntegral:userIntegralnew
+            },
+            success:function (obj) {
+                mdui.snackbar({
+                    message: '修改成功',
+                    position: 'right-top'
+                });
+                history.go(0)
+            },
+             fail:function () {
+                
+                mdui.snackbar({
+                    message: '提交失败',
+                    position: 'right-top'
+                });
+            }
+        })
+    }
+   
+  
+</script>
+
 </html>

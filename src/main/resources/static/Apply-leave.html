@@ -1,7 +1,6 @@
 
 <html>
 <head>
-<meta charset="utf-8">
     <title>查看请假申请</title>
     <script src="js/jquery-3.3.1.min.js"></script>
 
@@ -107,6 +106,7 @@
 
 <script>
     var $$=mdui.JQ;
+    var teaid = JSON.parse(sessionStorage.getItem("userid"))
     
     var detailDialog=new mdui.Dialog("#record");
     window.operateEvents={
@@ -140,7 +140,7 @@
 
     
         $("#table").bootstrapTable({
-        url: 'http://47.95.141.31:8080/prevention/Leave?date='+time,         //请求后台的URL（*）
+        url: 'http://47.95.141.31:8080/prevention/Leave?clazz_teacher_id='+teaid+'&date='+time,         //请求后台的URL（*）
         method: 'get',                      //请求方式（*）
         toolbar: '#toolbar',                //工具按钮用哪个容器
         striped: true,                      //是否显示行间隔色

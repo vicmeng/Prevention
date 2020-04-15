@@ -15,4 +15,6 @@ public class BackNumber {
 	private Integer back_state;
 	@ApiModelProperty(value = "返校类别 0：申请 1：登记")
 	private Integer back_type;
+	@ApiModelProperty(value = "老师id")
+	private String clazz_teacher_id;
 }

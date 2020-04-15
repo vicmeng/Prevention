@@ -253,4 +253,11 @@ FROM
 		where user_id=#{user_id}
 	</update>
 
+	<update id="addScore"  parameterType="cn.edu.bcu.ls.entity.StudentIntegral" >
+		update user set user_integral=user_integral+${integral} where user_id=#{user_id}
+	</update>
+	<select id="queryIntegral" parameterType="String" resultType="Integer">
+		select user_integral from user where user_id=#{user_id}
+	</select>
+
 </mapper>

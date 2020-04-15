@@ -1,6 +1,7 @@
 package cn.edu.bcu.ls.mapper;
 
 import cn.edu.bcu.ls.entity.Number;
+import cn.edu.bcu.ls.entity.StudentIntegral;
 import cn.edu.bcu.ls.entity.User;
 import java.util.List;
 
@@ -28,4 +29,8 @@ public interface UserMapper {
 	boolean updataUser(User user);
 
 	User CheckUserById(Number number);
+	
+	int addScore(StudentIntegral studentIntegral);
+	Integer queryIntegral(String user_id);
+	
 }

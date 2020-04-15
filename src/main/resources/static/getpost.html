@@ -1,7 +1,6 @@
 
 <html>
 <head>
-<meta charset="utf-8">
     <title>处理上报问题</title>
     <script src="js/jquery-3.3.1.min.js"></script>
 
@@ -63,7 +62,7 @@
 
     
         $("#table").bootstrapTable({
-        url: 'http://47.95.141.31:8080/prevention/appear/'+appear_userid2,         //请求后台的URL（*）
+        url: 'http://47.95.141.31:8080/prevention/Appear?appear_userid2='+appear_userid2,         //请求后台的URL（*）
         method: 'GET',                      //请求方式（*）
         toolbar: '#toolbar',                //工具按钮用哪个容器
         striped: true,                      //是否显示行间隔色
@@ -156,7 +155,7 @@
     function addFunctionAlty(){
         return[
             
-            '<button class="mdui-btn mdui-color-theme-accent mdui-ripple download">下载文件</button>',
+            '<button class="mdui-btn mdui-color-theme-accent mdui-ripple download">下载上报文件</button>',
             '<button class="mdui-btn mdui-color-theme-accent mdui-ripple delete">删除上报</button>'
         ].join('')
     }
@@ -169,10 +168,11 @@
     }
 
    function download(appear_text){
-
-        window.location.href=appear_text; 
+        console.log(appear_text)
+       window.location.href='http://47.95.141.31:8080/prevention/Excel?ExcelString='+appear_text; 
  
-        window.open(appear_text)
+      
+       
    }
 
 
@@ -182,8 +182,8 @@
 
           console.log(appear_id)
           mdui.dialog({
-           title: '删除申请',
-            content: '您想要删除申请吗？',
+           title: '删除记录',
+            content: '您想要删除记录吗？',
           buttons: [
         {
           text: '取消'
@@ -199,7 +199,7 @@
         });
         $$.ajax({
             method: 'DELETE',
-            url: 'http://47.95.141.31:8080/prevention/appear/'+appear_id,
+            url: 'http://47.95.141.31:8080/prevention/Appear/'+appear_id,
             dataType: "json",
               data:{
                   notice_id:appear_id
