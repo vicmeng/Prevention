@@ -1,6 +1,7 @@
 package cn.edu.bcu.ls.utils;
 
 import java.io.IOException;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,27 +53,25 @@ public class WeChatUtil {
         }
         ObjectMapper mapper = new ObjectMapper();
         TokenJson tokenJson = mapper.readValue(result,TokenJson.class);
-        System.out.println(result.toString());
-        System.out.println(tokenJson.toString());
+       
         return tokenJson;
     }
     
-    public static SendJosn sendJosn(TokenJson tokenJson,SendMessage sendMessage) throws JsonMappingException, JsonProcessingException {
+    public static SendJosn sendJosn(TokenJson tokenJson,String sendMessage) throws JsonMappingException, JsonProcessingException {
     	String result = "";
+    	
         try{//请求微信服务器，用code换取openid。HttpUtil是工具类，后面会给出实现，Configure类是小程序配置信息，后面会给出代码
-            result = HttpUtil.doGet("https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=" 
-            		+tokenJson.getAccess_token()
-            		+"&touser="+sendMessage.getTouser()
-            		+"&template_id="+sendMessage.getTemplate_id()
-            		+"&data="+sendMessage.getData(), null);
+            result = HttpUtil.doPost("https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token="+tokenJson.getAccess_token(), sendMessage);
+            System.out.println(result);
         }
         catch (Exception e) {
             e.printStackTrace();
         }
+       
         ObjectMapper mapper = new ObjectMapper();
         SendJosn sendJosn = mapper.readValue(result,SendJosn.class);
         System.out.println(result.toString());
-        System.out.println(tokenJson.toString());
+       
         return sendJosn;
     }
 }

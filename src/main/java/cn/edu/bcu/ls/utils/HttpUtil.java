@@ -1,7 +1,9 @@
 package cn.edu.bcu.ls.utils;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -41,6 +43,38 @@ public class HttpUtil {
 	            // 200
 	            BufferedReader reader = new BufferedReader(new InputStreamReader(
 	                    conn.getInputStream()));
+	            StringBuilder sbs = new StringBuilder();
+	            String line;
+	            while ((line = reader.readLine()) != null) {
+	                sbs.append(line);
+	            }
+	            return sbs.toString();
+	        }
+
+	        return null;
+	    }
+	 public static String doPost(String urlPath,String params)
+	            throws Exception {
+	        
+		 
+		 URL url = new URL(urlPath);
+         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+         connection.setRequestMethod("POST"); 
+         connection.setDoOutput(true);
+         connection.setDoInput(true);
+         connection.setUseCaches(false);
+         connection.setRequestProperty("Content-Type", "application/json;charset=utf-8");//设置参数类型是json格式
+         connection.connect();
+
+      
+         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(connection.getOutputStream(), "UTF-8"));
+         writer.write(params);
+         writer.close();
+		 
+	        if (connection.getResponseCode() == HttpStatus.SC_OK) {// HttpStatus.SC_OK ==
+	            // 200
+	            BufferedReader reader = new BufferedReader(new InputStreamReader(
+	                    connection.getInputStream()));
 	            StringBuilder sbs = new StringBuilder();
 	            String line;
 	            while ((line = reader.readLine()) != null) {
