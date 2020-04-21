@@ -41,6 +41,11 @@ public class WeChatUtil {
         System.out.println(openIdJson.getOpenid());
         return result;
     }
+    /**
+     * 
+     * @return
+     * @throws IOException
+     */
     public static TokenJson getAccessToken() throws IOException {
         String result = "";
         try{//请求微信服务器，用code换取openid。HttpUtil是工具类，后面会给出实现，Configure类是小程序配置信息，后面会给出代码
