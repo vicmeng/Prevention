@@ -28,30 +28,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
  *
  */
 @CrossOrigin(origins = { "http://localhost:8080", "null" })
-public class  DownloadLocal {
+public class DownloadLocal {
 	/**
 	 * 
 	 * @param request
 	 * @param response
-	 * @param r_content 
-	 * 下载文档使用
+	 * @param r_content 下载文档使用
 	 */
-	public static void downloadLocal(HttpServletRequest request, HttpServletResponse response,String r_content) {
+	public static void downloadLocal(HttpServletRequest request, HttpServletResponse response, String r_content) {
 		try {
-			
-			
-	        // 得到f文件夹下面的所有文件。
-		
-			
-			
-			
+
+			// 得到f文件夹下面的所有文件。
+
 			String filePath = r_content;
 			System.out.println(filePath);
-			//ClassPathResource cpr = new ClassPathResource(filePath);
-			InputStream in = new FileInputStream(filePath);   
+			// ClassPathResource cpr = new ClassPathResource(filePath);
+			InputStream in = new FileInputStream(filePath);
 			HSSFWorkbook wb = new HSSFWorkbook(in);
 
-			
 			// 输出Excel文件
 
 			OutputStream output = response.getOutputStream();

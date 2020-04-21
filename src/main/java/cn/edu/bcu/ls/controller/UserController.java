@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import cn.edu.bcu.ls.service.UserService;
-import cn.edu.bcu.ls.utils.OpenId;
+import cn.edu.bcu.ls.utils.WeChatUtil;
 import cn.edu.bcu.ls.utils.RedisUtil;
 import cn.edu.bcu.ls.entity.Number;
 import cn.edu.bcu.ls.entity.StudentIntegral;
@@ -143,7 +143,7 @@ public class UserController {
 	@ApiOperation(value="输入小程序端自动生成的code 返回对应的openid")
 	@GetMapping(value="openid" )
 	public String getOpenId(String code) throws IOException {
-		return OpenId.userLogin(code);
+		return WeChatUtil.userLogin(code);
 	}
 	@ApiOperation(value="输入类别学号加的分数0公告 1文章 2打卡")
 	@PostMapping(value="studentScore")

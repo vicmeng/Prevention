@@ -65,7 +65,7 @@ public class ArticleController {
 	
 	@ApiOperation(value = "管理端图片和 文章分别传送，图片必填，文章填写所需部分")
 	@PostMapping(value = "ArticleAdmin", headers = "content-type=multipart/form-data")
-	public int insertArticleAdmin(Article article, @RequestParam(value = "file") MultipartFile[] files,
+	public int insertArticleAdmin(Article article, @RequestParam(value = "file" ) MultipartFile[] files,
 			RedirectAttributes redirectAttributes, HttpServletRequest request) {
 		String str = "";
 		for (MultipartFile multipartFile : files) {
