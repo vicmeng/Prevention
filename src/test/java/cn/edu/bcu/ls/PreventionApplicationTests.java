@@ -21,11 +21,7 @@ import cn.edu.bcu.ls.utils.RedisUtil;
 class PreventionApplicationTests {
 	@Autowired
 	private RedisUtil redisUtil;
-	 @Autowired
-	    private ApplicationContext appCtx;
-
-	    @Autowired
-	    private StringEncryptor codeSheepEncryptorBean;
+	
 
 	@Test
 	void contextLoads() {
