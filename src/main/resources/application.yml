@@ -5,7 +5,7 @@ mybatis:
 spring:
   datasource:
     username: root
-    password: root
+    password: ENC(Cg6UoTbmcCgaXw9qeIZduOaav1H7xR1OFGHZh28txrpC8xfSuD8y+++H0lVhnZWN)
     url: jdbc:mysql://47.95.141.31/prevention?characterEncoding=utf-8&serverTimezone=GMT%2B8
   jackson:
     time-zone: GMT+8
@@ -14,7 +14,7 @@ spring:
     host: 47.95.141.31
     database: 0
     port: 6379
-    password: prevention
+    password: ENC(kS6N7++fxorUFHjSlIvjw3TvsLYnkkOr+Fd8cI6PGir5godZ1p3O33Ff+0tmnyJL)
     lettuce:
       pool:
         max-active: 200
@@ -22,5 +22,6 @@ spring:
         max-wait: -1
         min-idle: 0
     timeout: 1000
-
+appID: ENC(IP/z4u6oi7IjZyZoW9+r5csd/rW8CoAlE6KmhMGz0opPzUUYckIVdcOcrG/zZQHDT2c1S3qXXnPMLEvAMtcHxw==)
+appSecret: ENC(2mhbzDh934vl3ptfy5JG3Q2x/iDqtHPss6+m3p/fz6qpV+DzhhWoBpzylnYtaTRttBmpUB5/RAnOs/UXWdE3IKCevCAAdSgh9j0nnnoZHmY=)
 

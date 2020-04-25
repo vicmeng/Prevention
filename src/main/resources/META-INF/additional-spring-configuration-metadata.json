@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "app-iD",
+    "type": "java.lang.String",
+    "description": "A description for 'app-iD'"
+  },
+  {
+    "name": "app-secret",
+    "type": "java.lang.String",
+    "description": "A description for 'app-secret'"
+  },
+  {
+    "name": "Wechat.app-iD",
+    "type": "java.lang.String",
+    "description": "A description for 'Wechat.app-iD'"
+  },
+  {
+    "name": "Wechat.app-secret",
+    "type": "java.lang.String",
+    "description": "A description for 'Wechat.app-secret'"
+  }
+]}

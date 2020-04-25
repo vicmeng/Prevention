@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.connection.ReactiveKeyCommands.RenameCommand;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,17 +19,24 @@ import cn.edu.bcu.ls.entity.SendMessage;
 import cn.edu.bcu.ls.entity.TokenJson;
 import cn.edu.bcu.ls.utils.WeChatUtil;
 import io.swagger.annotations.Api;
+import sun.net.www.content.audio.wav;
 @Api(description = "WeChat接口")
 @RestController
 public class WechatController {
 	
+	@Autowired
+	private WeChatUtil weChatUtil;
 	
+	@GetMapping(value="Token")
+	public TokenJson getToken() throws IOException {
+		return weChatUtil.getAccessToken();
+	}
 	
 	
 	@PostMapping(value="Send")
 	public SendJosn sendJosn(SendMessage sendMessage)
 			throws JsonMappingException, JsonProcessingException, IOException {
-		
+		//设置value
 		Map<String, Object> map=new HashMap<String, Object>();
 		Map<String, Object> map2=new HashMap<String, Object>();
 		map2.put("value","ls");
@@ -40,10 +49,10 @@ public class WechatController {
 		map.put("thing3", map4);
 		
 		sendMessage.setData(map);
-		System.out.println("1");
+		//转换成json
 		  String  param= JSON.toJSONString(sendMessage);
-		  System.out.println(param);
-		return WeChatUtil.sendJosn(WeChatUtil.getAccessToken(), param);
+		
+		return weChatUtil.sendJosn(weChatUtil.getAccessToken(), param);
 		 
 		
 	}

@@ -23,6 +23,7 @@ import cn.edu.bcu.ls.entity.StudentIntegral;
 import cn.edu.bcu.ls.entity.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import sun.net.www.content.audio.wav;
 
 /**
  * 
@@ -43,6 +44,8 @@ public class UserController {
 	@Autowired
 	private RedisUtil redisUtil;
 
+	@Autowired
+	private WeChatUtil weChatUtil;
 	/**
 	 * 添加用户
 	 * 
@@ -143,7 +146,7 @@ public class UserController {
 	@ApiOperation(value="输入小程序端自动生成的code 返回对应的openid")
 	@GetMapping(value="openid" )
 	public String getOpenId(String code) throws IOException {
-		return WeChatUtil.userLogin(code);
+		return weChatUtil.userLogin(code);
 	}
 	@ApiOperation(value="输入类别学号加的分数0公告 1文章 2打卡")
 	@PostMapping(value="studentScore")
